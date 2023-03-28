@@ -1,24 +1,15 @@
-<nav>
-  <div class="logo"><img src="./static/roboraiders-logo.png"></div>
-  <ul>
-  {%- set navigation = [("home", "Home"), ("about-us", "About Us"), ("initiatives", "Initiatives"), ("productivity", "Productivity")] -%}
-  {%- for item in navigation -%}
-  {% if item[0] == page %}
-    <li class="active"><a>{{item[1]}}</a></li>
-  {% else %}
-    <li><a href="{{item[0]}}">{{item[1]}}</a></li>
-  {%- endif -%}
-  {%- endfor -%}
-  {%- set navigation = [("log", "Log Hours"), ("edit-initiatives", "Edit Initiatives"), ("edit-users", "Edit Users")] -%}
-  {# For super-admins, edit-users allows to edit everyone #}
-  {%- for item in navigation -%}
-  {% if item[0] == page %}
-    <li class="requires-sign-in active"><a>{{item[1]}}</a></li>
-  {% else %}
-    <li class="requires-sign-in"><a href="{{item[0]}}">{{item[1]}}</a></li>
-  {%- endif -%}
-  {%- endfor -%}
-  </ul>
-  {# Initially display loading button or "Fetching data..." or something #}
-  <div class="sign-in"><button><img src="./static/google-logo.png">Sign In</button></div>
-</nav>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+    Adi put your menu code here
+    Keep in mind that we should be able to plug this into the top of any page
+    -->
+</body>
+</html>
