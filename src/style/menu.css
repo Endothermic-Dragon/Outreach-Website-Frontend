@@ -14,7 +14,7 @@ body {
 
 @media only screen and (max-height: 550px) {
   body {
-    --header-height: 60px;
+    --header-height: 10px;
   }
 }
 
