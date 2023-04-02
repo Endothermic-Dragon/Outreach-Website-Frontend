@@ -151,6 +151,10 @@ function getIndividualWebpackSettings(dirPathIn, dirPathOut, filePath, jsAdjust,
       mode: devMode,
     });
   }
+  return {
+    copy_file: true,
+    filePath: filePath,
+  }
 }
 
 function childGetFiles(dirPath, arrayOfFiles) {
