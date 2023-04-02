@@ -1,0 +1,165 @@
+/*!*********************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[3]!./src/styles/menu.scss ***!
+  \*********************************************************************************************************************************************************************************************************************************************/
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+body {
+  --header-height: 70px;
+  display: grid;
+  grid-template: [header-top] "header header" var(--header-height) [header-bottom] "sidebar container" auto [page-bottom]/70px auto;
+}
+@media only screen and (max-height: 550px) {
+  body {
+    --header-height: 60px;
+  }
+}
+@media only screen and (max-width: 700px) {
+  body {
+    grid-template: [header-top] "header header" var(--header-height) [header-bottom] "container container" auto [page-bottom]/70px auto;
+  }
+}
+
+/* ----- Headers and sidebars ----- */
+.sidebar {
+  grid-area: sidebar;
+  background-color: red;
+}
+@media only screen and (max-width: 700px) {
+  .sidebar {
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: black;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 200ms ease-in;
+  }
+  .sidebar.open {
+    opacity: 0.8;
+    pointer-events: all;
+    transition: opacity 200ms ease-out;
+  }
+}
+
+.header {
+  grid-area: header;
+  background-color: black;
+  color: white;
+  display: flex;
+}
+
+.menu-bars {
+  flex: 0 0 var(--header-height);
+  padding: 0 15px;
+  box-sizing: border-box;
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+@media only screen and (min-width: 701px) {
+  .menu-bars {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+.menu-bars div {
+  width: calc(var(--header-height) - 30px);
+  height: 4px;
+  background-color: white;
+  pointer-events: none;
+  transition: width 200ms ease-out, transform 300ms ease-out;
+}
+.menu-bars.open > :first-child, .menu-bars.open > :last-child {
+  width: 0;
+}
+.menu-bars .menu-bar-middle {
+  background-color: transparent;
+}
+.menu-bars .menu-bar-middle div {
+  position: absolute;
+  transform-origin: center;
+}
+.menu-bars.open .menu-bar-middle div:first-child {
+  transform: rotate(45deg) scaleX(1.4);
+}
+.menu-bars.open .menu-bar-middle div:last-child {
+  transform: rotate(-45deg) scaleX(1.4);
+}
+
+.header-pad-left {
+  flex: 1 0 20px;
+}
+
+.header-container {
+  display: flex;
+  flex: 0 0 500px;
+  align-items: center;
+  font-size: 30px;
+  font-family: "Cherry Cream Soda";
+}
+.header-container img {
+  height: calc(var(--header-height) - 16px);
+  display: block;
+  margin-right: 15px;
+}
+@media only screen and (max-width: 625px) {
+  .header-container {
+    font-size: 24px;
+  }
+  .header-container img {
+    margin-right: 7.5px;
+    height: calc(var(--header-height) - 24px);
+  }
+}
+
+.header-pad-right {
+  flex: 1 1 calc(20px + var(--header-height));
+}
+
+/* ----- Content Frame ----- */
+.container {
+  grid-area: container;
+  background-color: white;
+  padding: 30px 60px;
+}
+@media only screen and (max-width: 650px) {
+  .container {
+    padding: 30px 20px;
+  }
+}
+
+.content {
+  margin: 0 auto;
+  width: 1200px;
+  background-color: gray;
+}
+@media only screen and (max-width: 1450px) and (min-width: 1100px) {
+  .content {
+    width: 900px;
+  }
+}
+@media only screen and (max-width: 1100px) and (min-width: 900px) {
+  .content {
+    width: 700px;
+  }
+}
+@media only screen and (max-width: 900px) and (min-width: 500px) {
+  .content {
+    width: 500px;
+  }
+}
+@media only screen and (max-width: 650px) {
+  .content {
+    width: 425px;
+  }
+}
