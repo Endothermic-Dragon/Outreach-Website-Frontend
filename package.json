@@ -26,7 +26,7 @@
     "webpack-cli": "^4.9.2",
     "webpack-remove-empty-scripts": "^0.8.0"
   },
-  "name": "outreach-website",
+  "name": "outreach-website-frontend",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -35,14 +35,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Endothermic-Dragon-ED/Outreach-Website.git"
+    "url": "git+https://github.com/Endothermic-Dragon-ED/Outreach-Website-Frontend.git"
   },
   "author": "Eshaan Debnath",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Endothermic-Dragon-ED/Outreach-Website/issues"
+    "url": "https://github.com/Endothermic-Dragon-ED/Outreach-Website-Frontend/issues"
   },
-  "homepage": "https://github.com/Endothermic-Dragon-ED/Outreach-Website#readme",
+  "homepage": "https://github.com/Endothermic-Dragon-ED/Outreach-Website-Frontend#readme",
   "description": "",
   "browserslist": [
     "> 1%",
