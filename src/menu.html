@@ -1,15 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <!--
-    Adi put your menu code here
-    Keep in mind that we should be able to plug this into the top of any page
-    -->
-</body>
+<html>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<link rel="stylesheet" href="./static/fonts/segoe-ui-font.css">
+<link rel="stylesheet" href="./style/menu.css">
+<script defer src="https://accounts.google.com/gsi/client"></script>
+<script defer src="./scripts/google-sign-in.js"></script>
+<script defer src="./static/test-js.js"></script> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <body>
+    <div class="grid">
+      <div class="header">
+        <!-- <img src="../../files/roboraiders-logo.png" -->
+        RoboRaiders
+        Team 75
+      </div>
+      <div class="sidebar">
+        <div class="appearWhenExtended">This text appears only when the sidebar is expanded.</div>
+        <div class="home">
+          <a href="home.html">
+            <img src="../../files/home-house-icon.png" width="35px" height="35px">
+          </a>
+        </div>
+
+        <div class="initiatives">
+          <a href="initiatives.html">
+            <img src="../../files/hand-heart-outline-icon.png" width="35px" height="35px">
+          </a>
+        </div>
+
+        <div class="log">
+          <a href="log.html">
+            <img src="../../files/pen-to-square-icon.png" width="35px" height="35px">
+          </a>
+        </div>
+
+        <div class="aboutUs">
+          <a href="about-us.html">
+            <img src="../../files/people-team-icon.png" width="35px" height="35px">
+          </a>
+        </div>
+
+        <div class="requires sign-in">
+          <div class="editUsers">
+            <a href="edit-users.html">
+              <img src="../../files/user-circle-icon.png" width="35px" height="35px">
+            </a>
+          </div>
+        </div>
+
+        <div class="requires sign-in">
+          <div class="Productivity">
+            <a href="productivity.html">
+              <img src="../../files/productivity-icon.png" width="35px" height="35px">
+            </a>
+          </div>
+        </div>
+
+        <div class="requires sign-in">
+          <div class="editInitiatives">
+            <a href="edit-initiatives.html">
+              <img src="../../files/edit-initiatives-icon.png" width="35px" height="35px">
+            </a>
+          </div>
+        </div> 
+      </div>
+  </body>
+<script>
+  const sidebar = document.querySelector('.sidebar');
+  sidebar.addEventListener('click', () => {
+    sidebar.classList.toggle('expanded');
+  });
+</script>
 </html>
