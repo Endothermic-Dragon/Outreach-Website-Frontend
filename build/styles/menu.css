@@ -11,13 +11,14 @@ body {
   --header-height: 70px;
   display: grid;
   grid-template: [header-top] "header header" var(--header-height) [header-bottom] "sidebar container" auto [page-bottom]/70px auto;
+  overflow-x: hidden;
 }
 @media only screen and (max-height: 550px) {
   body {
     --header-height: 60px;
   }
 }
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 700px), only screen and (hover: none), only screen and (pointer: coarse) {
   body {
     grid-template: [header-top] "header header" var(--header-height) [header-bottom] "container container" auto [page-bottom]/70px auto;
   }
@@ -28,7 +29,7 @@ body {
   grid-area: sidebar;
   background-color: red;
 }
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 700px), only screen and (hover: none), only screen and (pointer: coarse) {
   .sidebar {
     position: absolute;
     top: var(--header-height);
@@ -55,21 +56,25 @@ body {
 }
 
 .menu-bars {
-  flex: 0 0 var(--header-height);
-  padding: 0 15px;
-  box-sizing: border-box;
-  background-color: red;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
+  display: none;
+  opacity: 0;
+  pointer-events: none;
 }
-@media only screen and (min-width: 701px) {
+@media only screen and (max-width: 700px), only screen and (hover: none), only screen and (pointer: coarse) {
   .menu-bars {
-    opacity: 0;
-    pointer-events: none;
+    display: block;
+    flex: 0 0 var(--header-height);
+    padding: 0 15px;
+    box-sizing: border-box;
+    background-color: red;
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+    pointer-events: all;
+    cursor: pointer;
   }
 }
 .menu-bars div {
@@ -97,7 +102,7 @@ body {
 }
 
 .header-pad-left {
-  flex: 1 0 20px;
+  flex: 1 1 0px;
 }
 
 .header-container {
@@ -106,6 +111,9 @@ body {
   align-items: center;
   font-size: 30px;
   font-family: "Cherry Cream Soda";
+  text-align: center;
+  line-height: 30px;
+  justify-content: center;
 }
 .header-container img {
   height: calc(var(--header-height) - 16px);
@@ -115,51 +123,62 @@ body {
 @media only screen and (max-width: 625px) {
   .header-container {
     font-size: 24px;
+    flex: 0 0 400px;
   }
   .header-container img {
     margin-right: 7.5px;
     height: calc(var(--header-height) - 24px);
   }
 }
+.header-container .header-hidden {
+  display: none;
+}
+@media only screen and (max-width: 500px) {
+  .header-container {
+    flex: 0 0 275px;
+  }
+  .header-container .header-main {
+    display: none;
+  }
+  .header-container .header-hidden {
+    display: block;
+  }
+}
 
 .header-pad-right {
-  flex: 1 1 calc(20px + var(--header-height));
+  flex: 1 1 0px;
 }
 
 /* ----- Content Frame ----- */
 .container {
   grid-area: container;
   background-color: white;
-  padding: 30px 60px;
+  padding: 40px 60px;
 }
-@media only screen and (max-width: 650px) {
+@media only screen and (max-width: 925px) {
   .container {
-    padding: 30px 20px;
+    padding: 0;
   }
 }
 
 .content {
   margin: 0 auto;
   width: 1200px;
+  height: 700px;
   background-color: gray;
 }
-@media only screen and (max-width: 1450px) and (min-width: 1100px) {
+@media only screen and (max-width: 1450px) and (min-width: 1101px) {
   .content {
     width: 900px;
   }
 }
-@media only screen and (max-width: 1100px) and (min-width: 900px) {
+@media only screen and (max-width: 1100px) and (min-width: 901px) {
   .content {
     width: 700px;
   }
 }
-@media only screen and (max-width: 900px) and (min-width: 500px) {
+@media only screen and (max-width: 900px) {
   .content {
-    width: 500px;
-  }
-}
-@media only screen and (max-width: 650px) {
-  .content {
-    width: 425px;
+    width: 100%;
   }
 }

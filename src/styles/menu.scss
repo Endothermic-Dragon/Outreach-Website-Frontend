@@ -14,13 +14,16 @@ body {
   grid-template: [header-top] "header header" var(--header-height)
     [header-bottom] "sidebar container" auto [page-bottom] /
     70px auto;
+  overflow-x: hidden;
 
   @media only screen {
     @media (max-height: 550px) {
       --header-height: 60px;
     }
 
-    @media (max-width: 700px) {
+    @media (max-width: 700px),
+    only screen and (hover: none),
+    only screen and (pointer: coarse) {
       grid-template: [header-top] "header header" var(--header-height)
         [header-bottom] "container container" auto [page-bottom] /
         70px auto;
@@ -34,7 +37,9 @@ body {
   grid-area: sidebar;
   background-color: red;
 
-  @media only screen and (max-width: 700px) {
+  @media only screen and (max-width: 700px),
+  only screen and (hover: none),
+  only screen and (pointer: coarse) {
     position: absolute;
     top: var(--header-height);
     left: 0;
@@ -61,21 +66,26 @@ body {
 }
 
 .menu-bars {
-  flex: 0 0 var(--header-height);
-  padding: 0 $menu-bar-side-pad;
-  box-sizing: border-box;
-  background-color: red;
-  display: flex;
-  flex-direction: column;
-  gap: $menu-bar-pad;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
+  display: none;
+  opacity: 0;
+  pointer-events: none;
 
-  // DO NOT change to 700
-  @media only screen and (min-width: 701px) {
-    opacity: 0;
-    pointer-events: none;
+  @media only screen and (max-width: 700px),
+  only screen and (hover: none),
+  only screen and (pointer: coarse) {
+    display: block;
+    flex: 0 0 var(--header-height);
+    padding: 0 $menu-bar-side-pad;
+    box-sizing: border-box;
+    background-color: red;
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    gap: $menu-bar-pad;
+    justify-content: center;
+    align-items: center;
+    pointer-events: all;
+    cursor: pointer;
   }
 
   div {
@@ -110,7 +120,7 @@ body {
 }
 
 .header-pad-left {
-  flex: 1 0 20px;
+  flex: 1 1 0px;
 }
 
 .header-container {
@@ -119,6 +129,9 @@ body {
    align-items: center;
    font-size: 30px;
    font-family: "Cherry Cream Soda";
+   text-align: center;
+   line-height: 30px;
+   justify-content: center;
 
    img {
     height: calc(var(--header-height) - 16px);
@@ -128,49 +141,63 @@ body {
 
   @media only screen and (max-width: 625px) {
     font-size: 24px;
+    flex: 0 0 400px;
 
     img {
       margin-right: 7.5px;
       height: calc(var(--header-height) - 24px);
     }
   }
+
+  .header-hidden {
+    display: none;
+  }
+
+  @media only screen and (max-width: 500px) {
+    flex: 0 0 275px;
+
+    .header-main {
+      display: none;
+    }
+
+    .header-hidden {
+      display: block;
+    }
+  }
 }
 
 .header-pad-right {
-  flex: 1 1 calc(20px + var(--header-height));
+  flex: 1 1 0px;
 }
 /* ----- Content Frame ----- */
 
 .container {
   grid-area: container;
   background-color: white;
-  padding: 30px 60px;
+  padding: 40px 60px;
 
-  @media only screen and (max-width: 650px) {
-    padding: 30px 20px;
+  @media only screen and (max-width: 925px) {
+    padding: 0;
   }
 }
 
 .content {
   margin: 0 auto;
   width: 1200px;
+  height: 700px;
   background-color: gray;
 
   @media only screen {
-    @media (max-width: 1450px) and (min-width: 1100px) {
+    @media (max-width: 1450px) and (min-width: 1101px) {
       width: 900px;
     }
 
-    @media (max-width: 1100px) and (min-width: 900px) {
+    @media (max-width: 1100px) and (min-width: 901px) {
       width: 700px;
     }
 
-    @media (max-width: 900px) and (min-width: 500px) {
-      width: 500px;
-    }
-
-    @media (max-width: 650px) {
-      width: 425px;
+    @media (max-width: 900px) {
+      width: 100%;
     }
   }
 }
