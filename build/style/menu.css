@@ -5,11 +5,25 @@ html, body {
 }
 
 body {
+<<<<<<< HEAD
   display: grid;
   grid-template: 
       [header-top] "header header" 70px
       [header-bottom] "sidebar container" auto [page-bottom] /
       70px auto;
+=======
+  --header-height: 70px;
+  display: grid;
+  grid-template: [header-top] "header header" var(--header-height)
+    [header-bottom] "sidebar container" auto [page-bottom] /
+    70px auto;
+}
+
+@media only screen and (max-height: 550px) {
+  body {
+    --header-height: 60px;
+  }
+>>>>>>> 22978665426b11a01571f8af054c007255c26cce
 }
 
 .header {
@@ -23,6 +37,28 @@ body {
   background-color: red;
 }
 
+<<<<<<< HEAD
+=======
+@media only screen and (max-width: 700px) {
+  body {
+    grid-template: [header-top] "header header" var(--header-height)
+    [header-bottom] "container container" auto [page-bottom] /
+    70px auto;
+  }
+
+  .sidebar {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: black;
+    opacity: 0.8;
+    display: none;
+  }
+}
+
+>>>>>>> 22978665426b11a01571f8af054c007255c26cce
 .container {
   grid-area: container;
   background-color: white;
@@ -31,6 +67,33 @@ body {
 
 .content {
   margin: 0 auto;
+<<<<<<< HEAD
   max-width: 900px;
   background-color: gray;
 }
+=======
+  width: 900px;
+  background-color: gray;
+}
+
+@media only screen and (max-width: 1100px) and (min-width: 900px) {
+  .content {
+    width: 700px;
+  }
+}
+
+@media only screen and (max-width: 900px) and (min-width: 500px) {
+  .content {
+    width: 500px;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .container {
+    padding: 30px 20px;
+  }
+  .content {
+    width: 425px;
+  }
+}
+>>>>>>> 22978665426b11a01571f8af054c007255c26cce
