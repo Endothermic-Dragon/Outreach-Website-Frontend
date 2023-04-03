@@ -65,21 +65,10 @@ main {
   margin-bottom: 50px;
   color: #ff0000;
 }
-#homeHeader .leftHomeHeader button {
-  background-color: #ff0000;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  font-size: 18px;
-  font-weight: bold;
-  border-radius: 5px;
-  cursor: pointer;
-  -webkit-transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
-  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
-}
-#homeHeader .leftHomeHeader button:hover {
-  background-color: #fff;
-  color: #ff0000;
+#homeHeader img {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 10px;
 }
 #homeHeader .rightHomeHeader {
   height: 400px;
@@ -97,8 +86,8 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-size: 40px;
-  margin-bottom: 25px;
+  font-size: 35px;
+  margin-bottom: 30px;
   color: #ff0000;
   font-weight: bold;
 }
@@ -113,6 +102,43 @@ main {
       -ms-flex-pack: justify;
           justify-content: space-between;
   margin-top: 50px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+#homeContent button {
+  background-color: #ff0000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-bottom: 30px;
+  cursor: pointer;
+  margin: auto;
+  -webkit-transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+#homeContent button:hover {
+  background-color: #fff;
+  color: #ff0000;
+}
+#homeContent p {
+  font-family: Arial;
+  font-size: 14pt;
+  font-weight: 400;
+  vertical-align: baseline;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+#homeContent p1 {
+  font-family: Arial;
+  font-size: 14pt;
+  font-weight: 400;
+  vertical-align: baseline;
+  line-height: 1.5;
+  margin-bottom: 30px;
 }
 #homeContent .member {
   width: 45%;
