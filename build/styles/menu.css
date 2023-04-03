@@ -107,41 +107,23 @@ body {
 
 .header-container {
   display: flex;
-  flex: 0 0 500px;
+  flex: 0 0 350px;
   align-items: center;
   font-size: 30px;
-  font-family: "Cherry Cream Soda";
+  font-family: Oswald;
   text-align: center;
   line-height: 30px;
   justify-content: center;
 }
 .header-container img {
-  height: calc(var(--header-height) - 16px);
+  height: calc(var(--header-height) - 20px);
   display: block;
-  margin-right: 15px;
+  margin-right: 10px;
 }
-@media only screen and (max-width: 625px) {
+@media only screen and (max-width: 450px) {
   .header-container {
     font-size: 24px;
-    flex: 0 0 400px;
-  }
-  .header-container img {
-    margin-right: 7.5px;
-    height: calc(var(--header-height) - 24px);
-  }
-}
-.header-container .header-hidden {
-  display: none;
-}
-@media only screen and (max-width: 500px) {
-  .header-container {
-    flex: 0 0 275px;
-  }
-  .header-container .header-main {
-    display: none;
-  }
-  .header-container .header-hidden {
-    display: block;
+    flex: 0 0 300px;
   }
 }
 
