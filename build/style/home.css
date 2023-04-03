@@ -1,0 +1,185 @@
+/*!********************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[0].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[0].use[3]!./src/style/home.scss ***!
+  \********************************************************************************************************************************************************************************************************************************************/
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+  color: #000;
+}
+
+main {
+  padding: 20px;
+}
+
+#homeHeader {
+  background-image: url("https://via.placeholder.com/1200x600");
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
+#homeHeader .leftHomeHeader {
+  height: 400px;
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+#homeHeader .leftHomeHeader h1 {
+  font-size: 48px;
+  margin-bottom: 25px;
+  color: #ff0000;
+}
+#homeHeader .leftHomeHeader h2 {
+  font-size: 40px;
+  margin-bottom: 50px;
+  color: #ff0000;
+}
+#homeHeader .leftHomeHeader button {
+  background-color: #ff0000;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  -webkit-transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+#homeHeader .leftHomeHeader button:hover {
+  background-color: #fff;
+  color: #ff0000;
+}
+#homeHeader .rightHomeHeader {
+  height: 400px;
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 40px;
+  margin-bottom: 25px;
+  color: #ff0000;
+  font-weight: bold;
+}
+
+#homeContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 50px;
+}
+#homeContent .member {
+  width: 45%;
+  margin-bottom: 30px;
+}
+#homeContent .member img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+#homeContent .member h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #ff0000;
+}
+#homeContent .member p {
+  font-size: 18px;
+}
+
+#projects {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 50px;
+}
+#projects .project {
+  width: 45%;
+  margin-bottom: 30px;
+}
+#projects .project img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+#projects .project h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #ff0000;
+}
+#projects .project p {
+  font-size: 18px;
+}
+
+#events {
+  margin-top: 50px;
+}
+#events ul {
+  list-style: none;
+  font-size: 18px;
+  margin-left: 20px;
+}
+#events ul li {
+  margin-bottom: 10px;
+}
+#events h2 {
+  font-size: 40px;
+  margin-bottom: 50px;
+  color: #ff0000;
+}
+
+@media (max-width: 768px) {
+  .homeContent .member, .projects .project {
+    width: 100%;
+  }
+}
