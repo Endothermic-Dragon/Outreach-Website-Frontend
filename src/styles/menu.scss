@@ -10,11 +10,12 @@ html, body {
 
 body {
   --header-height: 70px;
+  --sidebar-width: 70px;
   display: grid;
   grid-template: [header-top] "header header" var(--header-height)
     [header-bottom] "sidebar container" auto [page-bottom] /
     70px auto;
-  overflow-x: hidden;
+  overflow: hidden;
 
   @media only screen {
     @media (max-height: 550px) {
@@ -36,24 +37,93 @@ body {
 .sidebar {
   grid-area: sidebar;
   background-color: red;
+  width: 70px;
+  transition: width 200ms ease-in-out;
+  overflow: hidden;
+
+  &:hover {
+    // overflow: visible;
+    width: 250px;
+
+    .label {
+      opacity: 1;
+    }
+  }
+
+  > div {
+    width: 250px;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 300ms ease-in-out;
+    
+    &:hover {
+      background-color: rgb(255, 100, 100);
+    }
+  }
+
+  .icon {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      display: block;
+      width: 45px;
+      filter: invert(1);
+    }
+  }
+
+  .label {
+    width: 167.5px;
+    height: 50px;
+    line-height: 47.5px;
+    font-family: Oswald;
+    color: white;
+    font-size: 28px;
+    transition: opacity 200ms ease-in;
+    padding-left: 5px;
+    box-sizing: border-box;
+  }
+  > div:first-child {
+    background-color: rgb(175, 0, 0);
+    transition: background-color 300ms ease-in-out;
+  }
 
   @media only screen and (max-width: 700px),
   only screen and (hover: none),
   only screen and (pointer: coarse) {
+    width: auto;
     position: absolute;
     top: var(--header-height);
     left: 0;
     bottom: 0;
     right: 0;
-    background-color: black;
+    background-color: rgb(50, 50, 50);
     pointer-events: none;
     opacity: 0;
     transition: opacity 200ms ease-in;
 
+    &:hover {
+      width: auto;
+    }
+
     &.open {
-      opacity: 0.8;
+      opacity: 1;
       pointer-events: all;
       transition: opacity 200ms ease-out;
+    }
+
+    > div {
+      width: auto;
+      justify-content: center;
+    }
+
+    .icon {
+      margin-right: 12.5px;
     }
   }
 }
@@ -154,9 +224,12 @@ body {
   grid-area: container;
   background-color: white;
   padding: 40px 60px;
+  overflow-y: auto;
+  box-sizing: border-box;
+  height: calc(100vh - var(--header-height));
 
   @media only screen and (max-width: 925px) {
-    padding: 0;
+    padding: 15px;
   }
 }
 
@@ -164,7 +237,7 @@ body {
   margin: 0 auto;
   width: 1200px;
   height: 700px;
-  background-color: gray;
+  // background-color: gray;
 
   @media only screen {
     @media (max-width: 1450px) and (min-width: 1101px) {
