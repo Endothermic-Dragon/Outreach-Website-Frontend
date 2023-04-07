@@ -117,7 +117,7 @@ body {
 }
 
 .sidebar-shadow {
-  position: absolute;
+  position: fixed;
   top: var(--header-height);
   left: 0;
   right: 0;
