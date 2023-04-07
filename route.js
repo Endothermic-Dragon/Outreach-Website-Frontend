@@ -8,7 +8,7 @@ app.use(cookieParser());
 
 // ---------- Serve website-related URLs ----------
 app.use("/static", express.static("build/static"));
-app.use("/style", express.static("build/style"));
+app.use("/styles", express.static("build/styles"));
 app.use("/scripts", express.static("build/scripts"));
 
 // Redirect ".html" or ".htm"
