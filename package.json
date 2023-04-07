@@ -45,8 +45,6 @@
   "homepage": "https://github.com/Endothermic-Dragon-ED/Outreach-Website-Frontend#readme",
   "description": "",
   "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
+    "supports css-grid and supports flexbox and supports calc and supports css-variables"
   ]
 }
