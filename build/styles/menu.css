@@ -32,6 +32,12 @@ body {
   width: 70px;
   transition: width 200ms ease-in-out;
   overflow: hidden;
+  cursor: default;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  z-index: 1;
 }
 .sidebar:hover {
   width: 250px;
@@ -46,6 +52,7 @@ body {
   justify-content: space-between;
   align-items: center;
   transition: background-color 300ms ease-in-out;
+  cursor: pointer;
 }
 .sidebar > div:hover {
   background-color: rgb(255, 100, 100);
@@ -108,11 +115,31 @@ body {
   }
 }
 
+.sidebar-shadow {
+  position: absolute;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  pointer-events: none;
+  background-color: black;
+  transition: opacity 200ms ease-in-out;
+}
+.sidebar-shadow.open {
+  opacity: 0.6;
+  pointer-events: all;
+}
+
 .header {
   grid-area: header;
   background-color: black;
   color: white;
   display: flex;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .menu-bars {
