@@ -98,7 +98,7 @@ body {
   only screen and (hover: none),
   only screen and (pointer: coarse) {
     width: auto;
-    position: absolute;
+    position: fixed;
     top: var(--header-height);
     left: 0;
     bottom: 0;
