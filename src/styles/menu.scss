@@ -17,18 +17,15 @@ body {
     70px auto;
   overflow: hidden;
 
-  @media only screen {
-    @media (max-height: 550px) {
-      --header-height: 60px;
-    }
+  @media only screen and (max-height: 550px) {
+    --header-height: 60px;
+  }
 
-    @media (max-width: 700px),
-    only screen and (hover: none),
-    only screen and (pointer: coarse) {
-      grid-template: [header-top] "header header" var(--header-height)
-        [header-bottom] "container container" auto [page-bottom] /
-        70px auto;
-    }
+  @media only screen and (max-width: 700px),
+  only screen and (hover: none),
+  only screen and (pointer: coarse) {
+    display: block;
+    overflow-y: auto;
   }
 }
 
@@ -155,6 +152,16 @@ body {
   color: white;
   display: flex;
   user-select: none;
+
+  @media only screen and (max-width: 700px),
+  only screen and (hover: none),
+  only screen and (pointer: coarse) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--header-height);
+  }
 }
 
 .menu-bars {
@@ -253,13 +260,21 @@ body {
   @media only screen and (max-width: 925px) {
     padding: 15px;
   }
+
+  @media (max-width: 700px),
+  only screen and (hover: none),
+  only screen and (pointer: coarse) {
+    overflow: visible;
+    height: 100vh;
+    padding-top: calc(var(--header-height) + 15px);
+    box-sizing: border-box;
+  }
 }
 
 .content {
   margin: 0 auto;
   width: 1200px;
-  height: 700px;
-  // background-color: gray;
+  height: 900px;
 
   @media only screen {
     @media (max-width: 1450px) and (min-width: 1101px) {

@@ -21,7 +21,8 @@ body {
 }
 @media only screen and (max-width: 700px), only screen and (hover: none), only screen and (pointer: coarse) {
   body {
-    grid-template: [header-top] "header header" var(--header-height) [header-bottom] "container container" auto [page-bottom]/70px auto;
+    display: block;
+    overflow-y: auto;
   }
 }
 
@@ -141,6 +142,15 @@ body {
       -ms-user-select: none;
           user-select: none;
 }
+@media only screen and (max-width: 700px), only screen and (hover: none), only screen and (pointer: coarse) {
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--header-height);
+  }
+}
 
 .menu-bars {
   display: none;
@@ -232,11 +242,19 @@ body {
     padding: 15px;
   }
 }
+@media (max-width: 700px), only screen and (hover: none), only screen and (pointer: coarse) {
+  .container {
+    overflow: visible;
+    height: 100vh;
+    padding-top: calc(var(--header-height) + 15px);
+    box-sizing: border-box;
+  }
+}
 
 .content {
   margin: 0 auto;
   width: 1200px;
-  height: 700px;
+  height: 900px;
 }
 @media only screen and (max-width: 1450px) and (min-width: 1101px) {
   .content {
