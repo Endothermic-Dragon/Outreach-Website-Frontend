@@ -130,7 +130,7 @@ body {
 }
 
 .sidebar-shadow {
-  position: absolute;
+  position: fixed;
   top: var(--header-height);
   left: 0;
   right: 0;
@@ -274,7 +274,7 @@ body {
 .content {
   margin: 0 auto;
   width: 1200px;
-  height: 900px;
+  height: 1200px;
 
   @media only screen {
     @media (max-width: 1450px) and (min-width: 1101px) {
