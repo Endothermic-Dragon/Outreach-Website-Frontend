@@ -5,6 +5,13 @@ html, body {
 }
 
 body {
+<<<<<<< HEAD
+  display: grid;
+  grid-template: 
+      [header-top] "header header" 70px
+      [header-bottom] "sidebar container" auto [page-bottom] /
+      70px auto;
+=======
   --header-height: 70px;
   display: grid;
   grid-template: [header-top] "header header" var(--header-height)
@@ -16,6 +23,7 @@ body {
   body {
     --header-height: 60px;
   }
+>>>>>>> 22978665426b11a01571f8af054c007255c26cce
 }
 
 .header {
@@ -29,6 +37,8 @@ body {
   background-color: red;
 }
 
+<<<<<<< HEAD
+=======
 @media only screen and (max-width: 700px) {
   body {
     grid-template: [header-top] "header header" var(--header-height)
@@ -48,6 +58,7 @@ body {
   }
 }
 
+>>>>>>> 22978665426b11a01571f8af054c007255c26cce
 .container {
   grid-area: container;
   background-color: white;
@@ -56,6 +67,11 @@ body {
 
 .content {
   margin: 0 auto;
+<<<<<<< HEAD
+  max-width: 900px;
+  background-color: gray;
+}
+=======
   width: 900px;
   background-color: gray;
 }
@@ -80,3 +96,4 @@ body {
     width: 425px;
   }
 }
+>>>>>>> 22978665426b11a01571f8af054c007255c26cce
