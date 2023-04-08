@@ -1,14 +1,1 @@
-const $ = (tag) => {
-  let res = [...document.querySelectorAll(tag)];
-  res.forEach(
-    (el) => (el.on = (e, func) => el.addEventListener(e, (e) => func(e, el)))
-  );
-  res.length == 1
-  ? (res = res[0], res.length = 1)
-  : (res.onAll = (e, func) => res.map((el) => el.on(e, func)),
-    res.on = () => {throw new TypeError(
-      'Cannot add event listener on multiple elements using "on". ' +
-      'Use "onAll" to add to multiple elements, or select one element.'
-    )})
-  return res;
-};
+(()=>{var e={641:e=>{e.exports={$:e=>{var n=[...document.querySelectorAll(e)];return n.forEach((e=>e.on=(n,t)=>e.addEventListener(n,(n=>t(n,e))))),1==n.length?(n=n[0]).length=1:(n.onAll=(e,t)=>n.map((n=>n.on(e,t))),n.on=()=>{throw new TypeError('Cannot add event listener on multiple elements using "on". Use "onAll" to add to multiple elements, or select one element.')}),n},abcd:()=>"abcdef"}}},n={};(function t(r){var o=n[r];if(void 0!==o)return o.exports;var l=n[r]={exports:{}};return e[r](l,l.exports,t),l.exports})(641)})();

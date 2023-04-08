@@ -1,17 +1,17 @@
 {
-    "quick_compile": true,
+    "quick_compile": false,
 
     "node_compile_dir": "./compiled",
     "python_compile_dir": "./build",
     
-    "production": false,
+    "production": true,
     "clean_up": true,
 
-    "min_html": false,
+    "min_html": true,
     "resources": {
         "inline_resources": false,
         "outer_references": false
     },
 
-    "remove_files": []
+    "remove_files": ["./not-jquery.js"]
 }

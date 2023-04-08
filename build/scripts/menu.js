@@ -1,7 +1,1 @@
-$(".menu-bars").on("click", (e, el) => {
-  $(".menu-bars").classList.toggle("open");
-  $(".sidebar").classList.toggle("open");
-});
-
-$(".sidebar").on("mouseenter", () => $(".sidebar-shadow").classList.add("open"));
-$(".sidebar").on("mouseleave", () => $(".sidebar-shadow").classList.remove("open"));
+(()=>{var e={641:e=>{e.exports={$:e=>{var o=[...document.querySelectorAll(e)];return o.forEach((e=>e.on=(o,r)=>e.addEventListener(o,(o=>r(o,e))))),1==o.length?(o=o[0]).length=1:(o.onAll=(e,r)=>o.map((o=>o.on(e,r))),o.on=()=>{throw new TypeError('Cannot add event listener on multiple elements using "on". Use "onAll" to add to multiple elements, or select one element.')}),o},abcd:()=>"abcdef"}}},o={};function r(t){var n=o[t];if(void 0!==n)return n.exports;var s=o[t]={exports:{}};return e[t](s,s.exports,r),s.exports}r.n=e=>{var o=e&&e.__esModule?()=>e.default:()=>e;return r.d(o,{a:o}),o},r.d=(e,o)=>{for(var t in o)r.o(o,t)&&!r.o(e,t)&&Object.defineProperty(e,t,{enumerable:!0,get:o[t]})},r.o=(e,o)=>Object.prototype.hasOwnProperty.call(e,o),(()=>{"use strict";var e=r(641);(0,e.$)(".menu-bars").on("click",((o,r)=>{(0,e.$)(".menu-bars").classList.toggle("open"),(0,e.$)(".sidebar").classList.toggle("open")})),(0,e.$)(".sidebar").on("mouseenter",(()=>(0,e.$)(".sidebar-shadow").classList.add("open"))),(0,e.$)(".sidebar").on("mouseleave",(()=>(0,e.$)(".sidebar-shadow").classList.remove("open")))})()})();

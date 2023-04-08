@@ -12,3 +12,5 @@ const $ = (tag) => {
     )})
   return res;
 };
+
+module.exports = {"$": $, "abcd": () => {return "abcdef"}}

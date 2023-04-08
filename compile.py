@@ -179,9 +179,5 @@ def compile_code(quick_compile, node_compile_dir, python_compile_dir, production
     print("\t3. Re-run this compiler")
     print("\t4. View your HTML files at http://localhost/... (path to your HTML file, without the \".html\")")
 
-from datetime import datetime
-a = datetime.now()
 # Unpack settings and send to compile function
 compile_code(**{x: settings[x] for x in settings if x != "resources"}, **settings["resources"])
-
-print(datetime.now() - a)
