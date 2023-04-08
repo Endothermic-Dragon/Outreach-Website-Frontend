@@ -1,10 +1,22 @@
 {
-  "plugins": [
+  "presets": [
     [
-      "@babel/plugin-transform-runtime",
+      "@babel/preset-env",
       {
-        "regenerator": true
+        "useBuiltIns": "entry",
+        "corejs": "3.22"
       }
     ]
-  ]
+  ],
+  "plugins": [
+    "@babel/plugin-transform-runtime",
+    "minify-guarded-expressions",
+    [
+      "minify-dead-code-elimination",
+      {
+        "optimizeRawSize": true
+      }
+    ]
+  ],
+  "minified": true
 }
