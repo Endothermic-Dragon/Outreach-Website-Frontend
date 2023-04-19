@@ -4,7 +4,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
-const run = require("./run-python.js").run;
+const {run} = require("./run-python.js");
 
 run("flask_compile.py")
 
@@ -72,6 +72,7 @@ webpackData["html-pages"].forEach(page => {
     })
   );
   page.bundler
+  && (page.bundler = [...page.bundler, ...webpackData["menu-bundler"]])
   && (config.entry[page.chunk] = page.bundler.map(
     el => path.resolve("./flask_build/", el)
   ));

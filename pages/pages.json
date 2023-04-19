@@ -8,6 +8,7 @@
     "scriptLoading": "defer"
   },
   "menu-design": "menu.html",
+  "menu-bundler": ["scripts/menu.js", "styles/menu.scss"],
   "html-pages": [
     {
       "chunk": "flask-demo",

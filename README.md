@@ -1,5 +1,5 @@
 # Setup
-Download Python 3 and NodeJS. Then, run setup.py.
+Download `Flask` for `Python` and `pnpm` for `NodeJS`. Run `pnpm i`.
 
 # Configuring Program
 Add stuff under `html-pages` in `pages/pages.html`. Note that it must be a relative url to `./src/`. The only reason it's in a seperate folder is so that it shows up on top and can be found easily.
