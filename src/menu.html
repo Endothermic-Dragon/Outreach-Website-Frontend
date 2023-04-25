@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html>
-<meta name="viewport" content="width=device-width,initial-scale=1"/>
-<!--link rel="stylesheet" href="./static/fonts/segoe-ui-font.css"-->
+<head>
 <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="./styles/menu.css">
-<!--script defer src="https://accounts.google.com/gsi/client"></script>
-<script defer src="./scripts/google-sign-in.js"></script-->
-<script defer src="./scripts/not-jquery.js"></script> 
-<script defer src="./scripts/menu.js"></script> 
-<!--link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"-->
+<title>
+{% block title %}
+Menu
+{% endblock %}
+</title>
+</head>
 <body>
 <div class="header">
   <div class="menu-bars">
@@ -34,7 +33,7 @@
 
 <div class="container">
 <div class="content">
-Insert content
+{% block content %}{% endblock %}
 </div>
 </div>
 
