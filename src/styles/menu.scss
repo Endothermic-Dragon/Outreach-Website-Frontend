@@ -256,6 +256,7 @@ body {
   overflow-y: auto;
   box-sizing: border-box;
   height: calc(100vh - var(--header-height));
+  background-color: black;
 
   @media only screen and (max-width: 925px) {
     padding: 15px;
