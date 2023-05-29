@@ -1,1 +1,108 @@
-(()=>{var e={418:e=>{e.exports={$:e=>{var o=[...document.querySelectorAll(e)];return o.forEach((e=>e.on=(o,r)=>e.addEventListener(o,(o=>r(o,e))))),1==o.length?(o=o[0]).length=1:(o.onAll=(e,r)=>o.map((o=>o.on(e,r))),o.on=()=>{throw new TypeError('Cannot add event listener on multiple elements using "on". Use "onAll" to add to multiple elements, or select one element.')}),o},abcd:()=>"abcdef"}}},o={};function r(t){var n=o[t];if(void 0!==n)return n.exports;var s=o[t]={exports:{}};return e[t](s,s.exports,r),s.exports}r.n=e=>{var o=e&&e.__esModule?()=>e.default:()=>e;return r.d(o,{a:o}),o},r.d=(e,o)=>{for(var t in o)r.o(o,t)&&!r.o(e,t)&&Object.defineProperty(e,t,{enumerable:!0,get:o[t]})},r.o=(e,o)=>Object.prototype.hasOwnProperty.call(e,o),(()=>{"use strict";var e=r(418);(0,e.$)(".menu-bars").on("click",(()=>{(0,e.$)(".menu-bars").classList.toggle("open"),(0,e.$)(".sidebar").classList.toggle("open")})),(0,e.$)(".sidebar").on("mouseenter",(()=>(0,e.$)(".sidebar-shadow").classList.add("open"))),(0,e.$)(".sidebar").on("mouseleave",(()=>(0,e.$)(".sidebar-shadow").classList.remove("open")))})()})();
+/*
+ * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+/******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./flask_build/scripts/menu.js":
+/*!*************************************!*\
+  !*** ./flask_build/scripts/menu.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _not_jquery_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./not-jquery.js */ \"./flask_build/scripts/not-jquery.js\");\n/* harmony import */ var _not_jquery_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_not_jquery_js__WEBPACK_IMPORTED_MODULE_0__);\n(0,_not_jquery_js__WEBPACK_IMPORTED_MODULE_0__.$)(\".menu-bars\").on(\"click\",()=>{(0,_not_jquery_js__WEBPACK_IMPORTED_MODULE_0__.$)(\".menu-bars\").classList.toggle(\"open\");(0,_not_jquery_js__WEBPACK_IMPORTED_MODULE_0__.$)(\".sidebar\").classList.toggle(\"open\")});(0,_not_jquery_js__WEBPACK_IMPORTED_MODULE_0__.$)(\".sidebar\").on(\"mouseenter\",()=>(0,_not_jquery_js__WEBPACK_IMPORTED_MODULE_0__.$)(\".sidebar-shadow\").classList.add(\"open\"));(0,_not_jquery_js__WEBPACK_IMPORTED_MODULE_0__.$)(\".sidebar\").on(\"mouseleave\",()=>(0,_not_jquery_js__WEBPACK_IMPORTED_MODULE_0__.$)(\".sidebar-shadow\").classList.remove(\"open\"));\n\n//# sourceURL=webpack://outreach-website-frontend/./flask_build/scripts/menu.js?");
+
+/***/ }),
+
+/***/ "./flask_build/scripts/not-jquery.js":
+/*!*******************************************!*\
+  !*** ./flask_build/scripts/not-jquery.js ***!
+  \*******************************************/
+/***/ ((module) => {
+
+eval("var $=tag=>{var res=[...document.querySelectorAll(tag)];res.forEach(el=>el.on=(e,func)=>el.addEventListener(e,e=>func(e,el)));res.length==1?(res=res[0],res.length=1):(res.onAll=(e,func)=>res.map(el=>el.on(e,func)),res.on=()=>{throw new TypeError(\"Cannot add event listener on multiple elements using \\\"on\\\". \"+\"Use \\\"onAll\\\" to add to multiple elements, or select one element.\")});return res};module.exports={\"$\":$,\"abcd\":()=>{return\"abcdef\"}};\n\n//# sourceURL=webpack://outreach-website-frontend/./flask_build/scripts/not-jquery.js?");
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module can't be inlined because the eval devtool is used.
+/******/ 	var __webpack_exports__ = __webpack_require__("./flask_build/scripts/menu.js");
+/******/ 	
+/******/ })()
+;
