@@ -19,6 +19,11 @@
       "chunk": "home",
       "html": "home.html",
       "bundler": ["styles/home.scss"]
+    },
+    {
+      "chunk": "initiatives",
+      "html": "initiatives.html",
+      "bundler": ["styles/initiatives.scss"]
     }
   ]
 }

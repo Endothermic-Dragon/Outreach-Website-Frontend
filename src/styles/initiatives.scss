@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar {
+    > div:nth-child(2) {
+        background-color: rgb(175, 0, 0);
+        transition: background-color 300ms ease-in-out;
+      }
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fff;
+    color: #000;
+}
+
+#initHeader {
+    background-color: #ccc; /* Set the background color to grey */
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#initHeader h1 {
+    color: red;
+    font-size: 48px;
+}
+
+#initContent .block {
+
+}

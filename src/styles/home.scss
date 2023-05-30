@@ -3,6 +3,12 @@
   margin: 0;
   padding: 0;
 }
+.sidebar {
+  > div:first-child {
+      background-color: rgb(175, 0, 0);
+      transition: background-color 300ms ease-in-out;
+    }
+}
 body {
   font-family: Arial, sans-serif;
   background-color: #fff;
