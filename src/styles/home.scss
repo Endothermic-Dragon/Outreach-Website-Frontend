@@ -12,13 +12,14 @@ main {
   padding: 20px;
 }
 #homeHeader {
-  background-color: #ccc; /* Set the background color to grey */
+  background-color: #ccc;
   height: 400px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   text-align: center;
+  
 }
 #homeHeader .leftHomeHeader {
   height: 400px;
