@@ -37,6 +37,9 @@ body {
     display: flex;
     flex-direction: row;
     > .block-middle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         background-size: 0 0;
         width: 40%;
         display: flex;
