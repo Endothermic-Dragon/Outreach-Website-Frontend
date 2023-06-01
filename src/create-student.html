@@ -1,15 +1,20 @@
-{% extends "menu.html" %} {% block title %} Add Student {% endblock title %}
+{% extends "menu.html" %}
+
+{% block title %}
+Add Student
+{% endblock title %}
+
 {% block content %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles/create-student.scss" />
-    <title>Document</title>
-  </head>
-  <body>
-    
-  </body>
-</html>
+
+<!--
+  Adi, no need to add header and body tags
+  Treat it like you're already inside a <body> tag
+  You're adding content inside a <div> when compiling
+
+  If you really want, you can add a stylesheet
+  tag at the top (no need to put it inside <head>)
+  
+  The compile command is "npm run build" btw
+-->
+
 {% endblock content %}
