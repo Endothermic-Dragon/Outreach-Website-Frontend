@@ -33,9 +33,10 @@
      border-bottom: none;
      border-top: none;
      z-index: 99;
-     top: 100%;
-     width: calc(100% - 48px);
-     margin: auto;
+     position: absolute;
+     width: auto;
+     margin-top: 144px;
+     margin-left: 24px;
 }
 .autocomplete-items div {
      padding: 10px;
