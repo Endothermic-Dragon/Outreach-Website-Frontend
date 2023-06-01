@@ -13,7 +13,7 @@ html {
 }
 
 .initiative-details {
-    background: #000;
+    background: #fff;
     padding: 2em;
     min-height: 100vh;
     display: flex;
@@ -39,16 +39,15 @@ html {
     font-size: 0.875em;
     letter-spacing: 0.1em;
     color: #ccd;
-    color: rgba(255, 220, 255, 0.85);
-    cursor: pointer;
+    color: #b66868;
     position: absolute;
     left: 3em;
     top: -0.28em;
-    background: #000;
+    background: #fff;
 }
 
 .input-group-input {
-    color: #fff;
+    color: #5b5b5bff;
     font-size: 1.25rem;
     line-height: 1;
     border-style: none;
@@ -57,7 +56,7 @@ html {
     width: 100%;
     padding: 0.8em 1em;
     border: 0.25em solid transparent;
-    background-image: linear-gradient(#000, #000), linear-gradient(120deg, #000 0%, #cc0000ff 50%, #000 100%);
+    background-image: linear-gradient(#fff, #fff), linear-gradient(120deg, #fff 0%, #cc0000ff 50%, #fff 100%);
     background-origin: border-box;
     background-clip: padding-box, border-box;
     border-radius: 1.8em;
@@ -110,7 +109,7 @@ html {
     pointer-events: none;
     z-index: 20;
     height: 40px;
-    line-height: 400px;
+    line-height: 40px;
     color: #999;
     border-radius: 5px 10px 10px 5px;
     font-weight: 300;

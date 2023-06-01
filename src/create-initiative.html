@@ -1,78 +1,78 @@
 {% extends "menu.html" %} {% block title %} Create Initiative {% endblock title %} {%
-block content %}
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles/create-initiative.scss" />
-    <title>Document</title>
-  </head>
-  <body>
-    <div class="initiative-details">
-      <div class="input-group">
-        <label class="input-group-label" for="nameInput">Name</label>
-        <input
-          type="text"
-          id="nameInput"
-          class="input-group-input"
-          placeholder="RVSTS"
-        />
-      </div>
-      <div class="input-group">
-        <label class="input-group-label" for="leadInput">Lead</label>
-        <input
-          type="text"
-          id="leadInput"
-          class="input-group-input"
-          placeholder="John Cena"
-        />
-      </div>
-      <div class="input-group">
-        <label class="input-group-label" for="hoursInput">Hours</label>
-        <input
-          type="text"
-          id="hoursInput"
-          class="input-group-input"
-          placeholder="2073 hrs"
-        />
-      </div>
-      <div class="input-group">
-        <label class="input-group-label" for="locationInput">Location</label>
-        <input
-          type="text"
-          id="locationInput"
-          class="input-group-input"
-          placeholder="Hillsborough High School"
-        />
-      </div>
-      <div class="input-group">
-        <label class="input-group-label" for="volunteersInput"
-          ># Volunteers</label
-        >
-        <input
-          type="text"
-          id="volunteersInput"
-          class="input-group-input"
-          placeholder="17 volunteers"
-        />
-      </div>
-      <div class="input-group">
-        <div class="container">
-          <form action="" class="form">
-            <div class="file-upload-wrapper" data-text="Select your image!">
-              <input
-                type="file"
-                name="file-upload-field"
-                value=""
-                class="file-upload-field"
-              />
-            </div>
-          </form>
+  block content %}
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="stylesheet" href="styles/create-initiative.scss" />
+      <title>Document</title>
+    </head>
+    <body>
+      <div class="initiative-details">
+        <div class="input-group">
+          <label class="input-group-label" for="nameInput">Name</label>
+          <input
+            type="text"
+            id="nameInput"
+            class="input-group-input"
+            placeholder="RVSTS"
+          />
+        </div>
+        <div class="input-group">
+          <label class="input-group-label" for="leadInput">Lead</label>
+          <input
+            type="text"
+            id="leadInput"
+            class="input-group-input"
+            placeholder="John Cena"
+          />
+        </div>
+        <div class="input-group">
+          <label class="input-group-label" for="hoursInput">Hours</label>
+          <input
+            type="text"
+            id="hoursInput"
+            class="input-group-input"
+            placeholder="2073 hrs"
+          />
+        </div>
+        <div class="input-group">
+          <label class="input-group-label" for="locationInput">Location</label>
+          <input
+            type="text"
+            id="locationInput"
+            class="input-group-input"
+            placeholder="Hillsborough High School"
+          />
+        </div>
+        <div class="input-group">
+          <label class="input-group-label" for="volunteersInput"
+            ># Volunteers</label
+          >
+          <input
+            type="text"
+            id="volunteersInput"
+            class="input-group-input"
+            placeholder="17 volunteers"
+          />
+        </div>
+        <div class="input-group">
+          <div class="container">
+            <form action="" class="form">
+              <div class="file-upload-wrapper" data-text="Select your image!">
+                <input
+                  type="file"
+                  name="file-upload-field"
+                  value=""
+                  class="file-upload-field"
+                />
+              </div>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
-  </body>
-</html>
-{% endblock content %}
+    </body>
+  </html>
+  {% endblock content %}
