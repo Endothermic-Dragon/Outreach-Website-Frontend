@@ -19,6 +19,16 @@
       "chunk": "home",
       "html": "home.html",
       "bundler": ["styles/home.scss"]
+    },
+    {
+      "chunk": "outreach",
+      "html": "outreach.html",
+      "bundler": ["styles/outreach.scss"]
+    },
+    {
+      "chunk": "create-initiative",
+      "html": "create-initiative.html",
+      "bundler": ["styles/create-initiative.scss"]
     }
   ]
 }
