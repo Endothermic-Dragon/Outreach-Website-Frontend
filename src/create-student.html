@@ -1,0 +1,113 @@
+{% extends "menu.html" %}
+
+{% block title %}
+Add Student
+{% endblock title %}
+
+{% block content %}
+
+<form autocomplete="off" name="createStudent" >
+     <div class="student-info">
+          <input type="text" id="nameInput" class="text-input" placeholder="Name"/>
+          <input type="text" id="emailInput" class="autocomplete text-input" placeholder="Email"/>
+          <select id="departmentInput" class="dropdown-input">
+               <option value="default" disabled selected>Department</option>
+               <option value="documentation">Documentation</option>
+               <option value="finance">Finance</option>
+               <option value="pr">Public Relations</option>
+               <option value="carpentry">Carpentry</option>
+               <option value="design">Design</option>
+               <option value="electrical">Electrical</option>
+               <option value="mechanical">Mechanical</option>
+               <option value="programming">Programming</option>
+               <option value="safety">Safety</option>
+               <option value="strategy">Strategy</option>
+               <option value="unknown">???</option>
+          </select>
+          <select id="memberStatusInput" class="dropdown-input">
+               <option value="default" disabled selected>Member Status</option>
+               <option value="mentor">Mentor</option>
+               <option value="returning">Returning Member</option>
+               <option value="new">New Member</option>
+          </select>
+          <br />
+          <label for="pictureInput" class="image-label" id="imageLabel">Choose Picture</label><span id="filename"></span>
+          <input type="file" id="pictureInput" class="image-input"/>
+          <input type="submit" value="Add Student" class="submit-input"/>
+     </div>
+</form>
+
+<script>
+     var emails = ["a@gmail.com", "ab@gmail.com", "b@gmail.com", "bc@gmail.com", "bcb@gmail.com"];
+     autocomplete(document.getElementById("emailInput"), emails);
+     function autocomplete(inp, arr) {
+    var currentFocus;
+    inp.addEventListener("input", function(e) {
+      var a, b, i, val = this.value;
+            closeAllLists();
+      if (!val) { return false;}
+      currentFocus = -1;
+            a = document.createElement("DIV");
+      a.setAttribute("id", this.id + "autocomplete-list");
+      a.setAttribute("class", "autocomplete-items");
+            this.parentNode.appendChild(a);
+            for (i = 0; i < arr.length; i++) {
+                if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+                    b = document.createElement("DIV");
+                    b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+          b.innerHTML += arr[i].substr(val.length);
+                    b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+                        b.addEventListener("click", function(e) {
+                            inp.value = this.getElementsByTagName("input")[0].value;
+                            closeAllLists();
+          });
+          a.appendChild(b);
+        }
+      }
+  });
+    inp.addEventListener("keydown", function(e) {
+      var x = document.getElementById(this.id + "autocomplete-list");
+      if (x) x = x.getElementsByTagName("div");
+      if (e.keyCode == 40) {
+                currentFocus++;
+                addActive(x);
+      } else if (e.keyCode == 38) {
+                currentFocus--;
+                addActive(x);
+      } else if (e.keyCode == 13) {
+                e.preventDefault();
+        if (currentFocus > -1) {
+                    if (x) x[currentFocus].click();
+        }
+      }
+  });
+  function addActive(x) {
+        if (!x) return false;
+        removeActive(x);
+    if (currentFocus >= x.length) currentFocus = 0;
+    if (currentFocus < 0) currentFocus = (x.length - 1);
+        x[currentFocus].classList.add("autocomplete-active");
+  }
+  function removeActive(x) {
+        for (var i = 0; i < x.length; i++) {
+      x[i].classList.remove("autocomplete-active");
+    }
+  }
+  function closeAllLists(elmnt) {
+        var x = document.getElementsByClassName("autocomplete-items");
+    for (var i = 0; i < x.length; i++) {
+      if (elmnt != x[i] && elmnt != inp) {
+      x[i].parentNode.removeChild(x[i]);
+    }
+  }
+}
+document.addEventListener("click", function (e) {
+    closeAllLists(e.target);
+});
+}
+document.getElementById('pictureInput').onchange = function () {
+     document.getElementById("filename").innerHTML = this.value.substr(this.value.lastIndexOf("\\") + 1);
+};
+</script>
+
+{% endblock content %}

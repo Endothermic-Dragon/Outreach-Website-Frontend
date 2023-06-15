@@ -11,19 +11,24 @@
   "menu-bundler": ["scripts/menu.js", "styles/menu.scss"],
   "html-pages": [
     {
-      "chunk": "flask-demo",
-      "html": "demo/flask-demo.html",
-      "bundler": ["demo/import-demo.js", "demo/import.scss"]
-    },
-    {
       "chunk": "home",
       "html": "home.html",
       "bundler": ["styles/home.scss"]
     },
     {
-      "chunk": "initiatives",
-      "html": "initiatives.html",
-      "bundler": ["styles/initiatives.scss"]
+      "chunk": "outreach",
+      "html": "outreach.html",
+      "bundler": ["styles/outreach.scss"]
+    },
+    {
+      "chunk": "create-initiative",
+      "html": "create-initiative.html",
+      "bundler": ["styles/create-initiative.scss"]
+    },
+    {
+      "chunk": "create-student",
+      "html": "create-student.html",
+      "bundler": ["styles/create-student.scss"]
     }
   ]
 }
