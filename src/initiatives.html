@@ -1,0 +1,32 @@
+{% extends "menu.html" %}
+{% block title %}
+Initiatives
+{% endblock title %}
+
+{% block content %}
+<div id="initOverlay">
+    <section id="initHeader">
+      <h1>Our Initiatives</h1>
+    </section>
+    <section id="initContent">
+        <div class="block">
+            <hr class="divider">
+            <div class="block-content">
+                <div class="block-left">
+                    <img class="img-left" src="https://via.placeholder.com/200" alt="leads">
+                </div>
+                <div class="block-middle" style="background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('./static/boroblast.jpg');">
+                    <p class="name">BoroBlast</p>
+                    <p class="description">BoroBlast is an annual state-level qualifier for the FLL hosted by Team 75, RoboRaiders. In this competition, FLL, Junior FLL, and FTC teams participate in a variety of different Robotics and STEM-related events that challenge them to think innovatively and come up with a solution that satisfies all aspects of the problem presented to them.</p>
+                    <p class="people"><img src="./static/person-icon.png" class="icon" alt="person">50</p>
+                    <p class="hours"><img src="./static/clock-icon.png" class="icon" alt="clock">200</p>
+                    <p class="leads">Lead(s): Mahati</p>
+                </div>
+                <div class="block-right">
+                    <img class="img-right" src="./static/boroblast.jpg" alt="image">
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock content %}
