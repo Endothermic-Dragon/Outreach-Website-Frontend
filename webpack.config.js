@@ -1,3 +1,5 @@
+// ExtractTextWebpackPlugin
+
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
 
 const path = require("path");
@@ -59,7 +61,13 @@ const config = {
     ignored: ["**/node_modules", "**/flask_build"],
     poll: 250
   },
+  cache: true
 };
+
+const menuExists = webpackData["menu-bundler"];
+menuExists && (config.entry.menu = webpackData["menu-bundler"].map(
+  el => path.resolve("./flask_build/", el)
+));
 
 webpackData["html-pages"].forEach(page => {
   page.html
@@ -68,14 +76,21 @@ webpackData["html-pages"].forEach(page => {
       template: path.resolve("./flask_build/" + page.html),
       filename: page.chunk + ".html",
       meta: webpackData["html-options"].meta || {},
-      chunks: [page.chunk],
+      chunks: menuExists ? ["menu", page.chunk] : [page.chunk],
     })
   );
   page.bundler
-  && (page.bundler = [...page.bundler, ...webpackData["menu-bundler"]])
-  && (config.entry[page.chunk] = page.bundler.map(
-    el => path.resolve("./flask_build/", el)
-  ));
+  // && (page.bundler = [...page.bundler, ...webpackData["menu-bundler"]])
+  && (
+    config.entry[page.chunk] = {
+      import: page.bundler.map(
+        el => path.resolve("./flask_build/", el)
+      )
+    },
+    menuExists && (
+      config.entry[page.chunk].dependOn = "menu"
+    )
+  )
 })
 
 module.exports = () => {
