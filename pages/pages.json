@@ -29,6 +29,11 @@
       "chunk": "create-student",
       "html": "create-student.html",
       "bundler": ["styles/create-student.scss"]
+    },
+    {
+      "chunk": "admin-dashboard",
+      "html": "admin-dashboard.html",
+      "bundler": ["styles/admin-dashboard.scss"]
     }
   ]
 }
