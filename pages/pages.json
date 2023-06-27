@@ -16,24 +16,29 @@
       "bundler": ["styles/home.scss"]
     },
     {
-      "chunk": "outreach",
-      "html": "outreach.html",
-      "bundler": ["styles/outreach.scss"]
+      "chunk": "log-hours",
+      "html": "log-hours.html",
+      "bundler": ["styles/log-hours.scss"]
     },
     {
-      "chunk": "create-initiative",
-      "html": "create-initiative.html",
-      "bundler": ["styles/create-initiative.scss"]
+      "chunk": "initiatives",
+      "html": "initiatives.html",
+      "bundler": ["styles/initiatives.scss"]
     },
     {
-      "chunk": "create-student",
-      "html": "create-student.html",
-      "bundler": ["styles/create-student.scss"]
+      "chunk": "new-initiative",
+      "html": "new-initiative.html",
+      "bundler": ["styles/new-initiative.scss"]
     },
     {
-      "chunk": "admin-dashboard",
-      "html": "admin-dashboard.html",
-      "bundler": ["styles/admin-dashboard.scss"]
+      "chunk": "new-student",
+      "html": "new-student.html",
+      "bundler": ["styles/new-student.scss"]
+    },
+    {
+      "chunk": "students",
+      "html": "students.html",
+      "bundler": ["styles/students.scss"]
     }
   ]
 }

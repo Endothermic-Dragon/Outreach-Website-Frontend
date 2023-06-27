@@ -11,7 +11,7 @@ $(".sidebar").on("mouseenter", () => $(".sidebar-shadow").classList.add("open"))
 $(".sidebar").on("mouseleave", () => $(".sidebar-shadow").classList.remove("open"));
 
 
-
+// Sign in
 function signIn() {
   const client = google.accounts.oauth2.initCodeClient({
     client_id: '672955273389-bc25j23ds73qgp7ukroaloutv2a22qjv.apps.googleusercontent.com',
@@ -47,3 +47,13 @@ fetch(backend + "./auth", {
 
   console.log(await res.json());
 })
+
+fetch("https://lgekbtt7fm5x27wxschu4rge4e0idlwo.lambda-url.us-east-1.on.aws/initiatives", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  }
+}).then(
+  async data => {console.log(data);console.log(await data.json())},
+  err => console.log(err)
+)
