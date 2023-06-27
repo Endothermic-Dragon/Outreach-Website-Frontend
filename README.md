@@ -1,3 +1,7 @@
+# Run Local Server
+`cd dist`
+`py -m http.server 80`
+
 # Setup
 Download `Flask` for `Python` and `pnpm` for `NodeJS`. Run `pnpm i`.
 

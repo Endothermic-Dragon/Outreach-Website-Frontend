@@ -2,7 +2,8 @@ $menu-bar-pad: 8px;
 $menu-bar-height: 4px;
 $menu-bar-side-pad: 15px;
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
@@ -12,7 +13,8 @@ body {
   --header-height: 70px;
   --sidebar-width: 70px;
   display: grid;
-  grid-template: [header-top] "header header" var(--header-height)
+  grid-template:
+    [header-top] "header header" var(--header-height)
     [header-bottom] "sidebar container" auto [page-bottom] /
     70px auto;
   overflow: hidden;
@@ -22,8 +24,8 @@ body {
   }
 
   @media only screen and (max-width: 700px),
-  only screen and (hover: none),
-  only screen and (pointer: coarse) {
+    only screen and (hover: none),
+    only screen and (pointer: coarse) {
     display: block;
     overflow-y: auto;
   }
@@ -33,6 +35,8 @@ body {
 
 .sidebar {
   grid-area: sidebar;
+  display: flex;
+  flex-direction: column;
   background-color: red;
   width: 70px;
   transition: width 200ms ease-in-out;
@@ -42,7 +46,6 @@ body {
   z-index: 1;
 
   &:hover {
-    // overflow: visible;
     width: 250px;
 
     .label {
@@ -54,13 +57,35 @@ body {
     width: 250px;
     height: 70px;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     transition: background-color 300ms ease-in-out;
     cursor: pointer;
-    
+
     &:hover {
       background-color: rgb(255, 100, 100);
+    }
+  }
+
+  div.filler {
+    flex: 1 1 0;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  div.sign-in {
+    background-color: #202124;
+
+    &:not(.disabled):hover {
+      background-color: #3c4043;
+    }
+
+    &.disabled {
+      cursor: default;
+
+      img,
+      .label {
+        opacity: 0.5;
+      }
     }
   }
 
@@ -73,7 +98,10 @@ body {
 
     img {
       display: block;
-      width: 45px;
+      width: 40px;
+    }
+
+    img.dark {
       filter: invert(1);
     }
   }
@@ -96,8 +124,8 @@ body {
   }
 
   @media only screen and (max-width: 700px),
-  only screen and (hover: none),
-  only screen and (pointer: coarse) {
+    only screen and (hover: none),
+    only screen and (pointer: coarse) {
     width: auto;
     position: fixed;
     top: var(--header-height);
@@ -155,8 +183,8 @@ body {
   user-select: none;
 
   @media only screen and (max-width: 700px),
-  only screen and (hover: none),
-  only screen and (pointer: coarse) {
+    only screen and (hover: none),
+    only screen and (pointer: coarse) {
     position: fixed;
     top: 0;
     left: 0;
@@ -171,8 +199,8 @@ body {
   pointer-events: none;
 
   @media only screen and (max-width: 700px),
-  only screen and (hover: none),
-  only screen and (pointer: coarse) {
+    only screen and (hover: none),
+    only screen and (pointer: coarse) {
     display: block;
     flex: 0 0 var(--header-height);
     padding: 0 $menu-bar-side-pad;
@@ -189,14 +217,15 @@ body {
   }
 
   div {
-    width: calc(var(--header-height) - 2*$menu-bar-side-pad);
+    width: calc(var(--header-height) - 2 * $menu-bar-side-pad);
     height: $menu-bar-height;
     background-color: white;
     pointer-events: none;
     transition: width 200ms ease-out, transform 300ms ease-out;
   }
 
-  &.open > :first-child, &.open > :last-child {
+  &.open > :first-child,
+  &.open > :last-child {
     width: 0;
   }
 
@@ -224,20 +253,20 @@ body {
 }
 
 .header-container {
-   display: flex;
-   flex: 0 0 350px;
-   align-items: center;
-   font-size: 30px;
-   font-family: Oswald;
-   text-align: center;
-   line-height: 30px;
-   justify-content: center;
+  display: flex;
+  flex: 0 0 350px;
+  align-items: center;
+  font-size: 30px;
+  font-family: Oswald;
+  text-align: center;
+  line-height: 30px;
+  justify-content: center;
 
-   img {
+  img {
     height: calc(var(--header-height) - 20px);
     display: block;
     margin-right: 10px;
-   }
+  }
 
   @media only screen and (max-width: 450px) {
     font-size: 24px;
@@ -263,8 +292,8 @@ body {
   }
 
   @media (max-width: 700px),
-  only screen and (hover: none),
-  only screen and (pointer: coarse) {
+    only screen and (hover: none),
+    only screen and (pointer: coarse) {
     overflow: visible;
     height: 100vh;
     padding-top: calc(var(--header-height) + 15px);
@@ -276,6 +305,8 @@ body {
   margin: 0 auto;
   width: 1200px;
   height: 1200px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 
   @media only screen {
     @media (max-width: 1450px) and (min-width: 1101px) {

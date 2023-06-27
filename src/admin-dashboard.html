@@ -1,22 +1,33 @@
-{% extends "menu.html" %} {% block title %} Admin Dashboard {% endblock title %}
-     {% block content %}
-     <table class="admin-table">
-          <thead class="table-head">
-               <tr class="header-row">
-                    <th id="headerID">id</th>
-                    <th id="headerName">name</th>
-                    <th id="headerEmail">email</th>
-                    <th id="headerPFP">profile_picture</th>
-                    <th id="headerDepartment">department</th>
-                    <th id="headerTags">tags</th>
-                    <th id="headerHours">initiative-hours</th>
-               </tr>
-          </thead>
-          <tbody class="table-body">
-               
-          </tbody>
-     </table>
-     <script>
-          
-     </script>
-     {% endblock content %}
+{% extends "menu.html" %}
+{% block title %} Admin Dashboard {% endblock title %}
+{% block content %}
+<table>
+  <thead>
+    <tr>
+      <!-- User ID Hidden -->
+      <th>User</th>
+      <th>Email</th>
+      <th>Department Name</th>
+      <th>Initiative Hours</th>
+      <!-- <th>Attendance</th> -->
+      <th>Tags</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>User</td>
+      <td>Email</td>
+      <td>Department Name</td>
+      <td>Initiative Hours</td>
+      <td>Tags</td>
+    </tr>
+    <tr>
+      <td>User</td>
+      <td>Email</td>
+      <td>Department Name</td>
+      <td>Initiative Hours</td>
+      <td>Tags</td>
+    </tr>
+  </tbody>
+</table>
+{% endblock content %}
