@@ -58,8 +58,8 @@ const config = {
     ],
   },
   watchOptions: {
-    ignored: ["**/node_modules", "**/flask_build"],
-    poll: 250
+    ignored: ["/node_modules", "**/flask_build"],
+    poll: true,
   },
   cache: true
 };
