@@ -13,7 +13,7 @@
       <th>Tags</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody id="studentData">
     <tr>
       <td>User</td>
       <td>Email</td>
@@ -30,4 +30,24 @@
     </tr>
   </tbody>
 </table>
+<script>
+  function displayStudent()
+  {
+    //info to get from database
+    let user = "John Doe";
+    let email = "johndoe@gmail.com";
+    let department = "Prisoners";
+    let hours = "0";
+    let tags = "disposable, unknown, eyesore";
+
+    let row = document.createElement("tr");
+    row.innerHTML += "<td>" + user + "</td>";
+    row.innerHTML += "<td>" + email + "</td>";
+    row.innerHTML += "<td>" + department + "</td>";
+    row.innerHTML += "<td>" + hours + "</td>";
+    row.innerHTML += "<td>" + tags + "</td>";
+    document.getElementById("studentData").appendChild(row);
+  }
+  displayStudent();
+</script>
 {% endblock content %}
