@@ -13,4 +13,4 @@ const $ = (tag) => {
   return res;
 };
 
-module.exports = {"$": $, "abcd": () => {return "abcdef"}}
+module.exports = {"$": $, "backend": "https://lgekbtt7fm5x27wxschu4rge4e0idlwo.lambda-url.us-east-1.on.aws/"}

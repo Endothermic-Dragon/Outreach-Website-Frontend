@@ -1,6 +1,4 @@
-import { $ } from "./not-jquery.js";
-
-const backend = "https://lgekbtt7fm5x27wxschu4rge4e0idlwo.lambda-url.us-east-1.on.aws/"
+import { $, backend } from "./global.js";
 
 $(".menu-bars").on("click", (e, el) => {
   $(".menu-bars").classList.toggle("open");
@@ -25,27 +23,38 @@ function signIn() {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({ code: response.code })
-      }).then(async res => {console.log(res);console.log(await res.json())})
+      }).then(async res => {
+        if (res.status != 200){
+          alert("Could not log in");
+          return;
+        }
+        let data = await res.json();
+        localStorage.setItem("session-token", data.session_token)
+        localStorage.setItem("user-id", data.user_id)
+        $(".sign-in").classList.add("disabled");
+        $(".sign-in").removeEventListener("click", signIn);
+      })
     },
   });
 
   client.requestCode()
 }
 
-fetch(backend + "./auth", {
+fetch(backend + "./pre-auth", {
   credentials: "include",
+  method: "POST",
   headers: {
     "Content-Type": "application/json"
-  }
+  },
+  body: JSON.stringify({
+    session_token: localStorage.getItem("session-token")
+  })
 }).then(async res => {
-  console.log(res)
   if (res.status != 200) {
     $(".sign-in").classList.remove("disabled");
     $(".sign-in").addEventListener("click", signIn);
     return;
   }
-
-  console.log(await res.json());
 })
 
 fetch("https://lgekbtt7fm5x27wxschu4rge4e0idlwo.lambda-url.us-east-1.on.aws/initiatives", {
@@ -54,6 +63,9 @@ fetch("https://lgekbtt7fm5x27wxschu4rge4e0idlwo.lambda-url.us-east-1.on.aws/init
     "Content-Type": "application/json"
   }
 }).then(
-  async data => {console.log(data);console.log(await data.json())},
+  async data => {
+    data = await data.json();
+    console.log(data);
+  },
   err => console.log(err)
 )
