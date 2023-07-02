@@ -1,0 +1,53 @@
+form {
+  margin: auto;
+  border: 5px solid red;
+  width: 350px;
+  border-radius: 10px;
+  font-size: 18px;
+  padding: 0 10px 20px 10px;
+
+  > div {
+    width: 250px;
+    margin: auto;
+    margin-bottom: 15px;
+  }
+
+  h2 {
+    font-size: 30px;
+    text-align: center;
+    width: 80%;
+    border-bottom: 3px solid red;
+    padding-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  input:not([type="checkbox"]), select {
+    width: 250px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    border: 3px solid black;
+    box-sizing: border-box;
+    margin-top: 5px;
+  }
+
+  .vary-disabled.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  div:last-child {
+    text-align: center;
+  }
+
+  button {
+    width: 80%;
+    height: 50px;
+    font-size: 24px;
+    border-radius: 10px;
+    color: black;
+    background-color: rgb(255, 177, 177);
+    border: 3px solid red;
+    font-weight: 700;
+  }
+}

@@ -1,0 +1,23 @@
+{% extends "menu.html" %}
+{% block title %} Admin Dashboard {% endblock title %}
+{% block content %}
+<table>
+  <thead>
+    <tr>
+      <!-- User ID Hidden -->
+      <th>User</th>
+      <th>Department Name</th>
+      <th>Initiative Hours</th>
+      <!-- <th>Attendance</th> -->
+      <th>Tags</th>
+      <th>Delete</th>
+      <th>Dashboard</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+<div class="delete-users">
+  <div>This action cannot be undone.</div>
+  <button>Execute Delete</button>
+</div>
+{% endblock content %}

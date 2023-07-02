@@ -1,0 +1,28 @@
+{% extends "menu.html" %}
+{% block title %} Log Hours {% endblock title %}
+{% block content %}
+<form>
+  <h2>Log Hours</h2>
+  <div>
+    <label for="initiative">Event</label><br>
+    <select id="initiative" required>
+      <option value="" disabled selected>Select an Initiative</option>
+    </select>
+  </div>
+  <div class="vary-disabled disabled">
+    <input type="checkbox" id="event-leader">
+    <label for="event-leader">Preparation time</label>
+  </div>
+  <div>
+    <label for="hours">Hours</label><br>
+    <input type="number" min="0" max="10" id="hours" required>
+  </div>
+  <div>
+    <label for="mins">Minutes</label><br>
+    <input type="number" min="0" max="59" id="mins" required>
+  </div>
+  <div>
+    <button type="submit">Log 'Em!</button>
+  </div>
+</form>
+{% endblock content %}

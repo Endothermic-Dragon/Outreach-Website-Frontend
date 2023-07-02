@@ -11,29 +11,48 @@
   "menu-bundler": ["scripts/menu.js", "styles/menu.scss"],
   "html-pages": [
     {
+      "chunk": "index",
+      "html": "index.html",
+      "bundler": ["scripts/index.js"]
+    },
+    {
       "chunk": "home",
       "html": "home.html",
       "bundler": ["styles/home.scss"]
     },
     {
-      "chunk": "outreach",
-      "html": "outreach.html",
-      "bundler": ["styles/outreach.scss"]
+      "chunk": "all-students",
+      "html": "all-students.html",
+      "bundler": ["styles/all-students.scss", "scripts/all-students.js"]
     },
     {
-      "chunk": "create-initiative",
-      "html": "create-initiative.html",
-      "bundler": ["styles/create-initiative.scss"]
+      "chunk": "new-student",
+      "html": "new-student.html",
+      "bundler": ["styles/new-student.scss", "scripts/new-student.js"]
     },
     {
-      "chunk": "create-student",
-      "html": "create-student.html",
-      "bundler": ["styles/create-student.scss"]
+      "chunk": "initiatives",
+      "html": "initiatives.html",
+      "bundler": ["styles/initiatives.scss", "scripts/initiatives.js"]
     },
     {
-      "chunk": "admin-dashboard",
-      "html": "admin-dashboard.html",
-      "bundler": ["styles/admin-dashboard.scss"]
+      "chunk": "new-initiative",
+      "html": "new-initiative.html",
+      "bundler": ["styles/new-initiative.scss", "scripts/new-initiative.js"]
+    },
+    {
+      "chunk": "log-hours",
+      "html": "log-hours.html",
+      "bundler": ["styles/log-hours.scss", "scripts/log-hours.js"]
+    },
+    {
+      "chunk": "user-dashboard",
+      "html": "user-dashboard.html",
+      "bundler": ["styles/user-dashboard.scss", "scripts/user-dashboard.js"]
+    },
+    {
+      "chunk": "privacy-policy",
+      "html": "privacy-policy.html"
     }
   ]
 }

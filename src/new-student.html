@@ -1,0 +1,31 @@
+{% extends "menu.html" %}
+{% block title %} Add Student {% endblock title %}
+{% block content %}
+<form autocomplete="off">
+  <hr>
+  <div>
+    <input type="text" placeholder="Full Name" required><br>
+    <input type="email" placeholder="Email" required><br>
+    <select required>
+      <option value="" disabled selected>Department</option>
+      <option value="Documentation">Documentation</option>
+      <option value="Finance">Finance</option>
+      <option value="Public Relations">Public Relations</option>
+      <option value="Carpentry">Carpentry</option>
+      <option value="Design">Design</option>
+      <option value="Electrical">Electrical</option>
+      <option value="Mechanical">Mechanical</option>
+      <option value="Programming">Programming</option>
+      <option value="Safety">Safety</option>
+      <option value="Strategy">Strategy</option>
+    </select><br>
+    <input type="checkbox" id="new-student">
+    <label for="new-student"> New student</label><br>
+    <input type="checkbox" id="mentor">
+    <label for="mentor"> Mentor</label><br>
+    <button class="remove-row">Remove student row</button><br>
+  </div>
+  <button class="add-another-student">Add another student</button><br>
+  <button type="submit">Authenticate + Submit</button>
+</form>
+{% endblock content %}
