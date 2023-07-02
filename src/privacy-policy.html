@@ -1,0 +1,47 @@
+{% extends "menu.html" %}
+{% block title %} User Dashboard {% endblock title %}
+{% block content %}
+<h1>Privacy Policy</h1>
+All users:
+<ul>
+  <li>
+    Users are authenticated via a server-generated
+    token assigned on sign in.
+  </li>
+  <ul><li>This token expires after 1.5 hours.</li></ul>
+  <li>
+    The Google Sign In button at the bottom left allows
+    the server to access your name and profile. It then
+    generates a token associating the client (you)
+    with your profile data on the server.
+  </li>
+  <ul><li>
+    Your Google Account ID and Google access tokens
+    never leave the server.
+  </li></ul>
+  <li>
+    All users with the mentor tag have access to
+    the profile of all users. This means that they
+    can view any and all hours that you log,
+    along with your name, email, and profile picture.
+  </li>
+</ul>
+If you are a mentor:
+<ul>
+  <li>
+    When adding a user, you will have to sign in again,
+    as the server needs to access your contacts and get
+    another user's name, email address, profile picture,
+    and Google Account ID.
+  </li>
+  <ul><li>
+    This will add that user to the database and allow
+    them to sign in onto the website.
+  </li></ul>
+  <ul><li>
+    No external user will be able to sign in to the
+    website as only mentors are allowed to create new
+    accounts for users.
+  </li></ul>
+</ul>
+{% endblock content %}

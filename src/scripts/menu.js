@@ -1,5 +1,29 @@
 import { $, backend } from "./global.js";
 
+function getScrollbarWidth() {
+  const outer = document.createElement("div");
+  outer.style.visibility = "hidden";
+  outer.style.overflow = "scroll";
+  document.body.appendChild(outer);
+
+  const inner = document.createElement("div");
+  outer.appendChild(inner);
+
+  const scrollbarWidth = (outer.offsetWidth - inner.offsetWidth);
+  outer.remove(outer);
+  return scrollbarWidth;
+}
+
+let sidebar = $(".sidebar")[0];
+
+if (sidebar.scrollHeight > sidebar.clientHeight) {
+  sidebar.style.setProperty("--scrollbar-width", getScrollbarWidth() + "px");
+}
+
+[...sidebar.children].forEach(el => {
+  el.addEventListener("click", () => location.href = el.dataset.url)
+})
+
 $(".menu-bars")[0].on("click", (e, el) => {
   $(".menu-bars")[0].classList.toggle("open");
   $(".sidebar")[0].classList.toggle("open");
@@ -23,15 +47,21 @@ function signIn() {
         },
         body: JSON.stringify({ code: response.code })
       }).then(async res => {
-        if (res.status != 200){
+        if (res.status != 200) {
           alert("Could not log in");
           return;
         }
         let data = await res.json();
         localStorage.setItem("session-token", data.session_token)
         localStorage.setItem("user-id", data.user_id)
+        localStorage.setItem("tags", JSON.stringify(data.tags));
         $(".sign-in")[0].classList.add("disabled");
         $(".sign-in")[0].removeEventListener("click", signIn);
+
+        $(".sidebar")[0].classList.add("signed-in");
+        if (data.tags.includes("mentor")) {
+          $(".sidebar")[0].classList.add("mentor");
+        }
       })
     },
   });
@@ -49,7 +79,14 @@ fetch(backend + "./pre-auth", {
   })
 }).then(async res => {
   if (res.status != 200) {
+    alert("You are not signed in.\n"
+      + "If you wish to sign in, please use the button at the bottom of the menu.");
     $(".sign-in")[0].classList.remove("disabled");
     $(".sign-in")[0].on("click", signIn);
+  } else {
+    $(".sidebar")[0].classList.add("signed-in");
+    if (JSON.parse(localStorage.getItem("tags")).includes("mentor")) {
+      $(".sidebar")[0].classList.add("mentor");
+    }
   }
 })

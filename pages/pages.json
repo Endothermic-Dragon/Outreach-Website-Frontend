@@ -11,6 +11,11 @@
   "menu-bundler": ["scripts/menu.js", "styles/menu.scss"],
   "html-pages": [
     {
+      "chunk": "index",
+      "html": "index.html",
+      "bundler": ["scripts/index.js"]
+    },
+    {
       "chunk": "home",
       "html": "home.html",
       "bundler": ["styles/home.scss"]
@@ -44,6 +49,10 @@
       "chunk": "user-dashboard",
       "html": "user-dashboard.html",
       "bundler": ["styles/user-dashboard.scss", "scripts/user-dashboard.js"]
+    },
+    {
+      "chunk": "privacy-policy",
+      "html": "privacy-policy.html"
     }
   ]
 }

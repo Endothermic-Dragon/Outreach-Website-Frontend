@@ -34,11 +34,13 @@ body {
 /* ----- Headers and sidebars ----- */
 
 .sidebar {
+  --scrollbar-width: 0px;
   grid-area: sidebar;
   display: flex;
   flex-direction: column;
   background-color: red;
   width: 70px;
+  height: calc(100vh - var(--header-height));
   transition: width 200ms ease-in-out;
   overflow: hidden;
   cursor: default;
@@ -46,7 +48,8 @@ body {
   z-index: 1;
 
   &:hover {
-    width: 250px;
+    width: calc(250px + var(--scrollbar-width));
+    overflow-y: auto;
 
     .label {
       opacity: 1;
@@ -64,6 +67,14 @@ body {
     &:hover {
       background-color: rgb(255, 100, 100);
     }
+  }
+  
+  &:not(.signed-in) > .sign-in-required {
+    display: none;
+  }
+
+  &:not(.mentor) > .mentor-required {
+    display: none;
   }
 
   div.filler {
@@ -127,6 +138,7 @@ body {
     only screen and (hover: none),
     only screen and (pointer: coarse) {
     width: auto;
+    overflow: auto;
     position: fixed;
     top: var(--header-height);
     left: 0;
