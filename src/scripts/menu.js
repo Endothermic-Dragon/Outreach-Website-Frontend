@@ -1,12 +1,12 @@
 import { $, backend } from "./global.js";
 
-$(".menu-bars").on("click", (e, el) => {
-  $(".menu-bars").classList.toggle("open");
-  $(".sidebar").classList.toggle("open");
+$(".menu-bars")[0].on("click", (e, el) => {
+  $(".menu-bars")[0].classList.toggle("open");
+  $(".sidebar")[0].classList.toggle("open");
 });
 
-$(".sidebar").on("mouseenter", () => $(".sidebar-shadow").classList.add("open"));
-$(".sidebar").on("mouseleave", () => $(".sidebar-shadow").classList.remove("open"));
+$(".sidebar")[0].on("mouseenter", () => $(".sidebar-shadow")[0].classList.add("open"));
+$(".sidebar")[0].on("mouseleave", () => $(".sidebar-shadow")[0].classList.remove("open"));
 
 
 // Sign in
@@ -19,7 +19,6 @@ function signIn() {
       fetch(backend + "./auth", {
         method: "POST",
         headers: {
-          credentials: "include",
           "Content-Type": "application/json"
         },
         body: JSON.stringify({ code: response.code })
@@ -31,8 +30,8 @@ function signIn() {
         let data = await res.json();
         localStorage.setItem("session-token", data.session_token)
         localStorage.setItem("user-id", data.user_id)
-        $(".sign-in").classList.add("disabled");
-        $(".sign-in").removeEventListener("click", signIn);
+        $(".sign-in")[0].classList.add("disabled");
+        $(".sign-in")[0].removeEventListener("click", signIn);
       })
     },
   });
@@ -41,7 +40,6 @@ function signIn() {
 }
 
 fetch(backend + "./pre-auth", {
-  credentials: "include",
   method: "POST",
   headers: {
     "Content-Type": "application/json"
@@ -51,21 +49,7 @@ fetch(backend + "./pre-auth", {
   })
 }).then(async res => {
   if (res.status != 200) {
-    $(".sign-in").classList.remove("disabled");
-    $(".sign-in").addEventListener("click", signIn);
-    return;
+    $(".sign-in")[0].classList.remove("disabled");
+    $(".sign-in")[0].on("click", signIn);
   }
 })
-
-fetch("https://lgekbtt7fm5x27wxschu4rge4e0idlwo.lambda-url.us-east-1.on.aws/initiatives", {
-  method: "POST",
-  headers: {
-    "Content-Type": "application/json"
-  }
-}).then(
-  async data => {
-    data = await data.json();
-    console.log(data);
-  },
-  err => console.log(err)
-)

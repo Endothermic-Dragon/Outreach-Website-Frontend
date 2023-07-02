@@ -35,8 +35,8 @@ function addStudentRow(e) {
   newDiv.innerHTML = subform;
   newDiv.appendChild(button);
 
-  $("form").insertBefore(hr, [...$("form").children].at(-3))
-  $("form").insertBefore(newDiv, [...$("form").children].at(-3))
+  $("form")[0].insertBefore(hr, [...$("form")[0].children].at(-3))
+  $("form")[0].insertBefore(newDiv, [...$("form")[0].children].at(-3))
 }
 
 function removeStudentRow(e) {
@@ -47,13 +47,11 @@ function removeStudentRow(e) {
 
 async function submitForm(e) {
   e.preventDefault();
-  $("[type='submit']").disabled = true;
+  $("[type='submit']")[0].disabled = true;
   let searches = [];
   let departments = [];
   let tags_s = [];
-  let divs = $("form > div").length == 1 ? [$("form > div")] : $("form > div");
-  console.log(divs)
-  divs.forEach(el => {
+  $("form > div").forEach(el => {
     searches.push(
       el.querySelector("input").value + " " + el.querySelector("[type='email']").value
     )
@@ -78,7 +76,7 @@ async function submitForm(e) {
       session_token: localStorage.getItem("session-token")
     })
   }).then(() => {
-    window.location.href = "students.html"
+    window.location.href = "all-students.html"
   })
 }
 
@@ -97,6 +95,6 @@ function crossFetch(){
   })
 }
 
-$(".add-another-student").addEventListener("click", addStudentRow);
-$(".remove-row").addEventListener("click", removeStudentRow);
-$("form").addEventListener("submit", submitForm);
+$(".add-another-student")[0].on("click", addStudentRow);
+$(".remove-row")[0].on("click", removeStudentRow);
+$("form")[0].on("submit", submitForm);

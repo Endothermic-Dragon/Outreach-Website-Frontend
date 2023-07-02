@@ -1,35 +1,38 @@
 {% extends "menu.html" %}
-{% block title %} Create Initiative {% endblock title %}
+{% block title %} New Initiative {% endblock title %}
 {% block content %}
-<div class="initiative-details">
-  <div class="input-group">
-    <label class="input-group-label" for="nameInput">Name</label>
-    <input type="text" id="nameInput" class="input-group-input" placeholder="RVSTS" />
+<form>
+  <h2>New Initiative</h2>
+  <div>
+    <label for="name">Initiative Name</label><br>
+    <input type="text" id="name" required>
   </div>
-  <div class="input-group">
-    <label class="input-group-label" for="leadInput">Lead</label>
-    <input type="text" id="leadInput" class="input-group-input" placeholder="John Cena" />
+  <div>
+    <label for="picture">Initiative Picture URL</label><br>
+    <input type="text" id="picture" required>
   </div>
-  <div class="input-group">
-    <label class="input-group-label" for="hoursInput">Hours</label>
-    <input type="text" id="hoursInput" class="input-group-input" placeholder="2073 hrs" />
+  <div>
+    <label for="description">Initiative Description</label><br>
+    <textarea id="description" required placeholder="Write your description here"></textarea>
   </div>
-  <div class="input-group">
-    <label class="input-group-label" for="locationInput">Location</label>
-    <input type="text" id="locationInput" class="input-group-input" placeholder="Hillsborough High School" />
+  <div>
+    Categories<br>
+    <input type="checkbox" id="Community">
+    <label for="Community">Community</label><br>
+    <input type="checkbox" id="FIRST">
+    <label for="FIRST">FIRST</label><br>
+    <input type="checkbox" id="STEM">
+    <label for="STEM">STEM</label>
   </div>
-  <div class="input-group">
-    <label class="input-group-label" for="volunteersInput"># Volunteers</label>
-    <input type="text" id="volunteersInput" class="input-group-input" placeholder="17 volunteers" />
+  <div class="leads-input">
+    <label for="leads">Leads</label><br>
+    <select id="leads" required>
+      <option value="" disabled selected>Select a Leader</option>
+    </select>
+    <button class="add">+</button>
   </div>
-  <div class="input-group">
-    <div class="container">
-      <form action="" class="form">
-        <div class="file-upload-wrapper" data-text="Select your image!">
-          <input type="file" name="file-upload-field" value="" class="file-upload-field" />
-        </div>
-      </form>
-    </div>
+  <div>
+    <button type="submit">Add Initiative</button>
   </div>
-</div>
+</form>
 {% endblock content %}

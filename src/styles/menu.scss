@@ -80,7 +80,7 @@ body {
     }
 
     &.disabled {
-      cursor: default;
+      pointer-events: none;
 
       img,
       .label {

@@ -16,9 +16,9 @@
       "bundler": ["styles/home.scss"]
     },
     {
-      "chunk": "students",
-      "html": "students.html",
-      "bundler": ["styles/students.scss", "scripts/students.js"]
+      "chunk": "all-students",
+      "html": "all-students.html",
+      "bundler": ["styles/all-students.scss", "scripts/all-students.js"]
     },
     {
       "chunk": "new-student",
@@ -28,17 +28,22 @@
     {
       "chunk": "initiatives",
       "html": "initiatives.html",
-      "bundler": ["styles/initiatives.scss"]
+      "bundler": ["styles/initiatives.scss", "scripts/initiatives.js"]
     },
     {
       "chunk": "new-initiative",
       "html": "new-initiative.html",
-      "bundler": ["styles/new-initiative.scss"]
+      "bundler": ["styles/new-initiative.scss", "scripts/new-initiative.js"]
     },
     {
       "chunk": "log-hours",
       "html": "log-hours.html",
-      "bundler": ["styles/log-hours.scss"]
+      "bundler": ["styles/log-hours.scss", "scripts/log-hours.js"]
+    },
+    {
+      "chunk": "user-dashboard",
+      "html": "user-dashboard.html",
+      "bundler": ["styles/user-dashboard.scss", "scripts/user-dashboard.js"]
     }
   ]
 }

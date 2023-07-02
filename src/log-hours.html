@@ -1,65 +1,28 @@
 {% extends "menu.html" %}
-
-{% block title %}
-Outreach
-{% endblock title %}
-
+{% block title %} Log Hours {% endblock title %}
 {% block content %}
-<link
-  rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css"
-/>
 <form>
-  <div class="form-box">
-    <div class="form-value">
-      <form action="">
-        <h2>Log Hours</h2>
-        <div class="inputbox">
-          <ion-icon name="person-circle-outline"></ion-icon>
-          <input type="text" id="name" required />
-          <label for="name">Name</label>
-        </div>
-        <div class="inputbox">
-          <ion-icon name="time-outline"></ion-icon>
-          <input type="number" id="hours" min="0" max="10" required />
-          <label for="hours">Hours</label>
-        </div>
-        <div class="inputbox">
-          <ion-icon name="time-outline"></ion-icon>
-          <input type="number" id="minutes" min="0" max="59" required />
-          <label for="minutes">Minutes</label>
-        </div>
-        <div class="inputbox">
-          <ion-icon name="calendar-outline"></ion-icon>
-          <select id="event" required>
-            <option value="" disabled selected>Select an event</option>
-            <option value="event1">RVSTS</option>
-            <option value="event2">Boro smth</option>
-            <option value="event3">yeah idk</option>
-          </select>
-        </div>
-        <button>Log Hours</button>
-        <div class="bottom">
-          <div class="left">
-            <input type="checkbox" id="check" />
-            <label for="check">Event Leader</label>
-          </div>
-        </div>
-      </form>
-    </div>
+  <h2>Log Hours</h2>
+  <div>
+    <label for="initiative">Event</label><br>
+    <select id="initiative" required>
+      <option value="" disabled selected>Select an Initiative</option>
+    </select>
+  </div>
+  <div class="vary-disabled disabled">
+    <input type="checkbox" id="event-leader">
+    <label for="event-leader">Preparation time</label>
+  </div>
+  <div>
+    <label for="hours">Hours</label><br>
+    <input type="number" min="0" max="10" id="hours" required>
+  </div>
+  <div>
+    <label for="mins">Minutes</label><br>
+    <input type="number" min="0" max="59" id="mins" required>
+  </div>
+  <div>
+    <button type="submit">Log 'Em!</button>
   </div>
 </form>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
-<script>
-  $(document).ready(function () {
-    $("#event").select2({
-      placeholder: "Select an event",
-      allowClear: true,
-      tags: true,
-      width: "100%",
-    });
-  });
-</script>
 {% endblock content %}
