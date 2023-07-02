@@ -20,7 +20,11 @@ if (sidebar.scrollHeight > sidebar.clientHeight) {
   sidebar.style.setProperty("--scrollbar-width", getScrollbarWidth() + "px");
 }
 
-$(".sidebar > div:not(:last-child)").onAll("click", (e, el) => location.href = el.dataset.url)
+$(".sidebar > div:not(:last-child)").onAll("click", (e, el) => {
+  location.href = el.dataset.url;
+})
+
+$(`.sidebar > div[data-url="${location.pathname.slice(1)}"]`)[0].classList.add("selected")
 
 $(".menu-bars")[0].on("click", (e, el) => {
   $(".menu-bars")[0].classList.toggle("open");
