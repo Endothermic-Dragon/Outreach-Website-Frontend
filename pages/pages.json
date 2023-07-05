@@ -1,9 +1,7 @@
 {
   "html-options": {
     "meta": {
-      "viewport": "width=device-width, initial-scale=1, shrink-to-fit=no",
-      "theme-color": "#ff0000",
-      "charset": "utf-8"
+      "theme-color": "#ff0000"
     },
     "scriptLoading": "defer"
   },

@@ -52,10 +52,10 @@ fetch(backend + "./initiatives", {
     <h2>${el.initiative_name}</h2>
     <div class="leads">Leads: ${el.leads}</div>
     <div class="stats">
-      <div class="participants"><img src="./static/person-icon.png">
+      <div class="participants"><img src="./static/person-icon.png" alt="Participants">
         <span>${el.total_participants} volunteer${el.total_participants > 1 ? "s" : ""}</span>
       </div>
-      <div class="hours"><img src="./static/clock-icon.png">
+      <div class="hours"><img src="./static/clock-icon.png" alt="Time Spent">
         <span>${el.hours || el.mins} ${el.hours
           ? ("hour" + el.hours > 1 ? "s" : "")
           : ("min" + el.mins > 1 ? "s" : "")
