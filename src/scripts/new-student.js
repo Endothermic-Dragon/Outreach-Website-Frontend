@@ -1,6 +1,7 @@
 import { $, backend } from "./global.js";
-
+let count = 1;
 function addStudentRow(e) {
+  count++;
   e.preventDefault()
   const subform = `
   <input type="text" placeholder="Full Name" required><br>
@@ -18,10 +19,10 @@ function addStudentRow(e) {
     <option value="safety">Safety</option>
     <option value="strategy">Strategy</option>
   </select><br>
-  <input type="checkbox" id="new-student">
-  <label for="new-student"> New student</label><br>
-  <input type="checkbox" id="mentor">
-  <label for="mentor"> Mentor</label><br>
+  <input type="checkbox" id="new-student-${count}">
+  <label for="new-student-${count}"> New student</label><br>
+  <input type="checkbox" id="mentor-${count}">
+  <label for="mentor-${count}"> Mentor</label><br>
   `
   let newDiv = document.createElement("div");
   let button = document.createElement("button");
