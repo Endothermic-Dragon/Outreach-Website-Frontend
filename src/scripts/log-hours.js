@@ -31,7 +31,7 @@ function handleSubmit(e){
       prep_time: $("#event-leader")[0].checked,
       duration: parseInt($("#hours")[0].value) * 60 + parseInt($("#mins")[0].value)
     })
-  }).then(() => location.href="dashboard.html")
+  }).then(() => location.href="user-dashboard.html")
 }
 
 fetch(backend + "./initiatives", {
