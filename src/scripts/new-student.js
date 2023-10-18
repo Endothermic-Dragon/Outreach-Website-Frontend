@@ -58,8 +58,8 @@ async function submitForm(e) {
     )
     departments.push(el.querySelector("select").value)
     let tags = [];
-    el.querySelector("#mentor").checked && tags.push("mentor");
-    el.querySelector("#new-student").checked && tags.push("new");
+    el.querySelector("[id^='mentor']").checked && tags.push("mentor");
+    el.querySelector("[id^='new-student']").checked && tags.push("new");
     tags_s.push(tags)
   })
 
