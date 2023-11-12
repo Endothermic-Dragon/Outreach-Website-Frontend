@@ -71,7 +71,7 @@ function signIn() {
   client.requestCode()
 }
 
-function notify(message, time){
+function notify(message, time) {
   let container = document.createElement("div");
   let barContainer = document.createElement("div");
   barContainer.style.height = "7.5px";
@@ -89,7 +89,7 @@ function notify(message, time){
   container.appendChild(textContainer);
 
   let styling;
-  if (window.innerWidth > 400){
+  if (window.innerWidth > 400) {
     styling = {
       position: "absolute",
       bottom: "15px",
@@ -122,8 +122,8 @@ function notify(message, time){
     let delay = 0.3;
     container.style.opacity = 0;
     container.style.animation = `NotificationPop ${delay}s ease-out 1`;
-    setTimeout(() => container.remove(), delay*1000)
-  }, time*1000);
+    setTimeout(() => container.remove(), delay * 1000)
+  }, time * 1000);
 }
 
 fetch(backend + "./pre-auth", {

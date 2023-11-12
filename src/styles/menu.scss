@@ -300,7 +300,7 @@ body {
   box-sizing: border-box;
   height: calc(100vh - var(--header-height));
 
-  @media only screen and (max-width: 925px) {
+  @media only screen and (max-width: 900px) {
     padding: 15px;
   }
 
@@ -322,11 +322,11 @@ body {
   overflow-x: auto;
 
   @media only screen {
-    @media (max-width: 1450px) and (min-width: 1101px) {
+    @media (max-width: 1450px) and (min-width: 1126px) {
       width: 900px;
     }
 
-    @media (max-width: 1100px) and (min-width: 901px) {
+    @media (max-width: 1125px) and (min-width: 901px) {
       width: 700px;
     }
 

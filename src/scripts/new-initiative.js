@@ -78,5 +78,5 @@ $("form")[0].on("submit", (e) => {
       leads: $(".leads-input select").map(el => el.value),
       description: $("textarea")[0].value.trim()
     })
-  }).then(() => location.href="initiatives.html")
+  }).then(() => location.href = "initiatives.html")
 })

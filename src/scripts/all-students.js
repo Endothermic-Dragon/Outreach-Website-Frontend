@@ -9,7 +9,7 @@ fetch(backend + "./users", {
     session_token: localStorage.getItem("session-token")
   })
 }).then(async data => {
-  if (data.status != 200){
+  if (data.status != 200) {
     alert(`Error ${data.status}\n${data.statusText}`);
     return;
   }

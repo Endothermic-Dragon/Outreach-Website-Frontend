@@ -3,20 +3,24 @@
   margin: 0;
   padding: 0;
 }
+
 .sidebar {
   > div:first-child {
-      background-color: rgb(175, 0, 0);
-      transition: background-color 300ms ease-in-out;
-    }
+    background-color: rgb(175, 0, 0);
+    transition: background-color 300ms ease-in-out;
+  }
 }
+
 body {
   font-family: Arial, sans-serif;
   background-color: #fff;
   color: #000;
 }
+
 main {
   padding: 20px;
 }
+
 #homeHeader {
   background-color: #ccc;
   height: 400px;
@@ -25,7 +29,6 @@ main {
   justify-content: center;
   align-items: center;
   text-align: center;
-  
 }
 #homeHeader .leftHomeHeader {
   height: 400px;
@@ -113,32 +116,27 @@ main {
   display: flex;
   flex-direction: row;
 }
-
 #homeContent .block .block-left {
   flex: 1;
   padding-right: 10px;
   border-right: 1px solid #333;
 }
-
 #homeContent .block .block-right {
   flex: 1;
   padding-left: 10px;
   border-left: 1px solid #333;
 }
-
 #homeContent .block-text {
   font-size: 20px;
   line-height: 1.5;
   margin: 15px;
   text-align: justify;
 }
-
 #homeContent .block-text-left {
   font-size: 20px;
   line-height: 1;
   text-align: center;
 }
-
 #homeContent .block-title {
   line-height: 1.5;
   margin: 0;
@@ -151,18 +149,19 @@ main {
 
 @media screen and (max-width: 750px) {
   .block {
-      flex-direction: column;
-      align-items: stretch;
+    flex-direction: column;
+    align-items: stretch;
   }
 
-  .block .block-left, .block .block-right {
-      flex: none;
-      padding: 10px 0;
-      border: none;
+  .block .block-left,
+  .block .block-right {
+    flex: none;
+    padding: 10px 0;
+    border: none;
   }
 
   .block .block-left {
-      border-bottom: 1px solid #333;
+    border-bottom: 1px solid #333;
   }
 }
 
@@ -224,9 +223,10 @@ main {
   font-size: 18px;
 }
 @media (max-width: 768px) {
-  .homeContent .member, .projects .project {
-      width: 100%;
- }
+  .homeContent .member,
+  .projects .project {
+    width: 100%;
+  }
 }
 #WiF {
   padding: 50px 0;

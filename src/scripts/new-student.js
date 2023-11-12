@@ -81,7 +81,14 @@ async function submitForm(e) {
   })
 }
 
-function crossFetch(){
+// body: JSON.stringify({
+//   "code": code,
+//   "searches": ["Eshaan Debnath debnathe@htps.us", "Adhithi Rajesh rajeshad@htps.us"],
+//   "department": "Programming",
+//   "tags": "returning-student",
+// })
+
+function crossFetch() {
   return new Promise((resolve) => {
     const client = google.accounts.oauth2.initCodeClient({
       client_id: '672955273389-bc25j23ds73qgp7ukroaloutv2a22qjv.apps.googleusercontent.com',
