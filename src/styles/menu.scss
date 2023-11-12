@@ -68,7 +68,7 @@ body {
       background-color: rgb(255, 100, 100);
     }
   }
-  
+
   &:not(.signed-in) > .sign-in-required {
     display: none;
   }
@@ -336,7 +336,25 @@ body {
   }
 }
 
+@keyframes NotificationBar {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
+}
+
+@keyframes NotificationPop {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 /* ----- Button ----- */
-button:not([disabled]){
+button:not([disabled]) {
   cursor: pointer;
 }
