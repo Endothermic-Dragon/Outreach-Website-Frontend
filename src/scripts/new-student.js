@@ -7,7 +7,7 @@ function addStudentRow(e) {
   <input type="text" placeholder="Full Name" required><br>
   <input type="email" placeholder="Email" required><br>
   <select>
-    <option value="default" disabled selected>Department</option>
+    <option value="-" disabled selected>Department NA</option>
     <option value="documentation">Documentation</option>
     <option value="finance">Finance</option>
     <option value="pr">Public Relations</option>
@@ -82,7 +82,7 @@ async function submitForm(e) {
 }
 
 function crossFetch(){
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     const client = google.accounts.oauth2.initCodeClient({
       client_id: '672955273389-bc25j23ds73qgp7ukroaloutv2a22qjv.apps.googleusercontent.com',
       scope: "https://www.googleapis.com/auth/contacts.readonly",
