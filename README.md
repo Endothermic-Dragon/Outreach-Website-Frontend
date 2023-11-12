@@ -13,11 +13,12 @@ Add stuff under `html-pages` in `pages/pages.html`. Note that it must be a relat
 - Your static assets should be under the `static/` folder under `./src/`
 
 # Building Program
-## Development Build
-`npm run build`
+## ~~Development Build~~
+~~`npm run build`~~
+^ Need to fix
 
 ## Production Build
 `npm run build:prod`
 
-# Future Note
-For some computers, `npm run watch` should automatically watch for changes and recompile. IDK why it doesn't work for MacOS, but oh well.
+## Deploy and Relaunch Server
+`npm run test`

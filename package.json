@@ -6,7 +6,8 @@
     "build": "webpack --mode=development",
     "build:prod": "webpack --mode=production --node-env=production && npm run cleanup",
     "watch": "webpack --watch",
-    "cleanup": "node run-python.js"
+    "cleanup": "node run-python.js",
+    "test": "npm run build:prod & cd dist & py -m http.server 80"
   },
   "keywords": [],
   "author": "",
