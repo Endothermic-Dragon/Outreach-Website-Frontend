@@ -34,6 +34,6 @@
     "webpack-cli": "^5.0.1"
   },
   "browserslist": [
-    "supports css-grid and supports flexbox and supports calc and supports css-variables"
+    "fully supports css-grid and fully supports flexbox and fully supports css-sticky and fully supports calc and fully supports css-variables"
   ]
 }
