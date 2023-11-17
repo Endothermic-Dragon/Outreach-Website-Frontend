@@ -6,7 +6,7 @@ function setProfile(profileName, profilePicURL) {
 
 function signIn() {
   const client = google.accounts.oauth2.initCodeClient({
-    client_id: '672955273389-bc25j23ds73qgp7ukroaloutv2a22qjv.apps.googleusercontent.com',
+    client_id: "672955273389-tc6i17ics6qv7sh6g7m597fi30ic0ljq.apps.googleusercontent.com",
     scope: 'https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/contacts.readonly https://www.googleapis.com/auth/directory.readonly',
     ux_mode: 'popup',
     callback: (response) => {

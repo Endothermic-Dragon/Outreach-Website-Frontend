@@ -34,11 +34,10 @@ $(".menu-bars")[0].on("click", (e, el) => {
 $(".sidebar")[0].on("mouseenter", () => $(".sidebar-shadow")[0].classList.add("open"));
 $(".sidebar")[0].on("mouseleave", () => $(".sidebar-shadow")[0].classList.remove("open"));
 
-
 // Sign in
 function signIn() {
   const client = google.accounts.oauth2.initCodeClient({
-    client_id: '672955273389-bc25j23ds73qgp7ukroaloutv2a22qjv.apps.googleusercontent.com',
+    client_id: "672955273389-tc6i17ics6qv7sh6g7m597fi30ic0ljq.apps.googleusercontent.com",
     scope: "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile",
     ux_mode: 'popup',
     callback: (response) => {
@@ -50,7 +49,7 @@ function signIn() {
         body: JSON.stringify({ code: response.code })
       }).then(async res => {
         if (res.status != 200) {
-          alert("Could not log in");
+          alert("Could not log in. Please try again.");
           return;
         }
         let data = await res.json();
