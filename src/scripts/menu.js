@@ -112,9 +112,7 @@ function notify(message, time) {
     }
   }
 
-  for (let [key, val] of Object.entries(styling)) {
-    container.style[key] = val;
-  }
+  Object.entries(styling).forEach(([key, val]) => container.style[key] = val);
 
   document.body.appendChild(container);
   setTimeout(() => {
