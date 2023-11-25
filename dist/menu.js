@@ -9,46 +9,46 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./flask_build/scripts/global.js":
-/*!***************************************!*\
-  !*** ./flask_build/scripts/global.js ***!
-  \***************************************/
+/***/ "./src/scripts/global.js":
+/*!*******************************!*\
+  !*** ./src/scripts/global.js ***!
+  \*******************************/
 /***/ ((module) => {
 
-eval("var $=tag=>{var res=[...document.querySelectorAll(tag)];res.forEach(el=>el.on=(e,func)=>el.addEventListener(e,e=>func(e,el)));res.onAll=(e,func)=>res.map(el=>el.on(e,func));res.on=()=>{throw new TypeError(\"Cannot add event listener on multiple elements using \\\"on\\\". \"+\"Use \\\"onAll\\\" to add to multiple elements, or select one element.\")};return res};module.exports={\"$\":$,\"backend\":\"https://xtekoweg6sbdadhqxpetywgp3m0silph.lambda-url.us-east-1.on.aws/\"};\n\n//# sourceURL=webpack://outreach-website-frontend/./flask_build/scripts/global.js?");
+eval("var $=tag=>{var res=[...document.querySelectorAll(tag)];res.forEach(el=>el.on=(e,func)=>el.addEventListener(e,e=>func(e,el)));res.onAll=(e,func)=>res.map(el=>el.on(e,func));res.on=()=>{throw new TypeError(\"Cannot add event listener on multiple elements using \\\"on\\\". \"+\"Use \\\"onAll\\\" to add to multiple elements, or select one element.\")};return res};module.exports={\"$\":$,\"backend\":\"https://xtekoweg6sbdadhqxpetywgp3m0silph.lambda-url.us-east-1.on.aws/\"};\n\n//# sourceURL=webpack://outreach-website-frontend/./src/scripts/global.js?");
 
 /***/ }),
 
-/***/ "./flask_build/scripts/menu.js":
-/*!*************************************!*\
-  !*** ./flask_build/scripts/menu.js ***!
-  \*************************************/
+/***/ "./src/scripts/menu.js":
+/*!*****************************!*\
+  !*** ./src/scripts/menu.js ***!
+  \*****************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ \"../../node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js\");\n/* harmony import */ var _global_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./global.js */ \"./flask_build/scripts/global.js\");\n/* harmony import */ var _global_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_global_js__WEBPACK_IMPORTED_MODULE_1__);\nfunction getScrollbarWidth(){var outer=document.createElement(\"div\");outer.style.visibility=\"hidden\";outer.style.overflow=\"scroll\";document.body.appendChild(outer);var inner=document.createElement(\"div\");outer.appendChild(inner);var scrollbarWidth=outer.offsetWidth-inner.offsetWidth;outer.remove(outer);return scrollbarWidth}var sidebar=(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sidebar\")[0];if(sidebar.scrollHeight>sidebar.clientHeight){sidebar.style.setProperty(\"--scrollbar-width\",getScrollbarWidth()+\"px\")}(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sidebar > div:not(:last-child)\").onAll(\"click\",(e,el)=>{location.href=el.dataset.url});(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sidebar > div[data-url=\\\"\".concat(location.pathname.slice(1),\"\\\"]\"))[0].classList.add(\"selected\");(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".menu-bars\")[0].on(\"click\",()=>{(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".menu-bars\")[0].classList.toggle(\"open\");(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sidebar\")[0].classList.toggle(\"open\")});(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sidebar\")[0].on(\"mouseenter\",()=>(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sidebar-shadow\")[0].classList.add(\"open\"));(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sidebar\")[0].on(\"mouseleave\",()=>(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sidebar-shadow\")[0].classList.remove(\"open\"));// Sign in\nfunction signIn(){var client=google.accounts.oauth2.initCodeClient({client_id:\"672955273389-tc6i17ics6qv7sh6g7m597fi30ic0ljq.apps.googleusercontent.com\",scope:\"https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile\",ux_mode:\"popup\",callback:response=>{fetch(_global_js__WEBPACK_IMPORTED_MODULE_1__.backend+\"./auth\",{method:\"POST\",headers:{\"Content-Type\":\"application/json\"},body:JSON.stringify({code:response.code})}).then(/*#__PURE__*/function(){var _ref=(0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(function*(res){if(res.status!=200){alert(\"Could not log in. Please try again.\");return}var data=yield res.json();localStorage.setItem(\"session-token\",data.session_token);localStorage.setItem(\"user-id\",data.user_id);localStorage.setItem(\"tags\",JSON.stringify(data.tags));(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sign-in\")[0].classList.add(\"disabled\");(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sign-in\")[0].removeEventListener(\"click\",signIn);(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sidebar\")[0].classList.add(\"signed-in\");if(data.tags.includes(\"mentor\")){(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sidebar\")[0].classList.add(\"mentor\")}});return function(){return _ref.apply(this,arguments)}}())}});client.requestCode()}function notify(message,time){var container=document.createElement(\"div\");var barContainer=document.createElement(\"div\");barContainer.style.height=\"7.5px\";var bar=document.createElement(\"div\");bar.style.height=\"7.5px\";bar.style.width=\"0\";bar.style.animation=\"NotificationBar \".concat(time,\"s linear 1\");bar.style.backgroundColor=\"red\";barContainer.appendChild(bar);container.appendChild(barContainer);var textContainer=document.createElement(\"div\");textContainer.innerText=message;textContainer.style.padding=\"7.5px 15px 15px 15px\";container.appendChild(textContainer);var styling;if(window.innerWidth>400){styling={position:\"absolute\",bottom:\"15px\",right:\"30px\",\"font-family\":\"system-ui,-apple-system,BlinkMacSystemFont,\\\"Segoe UI\\\",Roboto,Oxygen,Ubuntu,Cantarell,\\\"Open Sans\\\",\\\"Helvetica Neue\\\",sans-serif\",\"background-color\":\"white\",\"font-size\":\"18px\",width:\"250px\",border:\"5px solid black\"}}else{styling={position:\"absolute\",bottom:\"15px\",left:\"15px\",right:\"15px\",\"font-family\":\"system-ui,-apple-system,BlinkMacSystemFont,\\\"Segoe UI\\\",Roboto,Oxygen,Ubuntu,Cantarell,\\\"Open Sans\\\",\\\"Helvetica Neue\\\",sans-serif\",\"background-color\":\"white\",\"font-size\":\"18px\",border:\"5px solid black\"}}Object.entries(styling).forEach(_ref2=>{var[key,val]=_ref2;return container.style[key]=val});document.body.appendChild(container);setTimeout(()=>{var delay=0.3;container.style.opacity=0;container.style.animation=\"NotificationPop \".concat(delay,\"s ease-out 1\");setTimeout(()=>container.remove(),delay*1000)},time*1000)}fetch(_global_js__WEBPACK_IMPORTED_MODULE_1__.backend+\"./pre-auth\",{method:\"POST\",headers:{\"Content-Type\":\"application/json\"},body:JSON.stringify({session_token:localStorage.getItem(\"session-token\")})}).then(/*#__PURE__*/function(){var _ref3=(0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(function*(res){if(res.status!=200){notify(\"You are not signed in. To access working features of this website, please navigate to the menu and log in through Google.\",7.5);(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sign-in\")[0].classList.remove(\"disabled\");(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sign-in\")[0].on(\"click\",signIn)}else{(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sidebar\")[0].classList.add(\"signed-in\");if(JSON.parse(localStorage.getItem(\"tags\")).includes(\"mentor\")){(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sidebar\")[0].classList.add(\"mentor\")}}});return function(){return _ref3.apply(this,arguments)}}());\n\n//# sourceURL=webpack://outreach-website-frontend/./flask_build/scripts/menu.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ \"./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js\");\n/* harmony import */ var _global_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./global.js */ \"./src/scripts/global.js\");\n/* harmony import */ var _global_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_global_js__WEBPACK_IMPORTED_MODULE_1__);\nfunction getScrollbarWidth(){var outer=document.createElement(\"div\");outer.style.visibility=\"hidden\";outer.style.overflow=\"scroll\";document.body.appendChild(outer);var inner=document.createElement(\"div\");outer.appendChild(inner);var scrollbarWidth=outer.offsetWidth-inner.offsetWidth;outer.remove(outer);return scrollbarWidth}var sidebar=(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sidebar\")[0];if(sidebar.scrollHeight>sidebar.clientHeight){sidebar.style.setProperty(\"--scrollbar-width\",getScrollbarWidth()+\"px\")}(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sidebar > div:not(:last-child)\").onAll(\"click\",(e,el)=>{location.href=el.dataset.url});(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sidebar > div[data-url=\\\"\".concat(location.pathname.slice(1),\"\\\"]\"))[0].classList.add(\"selected\");(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".menu-bars\")[0].on(\"click\",()=>{(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".menu-bars\")[0].classList.toggle(\"open\");(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sidebar\")[0].classList.toggle(\"open\")});(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sidebar\")[0].on(\"mouseenter\",()=>(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sidebar-shadow\")[0].classList.add(\"open\"));(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sidebar\")[0].on(\"mouseleave\",()=>(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sidebar-shadow\")[0].classList.remove(\"open\"));// Sign in\nfunction signIn(){var client=google.accounts.oauth2.initCodeClient({client_id:\"672955273389-tc6i17ics6qv7sh6g7m597fi30ic0ljq.apps.googleusercontent.com\",scope:\"https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile\",ux_mode:\"popup\",callback:response=>{fetch(_global_js__WEBPACK_IMPORTED_MODULE_1__.backend+\"./auth\",{method:\"POST\",headers:{\"Content-Type\":\"application/json\"},body:JSON.stringify({code:response.code})}).then(/*#__PURE__*/function(){var _ref=(0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(function*(res){if(res.status!=200){alert(\"Could not log in. Please try again.\");return}var data=yield res.json();localStorage.setItem(\"session-token\",data.session_token);localStorage.setItem(\"user-id\",data.user_id);localStorage.setItem(\"tags\",JSON.stringify(data.tags));(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sign-in\")[0].classList.add(\"disabled\");(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sign-in\")[0].removeEventListener(\"click\",signIn);(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sidebar\")[0].classList.add(\"signed-in\");if(data.tags.includes(\"mentor\")){(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sidebar\")[0].classList.add(\"mentor\")}});return function(){return _ref.apply(this,arguments)}}())}});client.requestCode()}function notify(message,time){var container=document.createElement(\"div\");var barContainer=document.createElement(\"div\");barContainer.style.height=\"7.5px\";var bar=document.createElement(\"div\");bar.style.height=\"7.5px\";bar.style.width=\"0\";bar.style.animation=\"NotificationBar \".concat(time,\"s linear 1\");bar.style.backgroundColor=\"red\";barContainer.appendChild(bar);container.appendChild(barContainer);var textContainer=document.createElement(\"div\");textContainer.innerText=message;textContainer.style.padding=\"7.5px 15px 15px 15px\";container.appendChild(textContainer);var styling;if(window.innerWidth>400){styling={position:\"absolute\",bottom:\"15px\",right:\"30px\",\"font-family\":\"system-ui,-apple-system,BlinkMacSystemFont,\\\"Segoe UI\\\",Roboto,Oxygen,Ubuntu,Cantarell,\\\"Open Sans\\\",\\\"Helvetica Neue\\\",sans-serif\",\"background-color\":\"white\",\"font-size\":\"18px\",width:\"250px\",border:\"5px solid black\"}}else{styling={position:\"absolute\",bottom:\"15px\",left:\"15px\",right:\"15px\",\"font-family\":\"system-ui,-apple-system,BlinkMacSystemFont,\\\"Segoe UI\\\",Roboto,Oxygen,Ubuntu,Cantarell,\\\"Open Sans\\\",\\\"Helvetica Neue\\\",sans-serif\",\"background-color\":\"white\",\"font-size\":\"18px\",border:\"5px solid black\"}}Object.entries(styling).forEach(_ref2=>{var[key,val]=_ref2;return container.style[key]=val});document.body.appendChild(container);setTimeout(()=>{var delay=0.3;container.style.opacity=0;container.style.animation=\"NotificationPop \".concat(delay,\"s ease-out 1\");setTimeout(()=>container.remove(),delay*1000)},time*1000)}fetch(_global_js__WEBPACK_IMPORTED_MODULE_1__.backend+\"./pre-auth\",{method:\"POST\",headers:{\"Content-Type\":\"application/json\"},body:JSON.stringify({session_token:localStorage.getItem(\"session-token\")})}).then(/*#__PURE__*/function(){var _ref3=(0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(function*(res){if(res.status!=200){notify(\"You are not signed in. To access working features of this website, please navigate to the menu and log in through Google.\",7.5);(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sign-in\")[0].classList.remove(\"disabled\");(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sign-in\")[0].on(\"click\",signIn)}else{(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sidebar\")[0].classList.add(\"signed-in\");if(JSON.parse(localStorage.getItem(\"tags\")).includes(\"mentor\")){(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sidebar\")[0].classList.add(\"mentor\")}}});return function(){return _ref3.apply(this,arguments)}}());\n\n//# sourceURL=webpack://outreach-website-frontend/./src/scripts/menu.js?");
 
 /***/ }),
 
-/***/ "./flask_build/styles/menu.scss":
-/*!**************************************!*\
-  !*** ./flask_build/styles/menu.scss ***!
-  \**************************************/
+/***/ "./src/styles/menu.scss":
+/*!******************************!*\
+  !*** ./src/styles/menu.scss ***!
+  \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://outreach-website-frontend/./flask_build/styles/menu.scss?");
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://outreach-website-frontend/./src/styles/menu.scss?");
 
 /***/ }),
 
-/***/ "../../node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js":
-/*!*************************************************************************!*\
-  !*** ../../node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js ***!
-  \*************************************************************************/
+/***/ "./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js ***!
+  \*********************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ _asyncToGenerator)\n/* harmony export */ });\nfunction asyncGeneratorStep(gen,resolve,reject,_next,_throw,key,arg){var info,value;try{info=gen[key](arg);value=info.value}catch(error){reject(error);return}if(info.done){resolve(value)}else{Promise.resolve(value).then(_next,_throw)}}function _asyncToGenerator(fn){return function(){var self=this,args=arguments;return new Promise(function(resolve,reject){var gen=fn.apply(self,args);function _next(value){asyncGeneratorStep(gen,resolve,reject,_next,_throw,\"next\",value)}function _throw(err){asyncGeneratorStep(gen,resolve,reject,_next,_throw,\"throw\",err)}_next(undefined)})}}\n\n//# sourceURL=webpack://outreach-website-frontend/../../node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ _asyncToGenerator)\n/* harmony export */ });\nfunction asyncGeneratorStep(gen,resolve,reject,_next,_throw,key,arg){var info,value;try{info=gen[key](arg);value=info.value}catch(error){reject(error);return}if(info.done){resolve(value)}else{Promise.resolve(value).then(_next,_throw)}}function _asyncToGenerator(fn){return function(){var self=this,args=arguments;return new Promise(function(resolve,reject){var gen=fn.apply(self,args);function _next(value){asyncGeneratorStep(gen,resolve,reject,_next,_throw,\"next\",value)}function _throw(err){asyncGeneratorStep(gen,resolve,reject,_next,_throw,\"throw\",err)}_next(undefined)})}}\n\n//# sourceURL=webpack://outreach-website-frontend/./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js?");
 
 /***/ })
 
@@ -78,44 +78,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 		return module.exports;
 /******/ 	}
 /******/ 	
-/******/ 	// expose the modules object (__webpack_modules__)
-/******/ 	__webpack_require__.m = __webpack_modules__;
-/******/ 	
 /************************************************************************/
-/******/ 	/* webpack/runtime/chunk loaded */
-/******/ 	(() => {
-/******/ 		var deferred = [];
-/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
-/******/ 			if(chunkIds) {
-/******/ 				priority = priority || 0;
-/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
-/******/ 				deferred[i] = [chunkIds, fn, priority];
-/******/ 				return;
-/******/ 			}
-/******/ 			var notFulfilled = Infinity;
-/******/ 			for (var i = 0; i < deferred.length; i++) {
-/******/ 				var chunkIds = deferred[i][0];
-/******/ 				var fn = deferred[i][1];
-/******/ 				var priority = deferred[i][2];
-/******/ 				var fulfilled = true;
-/******/ 				for (var j = 0; j < chunkIds.length; j++) {
-/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
-/******/ 						chunkIds.splice(j--, 1);
-/******/ 					} else {
-/******/ 						fulfilled = false;
-/******/ 						if(priority < notFulfilled) notFulfilled = priority;
-/******/ 					}
-/******/ 				}
-/******/ 				if(fulfilled) {
-/******/ 					deferred.splice(i--, 1)
-/******/ 					var r = fn();
-/******/ 					if (r !== undefined) result = r;
-/******/ 				}
-/******/ 			}
-/******/ 			return result;
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /******/ 	/* webpack/runtime/compat get default export */
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
@@ -156,69 +119,13 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /******/ 		};
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/jsonp chunk loading */
-/******/ 	(() => {
-/******/ 		// no baseURI
-/******/ 		
-/******/ 		// object to store loaded and loading chunks
-/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
-/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
-/******/ 		var installedChunks = {
-/******/ 			"menu": 0
-/******/ 		};
-/******/ 		
-/******/ 		// no chunk on demand loading
-/******/ 		
-/******/ 		// no prefetching
-/******/ 		
-/******/ 		// no preloaded
-/******/ 		
-/******/ 		// no HMR
-/******/ 		
-/******/ 		// no HMR manifest
-/******/ 		
-/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
-/******/ 		
-/******/ 		// install a JSONP callback for chunk loading
-/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
-/******/ 			var chunkIds = data[0];
-/******/ 			var moreModules = data[1];
-/******/ 			var runtime = data[2];
-/******/ 			// add "moreModules" to the modules object,
-/******/ 			// then flag all "chunkIds" as loaded and fire callback
-/******/ 			var moduleId, chunkId, i = 0;
-/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
-/******/ 				for(moduleId in moreModules) {
-/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
-/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
-/******/ 					}
-/******/ 				}
-/******/ 				if(runtime) var result = runtime(__webpack_require__);
-/******/ 			}
-/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
-/******/ 			for(;i < chunkIds.length; i++) {
-/******/ 				chunkId = chunkIds[i];
-/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
-/******/ 					installedChunks[chunkId][0]();
-/******/ 				}
-/******/ 				installedChunks[chunkId] = 0;
-/******/ 			}
-/******/ 			return __webpack_require__.O(result);
-/******/ 		}
-/******/ 		
-/******/ 		var chunkLoadingGlobal = self["webpackChunkoutreach_website_frontend"] = self["webpackChunkoutreach_website_frontend"] || [];
-/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
-/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
-/******/ 	})();
-/******/ 	
 /************************************************************************/
 /******/ 	
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
-/******/ 	__webpack_require__("./flask_build/scripts/menu.js");
-/******/ 	var __webpack_exports__ = __webpack_require__("./flask_build/styles/menu.scss");
-/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
+/******/ 	__webpack_require__("./src/scripts/menu.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/styles/menu.scss");
 /******/ 	
 /******/ })()
 ;

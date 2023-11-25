@@ -2,29 +2,6 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <!-- Fix google images not loading -->
-  <meta http-equiv="Content-Security-Policy" content="
-  default-src 'self';
-  script-src 'report-sample' 'self' 'unsafe-inline' https://accounts.google.com;
-  style-src * 'unsafe-inline';
-  object-src 'none';
-  base-uri 'self';
-  connect-src 'self' https://xtekoweg6sbdadhqxpetywgp3m0silph.lambda-url.us-east-1.on.aws;
-  font-src * 'unsafe-inline';
-  frame-src 'self';
-  img-src * data:;
-  manifest-src 'self';
-  ">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="theme-color" content="#ff0000">
-  <meta name="theme-color" content="#ff0000">
-  <meta name="description" content="
-  Developed by team at Team 75 RoboRaiders, led by Eshaan Debnath.
-  Frontend credits: Aditya Kalavala, Eshaan Debnath, Jiachen Jiang.
-  Backend credits: Eshaan Debnath, Shravan Prasanth.
-  ">
-
   <link rel="shortcut icon" href="static/logos/logo_trans.png">
 
   <!-- Load Fonts -->
@@ -32,11 +9,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap"
     as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap">
 
-  <noscript>
-    <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap">
-  </noscript>
   <!-- Load Google OAuth -->
   <script src="https://accounts.google.com/gsi/client"></script>
 
@@ -45,7 +20,10 @@
      Log Hours 
   </title>
 
-<meta name="theme-color" content="#ff0000"><script defer src="menu.js"></script><script defer src="log-hours.js"></script><link href="menu.css" rel="stylesheet"><link href="log-hours.css" rel="stylesheet"></head>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'unsafe-inline' 'unsafe-eval' 'self' https://accounts.google.com; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; connect-src 'self' https://xtekoweg6sbdadhqxpetywgp3m0silph.lambda-url.us-east-1.on.aws; font-src * 'unsafe-inline'; frame-src 'self'; img-src * data:; manifest-src 'self';"><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><meta name="charset" content="UTF-8"><meta name="description" content="Developed by FRC Team 75 (RoboRaiders).
+Led by Eshaan Debnath.
+Frontend credits: Eshaan Debnath, Aditya Kalavala, Jiachen Jiang.
+Backend credits: Eshaan Debnath, Shravan Prasanth."><meta name="theme-color" content="#ff0000"><script defer src="log-hours.js"></script><script defer src="menu.js"></script><link href="log-hours.css" rel="stylesheet"><link href="menu.css" rel="stylesheet"></head>
 
 <body>
   <div class="header">
