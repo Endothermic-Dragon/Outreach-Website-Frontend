@@ -1,1 +1,224 @@
-(()=>{var e,t={508:e=>{e.exports={$:e=>{var t=[...document.querySelectorAll(e)];return t.forEach((e=>e.on=(t,n)=>e.addEventListener(t,(t=>n(t,e))))),t.onAll=(e,n)=>t.map((t=>t.on(e,n))),t.on=()=>{throw new TypeError('Cannot add event listener on multiple elements using "on". Use "onAll" to add to multiple elements, or select one element.')},t},backend:"https://xtekoweg6sbdadhqxpetywgp3m0silph.lambda-url.us-east-1.on.aws/"}},390:(e,t,n)=>{"use strict";function o(e,t,n,o,s,i,a){var r,l;try{l=(r=e[i](a)).value}catch(e){return void n(e)}r.done?t(l):Promise.resolve(l).then(o,s)}function s(e){return function(){var t=this,n=arguments;return new Promise((function(s,i){var a=e.apply(t,n);function r(e){o(a,s,i,r,l,"next",e)}function l(e){o(a,s,i,r,l,"throw",e)}r(void 0)}))}}n.d(t,{Z:()=>s})}},n={};function o(e){var s=n[e];if(void 0!==s)return s.exports;var i=n[e]={exports:{}};return t[e](i,i.exports,o),i.exports}o.m=t,e=[],o.O=(t,n,s,i)=>{if(!n){var a=1/0;for(c=0;c<e.length;c++){n=e[c][0],s=e[c][1],i=e[c][2];for(var r=!0,l=0;l<n.length;l++)(!1&i||a>=i)&&Object.keys(o.O).every((e=>o.O[e](n[l])))?n.splice(l--,1):(r=!1,i<a&&(a=i));if(r){e.splice(c--,1);var d=s();void 0!==d&&(t=d)}}return t}i=i||0;for(var c=e.length;c>0&&e[c-1][2]>i;c--)e[c]=e[c-1];e[c]=[n,s,i]},o.n=e=>{var t=e&&e.__esModule?()=>e.default:()=>e;return o.d(t,{a:t}),t},o.d=(e,t)=>{for(var n in t)o.o(t,n)&&!o.o(e,n)&&Object.defineProperty(e,n,{enumerable:!0,get:t[n]})},o.o=(e,t)=>Object.prototype.hasOwnProperty.call(e,t),(()=>{var e={860:0};o.O.j=t=>0===e[t];var t=(t,n)=>{var s,i,a=n[0],r=n[1],l=n[2],d=0;if(a.some((t=>0!==e[t]))){for(s in r)o.o(r,s)&&(o.m[s]=r[s]);if(l)var c=l(o)}for(t&&t(n);d<a.length;d++)i=a[d],o.o(e,i)&&e[i]&&e[i][0](),e[i]=0;return o.O(c)},n=self.webpackChunkoutreach_website_frontend=self.webpackChunkoutreach_website_frontend||[];n.forEach(t.bind(null,0)),n.push=t.bind(null,n.push.bind(n))})();var s={};(()=>{"use strict";var e=o(390),t=o(508),n=(0,t.$)(".sidebar")[0];function s(){var n=google.accounts.oauth2.initCodeClient({client_id:"672955273389-tc6i17ics6qv7sh6g7m597fi30ic0ljq.apps.googleusercontent.com",scope:"https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile",ux_mode:"popup",callback:n=>{fetch(t.backend+"./auth",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({code:n.code})}).then(function(){var n=(0,e.Z)((function*(e){if(200==e.status){var n=yield e.json();localStorage.setItem("session-token",n.session_token),localStorage.setItem("user-id",n.user_id),localStorage.setItem("tags",JSON.stringify(n.tags)),(0,t.$)(".sign-in")[0].classList.add("disabled"),(0,t.$)(".sign-in")[0].removeEventListener("click",s),(0,t.$)(".sidebar")[0].classList.add("signed-in"),n.tags.includes("mentor")&&(0,t.$)(".sidebar")[0].classList.add("mentor")}else alert("Could not log in. Please try again.")}));return function(){return n.apply(this,arguments)}}())}});n.requestCode()}n.scrollHeight>n.clientHeight&&n.style.setProperty("--scrollbar-width",function(){var e=document.createElement("div");e.style.visibility="hidden",e.style.overflow="scroll",document.body.appendChild(e);var t=document.createElement("div");e.appendChild(t);var n=e.offsetWidth-t.offsetWidth;return e.remove(e),n}()+"px"),(0,t.$)(".sidebar > div:not(:last-child)").onAll("click",((e,t)=>{location.href=t.dataset.url})),(0,t.$)('.sidebar > div[data-url="'.concat(location.pathname.slice(1),'"]'))[0].classList.add("selected"),(0,t.$)(".menu-bars")[0].on("click",(()=>{(0,t.$)(".menu-bars")[0].classList.toggle("open"),(0,t.$)(".sidebar")[0].classList.toggle("open")})),(0,t.$)(".sidebar")[0].on("mouseenter",(()=>(0,t.$)(".sidebar-shadow")[0].classList.add("open"))),(0,t.$)(".sidebar")[0].on("mouseleave",(()=>(0,t.$)(".sidebar-shadow")[0].classList.remove("open"))),fetch(t.backend+"./pre-auth",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({session_token:localStorage.getItem("session-token")})}).then(function(){var n=(0,e.Z)((function*(e){200!=e.status?(function(e,t){var n=document.createElement("div"),o=document.createElement("div");o.style.height="7.5px";var s=document.createElement("div");s.style.height="7.5px",s.style.width="0",s.style.animation="NotificationBar ".concat(7.5,"s linear 1"),s.style.backgroundColor="red",o.appendChild(s),n.appendChild(o);var i,a=document.createElement("div");a.innerText="You are not signed in. To access working features of this website, please navigate to the menu and log in through Google.",a.style.padding="7.5px 15px 15px 15px",n.appendChild(a),i=window.innerWidth>400?{position:"absolute",bottom:"15px",right:"30px","font-family":'system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif',"background-color":"white","font-size":"18px",width:"250px",border:"5px solid black"}:{position:"absolute",bottom:"15px",left:"15px",right:"15px","font-family":'system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif',"background-color":"white","font-size":"18px",border:"5px solid black"},Object.entries(i).forEach((e=>{var[t,o]=e;return n.style[t]=o})),document.body.appendChild(n),setTimeout((()=>{n.style.opacity=0,n.style.animation="NotificationPop ".concat(.3,"s ease-out 1"),setTimeout((()=>n.remove()),300)}),7500)}(),(0,t.$)(".sign-in")[0].classList.remove("disabled"),(0,t.$)(".sign-in")[0].on("click",s)):((0,t.$)(".sidebar")[0].classList.add("signed-in"),JSON.parse(localStorage.getItem("tags")).includes("mentor")&&(0,t.$)(".sidebar")[0].classList.add("mentor"))}));return function(){return n.apply(this,arguments)}}())})(),s=o.O(s)})();
+/*
+ * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+/******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./flask_build/scripts/global.js":
+/*!***************************************!*\
+  !*** ./flask_build/scripts/global.js ***!
+  \***************************************/
+/***/ ((module) => {
+
+eval("var $=tag=>{var res=[...document.querySelectorAll(tag)];res.forEach(el=>el.on=(e,func)=>el.addEventListener(e,e=>func(e,el)));res.onAll=(e,func)=>res.map(el=>el.on(e,func));res.on=()=>{throw new TypeError(\"Cannot add event listener on multiple elements using \\\"on\\\". \"+\"Use \\\"onAll\\\" to add to multiple elements, or select one element.\")};return res};module.exports={\"$\":$,\"backend\":\"https://xtekoweg6sbdadhqxpetywgp3m0silph.lambda-url.us-east-1.on.aws/\"};\n\n//# sourceURL=webpack://outreach-website-frontend/./flask_build/scripts/global.js?");
+
+/***/ }),
+
+/***/ "./flask_build/scripts/menu.js":
+/*!*************************************!*\
+  !*** ./flask_build/scripts/menu.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ \"../../node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js\");\n/* harmony import */ var _global_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./global.js */ \"./flask_build/scripts/global.js\");\n/* harmony import */ var _global_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_global_js__WEBPACK_IMPORTED_MODULE_1__);\nfunction getScrollbarWidth(){var outer=document.createElement(\"div\");outer.style.visibility=\"hidden\";outer.style.overflow=\"scroll\";document.body.appendChild(outer);var inner=document.createElement(\"div\");outer.appendChild(inner);var scrollbarWidth=outer.offsetWidth-inner.offsetWidth;outer.remove(outer);return scrollbarWidth}var sidebar=(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sidebar\")[0];if(sidebar.scrollHeight>sidebar.clientHeight){sidebar.style.setProperty(\"--scrollbar-width\",getScrollbarWidth()+\"px\")}(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sidebar > div:not(:last-child)\").onAll(\"click\",(e,el)=>{location.href=el.dataset.url});(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sidebar > div[data-url=\\\"\".concat(location.pathname.slice(1),\"\\\"]\"))[0].classList.add(\"selected\");(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".menu-bars\")[0].on(\"click\",()=>{(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".menu-bars\")[0].classList.toggle(\"open\");(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sidebar\")[0].classList.toggle(\"open\")});(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sidebar\")[0].on(\"mouseenter\",()=>(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sidebar-shadow\")[0].classList.add(\"open\"));(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sidebar\")[0].on(\"mouseleave\",()=>(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sidebar-shadow\")[0].classList.remove(\"open\"));// Sign in\nfunction signIn(){var client=google.accounts.oauth2.initCodeClient({client_id:\"672955273389-tc6i17ics6qv7sh6g7m597fi30ic0ljq.apps.googleusercontent.com\",scope:\"https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile\",ux_mode:\"popup\",callback:response=>{fetch(_global_js__WEBPACK_IMPORTED_MODULE_1__.backend+\"./auth\",{method:\"POST\",headers:{\"Content-Type\":\"application/json\"},body:JSON.stringify({code:response.code})}).then(/*#__PURE__*/function(){var _ref=(0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(function*(res){if(res.status!=200){alert(\"Could not log in. Please try again.\");return}var data=yield res.json();localStorage.setItem(\"session-token\",data.session_token);localStorage.setItem(\"user-id\",data.user_id);localStorage.setItem(\"tags\",JSON.stringify(data.tags));(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sign-in\")[0].classList.add(\"disabled\");(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sign-in\")[0].removeEventListener(\"click\",signIn);(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sidebar\")[0].classList.add(\"signed-in\");if(data.tags.includes(\"mentor\")){(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sidebar\")[0].classList.add(\"mentor\")}});return function(){return _ref.apply(this,arguments)}}())}});client.requestCode()}function notify(message,time){var container=document.createElement(\"div\");var barContainer=document.createElement(\"div\");barContainer.style.height=\"7.5px\";var bar=document.createElement(\"div\");bar.style.height=\"7.5px\";bar.style.width=\"0\";bar.style.animation=\"NotificationBar \".concat(time,\"s linear 1\");bar.style.backgroundColor=\"red\";barContainer.appendChild(bar);container.appendChild(barContainer);var textContainer=document.createElement(\"div\");textContainer.innerText=message;textContainer.style.padding=\"7.5px 15px 15px 15px\";container.appendChild(textContainer);var styling;if(window.innerWidth>400){styling={position:\"absolute\",bottom:\"15px\",right:\"30px\",\"font-family\":\"system-ui,-apple-system,BlinkMacSystemFont,\\\"Segoe UI\\\",Roboto,Oxygen,Ubuntu,Cantarell,\\\"Open Sans\\\",\\\"Helvetica Neue\\\",sans-serif\",\"background-color\":\"white\",\"font-size\":\"18px\",width:\"250px\",border:\"5px solid black\"}}else{styling={position:\"absolute\",bottom:\"15px\",left:\"15px\",right:\"15px\",\"font-family\":\"system-ui,-apple-system,BlinkMacSystemFont,\\\"Segoe UI\\\",Roboto,Oxygen,Ubuntu,Cantarell,\\\"Open Sans\\\",\\\"Helvetica Neue\\\",sans-serif\",\"background-color\":\"white\",\"font-size\":\"18px\",border:\"5px solid black\"}}Object.entries(styling).forEach(_ref2=>{var[key,val]=_ref2;return container.style[key]=val});document.body.appendChild(container);setTimeout(()=>{var delay=0.3;container.style.opacity=0;container.style.animation=\"NotificationPop \".concat(delay,\"s ease-out 1\");setTimeout(()=>container.remove(),delay*1000)},time*1000)}fetch(_global_js__WEBPACK_IMPORTED_MODULE_1__.backend+\"./pre-auth\",{method:\"POST\",headers:{\"Content-Type\":\"application/json\"},body:JSON.stringify({session_token:localStorage.getItem(\"session-token\")})}).then(/*#__PURE__*/function(){var _ref3=(0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(function*(res){if(res.status!=200){notify(\"You are not signed in. To access working features of this website, please navigate to the menu and log in through Google.\",7.5);(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sign-in\")[0].classList.remove(\"disabled\");(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sign-in\")[0].on(\"click\",signIn)}else{(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sidebar\")[0].classList.add(\"signed-in\");if(JSON.parse(localStorage.getItem(\"tags\")).includes(\"mentor\")){(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".sidebar\")[0].classList.add(\"mentor\")}}});return function(){return _ref3.apply(this,arguments)}}());\n\n//# sourceURL=webpack://outreach-website-frontend/./flask_build/scripts/menu.js?");
+
+/***/ }),
+
+/***/ "./flask_build/styles/menu.scss":
+/*!**************************************!*\
+  !*** ./flask_build/styles/menu.scss ***!
+  \**************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://outreach-website-frontend/./flask_build/styles/menu.scss?");
+
+/***/ }),
+
+/***/ "../../node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js":
+/*!*************************************************************************!*\
+  !*** ../../node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js ***!
+  \*************************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ _asyncToGenerator)\n/* harmony export */ });\nfunction asyncGeneratorStep(gen,resolve,reject,_next,_throw,key,arg){var info,value;try{info=gen[key](arg);value=info.value}catch(error){reject(error);return}if(info.done){resolve(value)}else{Promise.resolve(value).then(_next,_throw)}}function _asyncToGenerator(fn){return function(){var self=this,args=arguments;return new Promise(function(resolve,reject){var gen=fn.apply(self,args);function _next(value){asyncGeneratorStep(gen,resolve,reject,_next,_throw,\"next\",value)}function _throw(err){asyncGeneratorStep(gen,resolve,reject,_next,_throw,\"throw\",err)}_next(undefined)})}}\n\n//# sourceURL=webpack://outreach-website-frontend/../../node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js?");
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = __webpack_modules__;
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/chunk loaded */
+/******/ 	(() => {
+/******/ 		var deferred = [];
+/******/ 		__webpack_require__.O = (result, chunkIds, fn, priority) => {
+/******/ 			if(chunkIds) {
+/******/ 				priority = priority || 0;
+/******/ 				for(var i = deferred.length; i > 0 && deferred[i - 1][2] > priority; i--) deferred[i] = deferred[i - 1];
+/******/ 				deferred[i] = [chunkIds, fn, priority];
+/******/ 				return;
+/******/ 			}
+/******/ 			var notFulfilled = Infinity;
+/******/ 			for (var i = 0; i < deferred.length; i++) {
+/******/ 				var chunkIds = deferred[i][0];
+/******/ 				var fn = deferred[i][1];
+/******/ 				var priority = deferred[i][2];
+/******/ 				var fulfilled = true;
+/******/ 				for (var j = 0; j < chunkIds.length; j++) {
+/******/ 					if ((priority & 1 === 0 || notFulfilled >= priority) && Object.keys(__webpack_require__.O).every((key) => (__webpack_require__.O[key](chunkIds[j])))) {
+/******/ 						chunkIds.splice(j--, 1);
+/******/ 					} else {
+/******/ 						fulfilled = false;
+/******/ 						if(priority < notFulfilled) notFulfilled = priority;
+/******/ 					}
+/******/ 				}
+/******/ 				if(fulfilled) {
+/******/ 					deferred.splice(i--, 1)
+/******/ 					var r = fn();
+/******/ 					if (r !== undefined) result = r;
+/******/ 				}
+/******/ 			}
+/******/ 			return result;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/jsonp chunk loading */
+/******/ 	(() => {
+/******/ 		// no baseURI
+/******/ 		
+/******/ 		// object to store loaded and loading chunks
+/******/ 		// undefined = chunk not loaded, null = chunk preloaded/prefetched
+/******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
+/******/ 		var installedChunks = {
+/******/ 			"menu": 0
+/******/ 		};
+/******/ 		
+/******/ 		// no chunk on demand loading
+/******/ 		
+/******/ 		// no prefetching
+/******/ 		
+/******/ 		// no preloaded
+/******/ 		
+/******/ 		// no HMR
+/******/ 		
+/******/ 		// no HMR manifest
+/******/ 		
+/******/ 		__webpack_require__.O.j = (chunkId) => (installedChunks[chunkId] === 0);
+/******/ 		
+/******/ 		// install a JSONP callback for chunk loading
+/******/ 		var webpackJsonpCallback = (parentChunkLoadingFunction, data) => {
+/******/ 			var chunkIds = data[0];
+/******/ 			var moreModules = data[1];
+/******/ 			var runtime = data[2];
+/******/ 			// add "moreModules" to the modules object,
+/******/ 			// then flag all "chunkIds" as loaded and fire callback
+/******/ 			var moduleId, chunkId, i = 0;
+/******/ 			if(chunkIds.some((id) => (installedChunks[id] !== 0))) {
+/******/ 				for(moduleId in moreModules) {
+/******/ 					if(__webpack_require__.o(moreModules, moduleId)) {
+/******/ 						__webpack_require__.m[moduleId] = moreModules[moduleId];
+/******/ 					}
+/******/ 				}
+/******/ 				if(runtime) var result = runtime(__webpack_require__);
+/******/ 			}
+/******/ 			if(parentChunkLoadingFunction) parentChunkLoadingFunction(data);
+/******/ 			for(;i < chunkIds.length; i++) {
+/******/ 				chunkId = chunkIds[i];
+/******/ 				if(__webpack_require__.o(installedChunks, chunkId) && installedChunks[chunkId]) {
+/******/ 					installedChunks[chunkId][0]();
+/******/ 				}
+/******/ 				installedChunks[chunkId] = 0;
+/******/ 			}
+/******/ 			return __webpack_require__.O(result);
+/******/ 		}
+/******/ 		
+/******/ 		var chunkLoadingGlobal = self["webpackChunkoutreach_website_frontend"] = self["webpackChunkoutreach_website_frontend"] || [];
+/******/ 		chunkLoadingGlobal.forEach(webpackJsonpCallback.bind(null, 0));
+/******/ 		chunkLoadingGlobal.push = webpackJsonpCallback.bind(null, chunkLoadingGlobal.push.bind(chunkLoadingGlobal));
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module can't be inlined because the eval devtool is used.
+/******/ 	__webpack_require__("./flask_build/scripts/menu.js");
+/******/ 	var __webpack_exports__ = __webpack_require__("./flask_build/styles/menu.scss");
+/******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
+/******/ 	
+/******/ })()
+;

@@ -31,7 +31,7 @@
     "sass-loader": "^12.6.0",
     "style-loader": "^3.3.1",
     "webpack": "^5.78.0",
-    "webpack-cli": "^5.0.1"
+    "webpack-cli": "^5.1.4"
   },
   "browserslist": [
     "fully supports css-grid and fully supports flexbox and fully supports css-sticky and fully supports calc and fully supports css-variables"
