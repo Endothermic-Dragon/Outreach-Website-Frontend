@@ -12,8 +12,7 @@ if arg == "build-cache":
         page["chunk"] + ".html", page["chunk"] + ".css", page["chunk"] + ".js"
     ] for page in json.load(file)["html-pages"]]
     pages = [item for row in pages for item in row]
-  pages.append("menu.css")
-  pages.append("menu.js")
+  pages.extend(("menu.css", "menu.js"))
   print(pages)
 
   for root, dirs, files in os.walk("./dist"):
@@ -23,40 +22,43 @@ if arg == "build-cache":
     # Only run through top directory
     # Stop before subdirectories like "static"
     break
+elif arg == "clean":
+  # Clean ./flask_build
+  shutil.rmtree("./flask_build", ignore_errors=True)
+
 else:
   # Clean ./flask_build
   shutil.rmtree("./flask_build", ignore_errors=True)
 
-  if arg != "clean":
-    print("Compiling HTML...")
+  print("Compiling HTML...")
 
-    with open("./pages.json") as file:
-      pages = json.load(file)
+  with open("./pages.json") as file:
+    pages = json.load(file)
 
-    app = Flask(__name__, template_folder="./src")
+  app = Flask(__name__, template_folder="./src")
 
-    with app.app_context():
-      for root, dirs, files in os.walk("./src"):
-        for file in files:
-          if file == pages["menu-design"]:
-            continue
-          relPath = f"{root}/{file}".replace("\\", "/")
+  with app.app_context():
+    for root, dirs, files in os.walk("./src"):
+      for file in files:
+        if file == pages["menu-design"]:
+          continue
+        relPath = f"{root}/{file}".replace("\\", "/")
 
-          file_path_out = "./flask_build" + relPath[len("./src"):]
-          folder_path_out = os.path.dirname(file_path_out)
-          folder_path_in = os.path.dirname(relPath)
+        file_path_out = "./flask_build" + relPath[len("./src"):]
+        folder_path_out = os.path.dirname(file_path_out)
+        folder_path_in = os.path.dirname(relPath)
 
-          if relPath.split(".")[-1] in ["html", "jinja-html"]:
-            # Get flask compiled HTML
-            renderedHTML = render_template(relPath[len("./src") + 1:])
+        if relPath.split(".")[-1] in ["html", "jinja-html"]:
+          # Get flask compiled HTML
+          renderedHTML = render_template(relPath[len("./src") + 1:])
 
-            # Save HTML
-            os.makedirs(folder_path_out, exist_ok=True)
-            with open(file_path_out, "w+") as compiled_file:
-              compiled_file.write(renderedHTML)
-          # else:
-          #   # Copy over file
-          #   os.makedirs(folder_path_out, exist_ok = True)
-          #   shutil.copy(relPath, file_path_out)
+          # Save HTML
+          os.makedirs(folder_path_out, exist_ok=True)
+          with open(file_path_out, "w+") as compiled_file:
+            compiled_file.write(renderedHTML)
+        # else:
+        #   # Copy over file
+        #   os.makedirs(folder_path_out, exist_ok = True)
+        #   shutil.copy(relPath, file_path_out)
 
-    shutil.copytree("./src/static", "./dist/static", dirs_exist_ok=True)
+  shutil.copytree("./src/static", "./dist/static", dirs_exist_ok=True)
