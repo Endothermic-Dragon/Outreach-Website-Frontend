@@ -1,23 +1,27 @@
-# Run Local Server
-`cd dist`
-`py -m http.server 80`
 
 # Setup
-Download `Flask` for `Python` and `pnpm` for `NodeJS`. Run `pnpm i`.
+- Make sure you have `Python` and `NodeJS` installed.
+- Download `Flask` for `Python`
+- Install dependencies for `NodeJS` with `npm i`
 
 # Configuring Program
-Add stuff under `html-pages` in `pages/pages.html`. Note that it must be a relative url to `./src/`. The only reason it's in a seperate folder is so that it shows up on top and can be found easily.
-- Name the `chunk` what you want your page to be called
+Add new pages under `html-pages` in `pages.json`. Note that it must be a relative url to `./src/`.
+- Name the `chunk` what you want your output page to be called
 - `html` points to the HTML source file
-- Your dynamic assets should be under `bundle`
+- Your dynamic assets should be under `bundle` (CSS + JS)
 - Your static assets should be under the `static/` folder under `./src/`
+  - This is copied over to `./dist/`
 
 # Building Program
-## Development Build
-`npm run build`
-
-## Production Build
-`npm run build:prod`
-
-# Future Note
-For some computers, `npm run watch` should automatically watch for changes and recompile. IDK why it doesn't work for MacOS, but oh well.
+- Development build: `npm run build`
+- Production build: `npm run build:prod`
+- Continuous building and testing
+  - Run `server.py`
+    - Run a development build (faster than a production build, but less secure)
+      - `[no input], d, dev, development`
+    - Run a production build
+      - `p, prod, production`
+    - View usage instructions (same as these).
+      - `h, help`
+    - Terminate this server
+      - `e, q, exit, quit`

@@ -55,7 +55,7 @@
   .logs {
     margin-top: 30px;
     height: 200px;
-    overflow-wrap: anywhere;
+    overflow: auto;
 
     div {
       padding: 5px 0;
@@ -96,5 +96,37 @@
 
   .logs-container button {
     font-size: 16px;
+  }
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  padding: 7.5px;
+  text-align: center;
+
+  th,
+  td {
+    padding: 7.5px;
+    border: 2.5px solid #595959;
+  }
+
+  thead {
+    background-color: #888888;
+    white-space: nowrap;
+  }
+
+  td:nth-child(1),
+  td:nth-child(3),
+  td:nth-child(4) {
+    white-space: nowrap;
+  }
+
+  tr:nth-child(2n) {
+    background-color: #cbcbcb;
+  }
+
+  td div:nth-child(2) {
+    line-height: 14px;
   }
 }

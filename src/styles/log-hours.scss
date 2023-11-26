@@ -22,7 +22,8 @@ form {
     margin-right: auto;
   }
 
-  input:not([type="checkbox"]), select {
+  input:not([type="checkbox"]),
+  select {
     width: 250px;
     padding: 5px 10px;
     border-radius: 10px;

@@ -7,10 +7,14 @@ const $ = (tag) => {
   res.on = () => {
     throw new TypeError(
       'Cannot add event listener on multiple elements using "on". ' +
-      'Use "onAll" to add to multiple elements, or select one element.'
-    )
-  }
+        'Use "onAll" to add to multiple elements, or select one element.'
+    );
+  };
   return res;
 };
 
-module.exports = { "$": $, "backend": "https://lgekbtt7fm5x27wxschu4rge4e0idlwo.lambda-url.us-east-1.on.aws/" }
+module.exports = {
+  $: $,
+  backend:
+    "https://xtekoweg6sbdadhqxpetywgp3m0silph.lambda-url.us-east-1.on.aws/",
+};
