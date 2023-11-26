@@ -3,7 +3,9 @@
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
 
 const { exec, execSync } = require("child_process");
-console.log(execSync("py flask_compile.py || python3 flask_compile.py").toString().trim());
+console.log(
+  execSync("py flask_compile.py || python3 flask_compile.py").toString().trim()
+);
 
 const fs = require("fs");
 const path = require("path");
@@ -13,8 +15,10 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 // const CopyPlugin = require("copy-webpack-plugin");
 
 const webpackData = require("./pages.json");
-let cache = fs.existsSync("./cache.json") ? fs.readFileSync("./cache.json", "utf-8") : {};
-cache = JSON.parse(cache || "{}")
+let cache = fs.existsSync("./cache.json")
+  ? fs.readFileSync("./cache.json", "utf-8")
+  : {};
+cache = JSON.parse(cache || "{}");
 
 const isProduction = process.env.NODE_ENV == "production";
 const stylesHandler = MiniCssExtractPlugin.loader;
@@ -141,21 +145,25 @@ webpackData["html-pages"].forEach((page) => {
 if (menuExists) {
   menuBundle = webpackData["menu-bundler"]
     .map((el) => path.resolve("./src/", el))
-  if (!htmlUpdated){
-    menuBundle = menuBundle.filter((filepath, i) => {
+    .filter((filepath, i) => {
       let contents = fs.readFileSync(filepath, "utf-8");
-      let hash = crypto.createHash("sha1").update(contents).digest("base64");
       let prefix = isProduction ? "PROD" : "DEV";
-      newCache[webpackData["menu-bundler"][i]] = prefix + "-" + hash;
-      return cache[webpackData["menu-bundler"][i]] != prefix + "-" + hash;
+      let hash =
+        prefix + crypto.createHash("sha1").update(contents).digest("base64");
+      newCache[webpackData["menu-bundler"][i]] = hash;
+      return htmlUpdated || cache[webpackData["menu-bundler"][i]] != hash;
     });
-  }
   if (menuBundle.length) {
     config.entry.menu = menuBundle;
   }
 }
 
-fs.writeFileSync("./cache.json", JSON.stringify(newCache, null, 2) + "\n", "utf-8", () => {});
+fs.writeFileSync(
+  "./cache.json",
+  JSON.stringify(newCache, null, 2) + "\n",
+  "utf-8",
+  () => {}
+);
 
 exec("py flask_compile.py build-cache || python3 flask_compile.py build-cache");
 
