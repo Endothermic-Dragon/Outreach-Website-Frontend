@@ -32,11 +32,11 @@ def take_input():
       shutil.rmtree("./flask_build", ignore_errors=True)
     elif user_input.lower() in ["h", "help"]:
       print(
-          "[no input], d, dev, development\nRun a development build. Faster than a production build, but less secure.\n"
+          "[no input], d, dev, development\nRun a development build (faster than a production build, but less secure)\n"
       )
-      print("p, prod, production\nRun a production build.\n")
-      print("h, help\nView these instructions.\n")
-      print("e, q, exit, quit\nTerminate this server.\n")
+      print("p, prod, production\nRun a production build\n")
+      print("h, help\nView these usage instructions\n")
+      print("e, q, exit, quit\nTerminate this server")
       continue
     elif user_input.lower() in ["e", "exit", "q", "quit"]:
       print("Exiting...")
@@ -47,15 +47,14 @@ def take_input():
       print("Unrecognized input. Type 'h' for help.")
       continue
 
-    process = subprocess.Popen(command, stdout=subprocess.PIPE, shell=True)
-    stdout, stderr = process.communicate()
+    with subprocess.Popen(command, stdout=subprocess.PIPE, shell=True) as p:
+      if p.stdout:
+        for line in p.stdout:
+          print(line.decode('unicode_escape'), end='')
 
-    if stdout:
-      print(stdout.decode('unicode_escape'))
-    if stderr:
-      print(stderr.decode('unicode_escape'))
-
-    print("Build finished.\nPlease hard refresh your page with Ctrl+Shift+R.")
+    print(
+        "\n--------------------\nBuild finished.\nPlease hard refresh your page with Ctrl+Shift+R.\n--------------------"
+    )
 
 
 http_server = HTTPServer(("", 80), Handler)

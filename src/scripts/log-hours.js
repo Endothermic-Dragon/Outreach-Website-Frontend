@@ -11,12 +11,16 @@ function updatePrep() {
 }
 
 $("input[type='number']").onAll("input", () => {
-  if ((parseInt($("#hours")[0].value) || 0) * 60 + (parseInt($("#mins")[0].value) || 0) > 600) {
+  if (
+    (parseInt($("#hours")[0].value) || 0) * 60 +
+      (parseInt($("#mins")[0].value) || 0) >
+    600
+  ) {
     $("#mins")[0].setCustomValidity("Total time must be less than 10 hours.");
   } else {
-    $("#mins")[0].setCustomValidity("")
+    $("#mins")[0].setCustomValidity("");
   }
-})
+});
 $("#start-time")[0].on("input", (e, el) => {
   let now = new Date(el.value);
   // Two weeks to log time
@@ -29,11 +33,14 @@ $("#start-time")[0].on("input", (e, el) => {
   } else {
     el.setCustomValidity("");
   }
-})
+});
 
 function startTimeTimestamp() {
   return Math.floor(
-    (new Date($("#start-time")[0].value) - new Date("Jan 1 2020 00:00:00 GMT")) / 1000 / 60
+    (new Date($("#start-time")[0].value) -
+      new Date("Jan 1 2020 00:00:00 GMT")) /
+      1000 /
+      60
   );
 }
 
@@ -48,17 +55,18 @@ function handleSubmit(e) {
       session_token: localStorage.getItem("session-token"),
       initiative_id: $("#initiative")[0].value,
       prep_time: $("#event-leader")[0].checked,
-      duration: parseInt($("#hours")[0].value) * 60 + parseInt($("#mins")[0].value),
-      start_time: startTimeTimestamp()
-    })
-  }).then(() => location.href = "user-dashboard.html")
+      duration:
+        parseInt($("#hours")[0].value) * 60 + parseInt($("#mins")[0].value),
+      start_time: startTimeTimestamp(),
+    }),
+  }).then(() => (location.href = "user-dashboard.html"));
 }
 
 fetch(backend + "./initiatives", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
-  }
+  },
 }).then(async (data) => {
   data = await data.json();
   data = data.map(

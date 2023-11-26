@@ -4,8 +4,7 @@
   "description": "Outreach Website Frontend",
   "scripts": {
     "build": "webpack --mode=development",
-    "build:prod": "webpack --mode=production --node-env=production && (py flask_compile.py clean || python3 flask_compile.py clean)",
-    "serve": "start /b webpack --mode=development & start /b py -m http.server 80 --directory dist"
+    "build:prod": "webpack --mode=production --node-env=production && (py flask_compile.py clean || python3 flask_compile.py clean)"
   },
   "keywords": [],
   "author": "Eshaan Debnath",

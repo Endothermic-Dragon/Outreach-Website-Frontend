@@ -22,87 +22,89 @@ main {
 }
 
 @media only screen and (max-width: 800px) {
-    #homeHeader {
-        flex-direction: column;
-        height: 500px;
-        .leftHomeHeader {
-            height: 150px;
-            width: 90%;
-            flex-direction: row;
-            h1, h2 {
-                font-size: 36px;
-                margin: 5px;
-            }
-        }
-        .rightHomeHeader {
-            width: 90%;
-            font-size: 30px;
-            height: 300px;
-            line-height: 2;
-        }
-        img {
-            width: 30%;
-            aspect-ratio: 7/5;
-        }
+  #homeHeader {
+    flex-direction: column;
+    height: 500px;
+    .leftHomeHeader {
+      height: 150px;
+      width: 90%;
+      flex-direction: row;
+      h1,
+      h2 {
+        font-size: 36px;
+        margin: 5px;
+      }
     }
+    .rightHomeHeader {
+      width: 90%;
+      font-size: 30px;
+      height: 300px;
+      line-height: 2;
+    }
+    img {
+      width: 30%;
+      aspect-ratio: 7/5;
+    }
+  }
 }
 
 @media only screen and (max-width: 470px) {
-    #homeHeader {
-        .leftHomeHeader {
-            height: 250px;
-            width: 90%;
-            flex-direction: column;
-            h1, h2 {
-                font-size: 36px;
-                margin: 5px;
-            }
-        }
-        img {
-            width: 120px;
-            aspect-ratio: 7/5;
-            margin-bottom: 10px;
-        }
+  #homeHeader {
+    .leftHomeHeader {
+      height: 250px;
+      width: 90%;
+      flex-direction: column;
+      h1,
+      h2 {
+        font-size: 36px;
+        margin: 5px;
+      }
     }
+    img {
+      width: 120px;
+      aspect-ratio: 7/5;
+      margin-bottom: 10px;
+    }
+  }
 }
 
 @media only screen and (min-width: 800px) {
-    #homeHeader {
-        flex-direction: row;
-        height: 400px;
-        .leftHomeHeader {
-            height: 400px;
-            width: 50%;
-            flex-direction: column;
-            h1 {
-                font-size: 48px;
-                margin-bottom: 25px;
-            }
-            h2 {
-                font-size: 40px;
-                margin-bottom: 50px;
-            }
-        }
-        .rightHomeHeader {
-            margin-bottom: 30px;
-            width: 50%;
-            line-height: 2.5;
-            height: 400px;
-        }
-        img {
-            width: 30%;
-            aspect-ratio: 7/5;
-        }
+  #homeHeader {
+    flex-direction: row;
+    height: 400px;
+    .leftHomeHeader {
+      height: 400px;
+      width: 50%;
+      flex-direction: column;
+      h1 {
+        font-size: 48px;
+        margin-bottom: 25px;
+      }
+      h2 {
+        font-size: 40px;
+        margin-bottom: 50px;
+      }
     }
+    .rightHomeHeader {
+      margin-bottom: 30px;
+      width: 50%;
+      line-height: 2.5;
+      height: 400px;
+    }
+    img {
+      width: 30%;
+      aspect-ratio: 7/5;
+    }
+  }
 }
 
 #homeHeader {
-    background-color: #ccc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
+  background-color: #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
 
 #homeHeader .leftHomeHeader {
   display: flex;
@@ -202,16 +204,16 @@ main {
 }
 
 @media screen and (min-width: 750px) {
-    .block {
-        flex-direction: row;
-        .block-left {
-            padding-right: 10px;
-        }
-        .block-right {
-            border-left: 1px solid #333;
-            padding-left: 10px;
-        }
+  .block {
+    flex-direction: row;
+    .block-left {
+      padding-right: 10px;
     }
+    .block-right {
+      border-left: 1px solid #333;
+      padding-left: 10px;
+    }
+  }
 }
 
 @media screen and (max-width: 750px) {
