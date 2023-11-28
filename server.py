@@ -1,8 +1,7 @@
+import os
 import shutil
-import subprocess
 from threading import Thread
 from http.server import HTTPServer, SimpleHTTPRequestHandler
-
 
 class Handler(SimpleHTTPRequestHandler):
 
@@ -25,10 +24,10 @@ def take_input():
       user_input = "e"
     if user_input.lower() in ["", "d", "dev", "development"]:
       print("Awaiting development build...")
-      command = ["npx", "webpack", "--mode=development"]
+      command = "npx webpack --mode=development"
     elif user_input.lower() in ["p", "prod", "production"]:
       print("Awaiting production build...")
-      command = ["npx", "webpack", "--mode=production", "--node-env=production"]
+      command = "npx webpack --mode=production --node-env=production"
       shutil.rmtree("./flask_build", ignore_errors=True)
     elif user_input.lower() in ["h", "help"]:
       print(
@@ -47,10 +46,11 @@ def take_input():
       print("Unrecognized input. Type 'h' for help.")
       continue
 
-    with subprocess.Popen(command, stdout=subprocess.PIPE, shell=True) as p:
-      if p.stdout:
-        for line in p.stdout:
-          print(line.decode('unicode_escape'), end='')
+    os.system(command)
+    # with subprocess.Popen(command, stdout=subprocess.PIPE, shell=True) as p:
+    #   if p.stdout:
+    #     for line in p.stdout:
+    #       print(line.decode('unicode_escape'), end='')
 
     print(
         "\n--------------------\nBuild finished.\nPlease hard refresh your page with Ctrl+Shift+R.\n--------------------"
