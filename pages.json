@@ -23,7 +23,7 @@
     {
       "chunk": "home",
       "html": "home.html",
-      "bundler": ["styles/home.scss"]
+      "bundler": ["styles/home.scss", "scripts/home.js"]
     },
     {
       "chunk": "all-students",

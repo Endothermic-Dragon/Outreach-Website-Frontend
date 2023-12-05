@@ -147,7 +147,7 @@ if (menuExists) {
     .map((el) => path.resolve("./src/", el))
     .filter((filepath, i) => {
       let contents = fs.readFileSync(filepath, "utf-8");
-      let prefix = isProduction ? "PROD" : "DEV";
+      let prefix = isProduction ? "PROD-" : "DEV-";
       let hash =
         prefix + crypto.createHash("sha1").update(contents).digest("base64");
       newCache[webpackData["menu-bundler"][i]] = hash;
