@@ -8,16 +8,16 @@ function addStudentRow(e) {
   <input type="email" placeholder="Email" required><br>
   <select>
     <option value="-" disabled selected>Department NA</option>
-    <option value="documentation">Documentation</option>
-    <option value="finance">Finance</option>
-    <option value="pr">Public Relations</option>
-    <option value="carpentry">Carpentry</option>
-    <option value="design">Design</option>
-    <option value="electrical">Electrical</option>
-    <option value="mechanical">Mechanical</option>
-    <option value="programming">Programming</option>
-    <option value="safety">Safety</option>
-    <option value="strategy">Strategy</option>
+    <option value="Documentation">Documentation</option>
+    <option value="Finance">Finance</option>
+    <option value="Public Relations">Public Relations</option>
+    <option value="Carpentry">Carpentry</option>
+    <option value="Design">Design</option>
+    <option value="Electrical">Electrical</option>
+    <option value="Mechanical">Mechanical</option>
+    <option value="Programming">Programming</option>
+    <option value="Safety">Safety</option>
+    <option value="Strategy">Strategy</option>
   </select><br>
   <input type="checkbox" id="new-student-${count}">
   <label for="new-student-${count}"> New student</label><br>
