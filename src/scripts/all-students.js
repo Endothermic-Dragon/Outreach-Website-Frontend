@@ -21,7 +21,7 @@ fetch(backend + "./users", {
       el.mins = (parseInt(el.initiative_mins) % 60).toString().padStart(2, "0");
       return `<tr data-user_id="${el.user_id}">
       <td>
-        <div><img src="${el.profile_picture}"> ${el.name}</div>
+        <div>${el.name}</div>
         <div><a href="mailto:${el.email}" target="blank">${el.email}</a></div>
       </td>
       <td>${el.department_name}</td>

@@ -49,15 +49,13 @@ function removeStudentRow(e) {
 async function submitForm(e) {
   e.preventDefault();
   $("[type='submit']")[0].disabled = true;
-  let searches = [];
+  let names = [];
+  let emails = [];
   let departments = [];
   let tags_s = [];
   $("form > div").forEach((el) => {
-    searches.push(
-      el.querySelector("input").value +
-        " " +
-        el.querySelector("[type='email']").value
-    );
+    names.push(el.querySelector("input").value);
+    emails.push(el.querySelector("[type='email']").value);
     departments.push(el.querySelector("select").value);
     let tags = [];
     el.querySelector("[id^='mentor']").checked && tags.push("mentor");
@@ -65,15 +63,16 @@ async function submitForm(e) {
     tags_s.push(tags);
   });
 
-  let code = await crossFetch();
+  // let code = await crossFetch();
   fetch(backend + "./add-users", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      code: code,
-      searches: searches,
+      // code: code,
+      names: names,
+      emails: emails,
       departments: departments,
       tags_s: tags_s,
       session_token: localStorage.getItem("session-token"),
@@ -90,21 +89,21 @@ async function submitForm(e) {
 //   "tags": "returning-student",
 // })
 
-function crossFetch() {
-  return new Promise((resolve) => {
-    const client = google.accounts.oauth2.initCodeClient({
-      client_id:
-        "672955273389-tc6i17ics6qv7sh6g7m597fi30ic0ljq.apps.googleusercontent.com",
-      scope: "https://www.googleapis.com/auth/contacts.readonly",
-      ux_mode: "popup",
-      callback: (res) => {
-        resolve(res.code);
-      },
-    });
+// function crossFetch() {
+//   return new Promise((resolve) => {
+//     const client = google.accounts.oauth2.initCodeClient({
+//       client_id:
+//         "672955273389-tc6i17ics6qv7sh6g7m597fi30ic0ljq.apps.googleusercontent.com",
+//       scope: "https://www.googleapis.com/auth/contacts.readonly",
+//       ux_mode: "popup",
+//       callback: (res) => {
+//         resolve(res.code);
+//       },
+//     });
 
-    client.requestCode();
-  });
-}
+//     client.requestCode();
+//   });
+// }
 
 $(".add-another-student")[0].on("click", addStudentRow);
 $(".remove-row")[0].on("click", removeStudentRow);

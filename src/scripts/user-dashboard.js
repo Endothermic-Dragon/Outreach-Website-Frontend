@@ -24,10 +24,9 @@ fetch(backend + "./user", {
     return;
   }
   data = await data.json();
-  $(".user-banner img")[0].src = data.profile_picture;
-  $(".user-details div:first-child")[0].innerText = data.name;
-  $(".user-details div a")[0].innerText = data.email;
-  $(".user-details div a")[0].href = `mailto:${data.email}`;
+  $(".user-banner div:first-child")[0].innerText = data.name;
+  $(".user-banner a")[0].innerText = data.email;
+  $(".user-banner a")[0].href = `mailto:${data.email}`;
   data.mins = parseInt(data.initiative_mins) % 60;
   data.hours = Math.floor(parseInt(data.initiative_mins) / 60);
 

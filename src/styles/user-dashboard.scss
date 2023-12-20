@@ -1,27 +1,15 @@
 .user-banner {
   margin: 20px 0 30px 0;
-  display: flex;
-  height: 100px;
-  justify-content: center;
-  align-items: center;
-  gap: 15px;
+  text-align: center;
 
   div:first-child {
     font-size: 48px;
     font-weight: 700;
-
-    img {
-      border-radius: 50%;
-    }
   }
 
-  div:last-child {
-    margin-top: -10px;
-
-    a {
-      font-size: 16px;
-      color: #525252;
-    }
+  a {
+    font-size: 16px;
+    color: #525252;
   }
 }
 
