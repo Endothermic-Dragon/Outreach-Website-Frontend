@@ -25,3 +25,6 @@ Add new pages under `html-pages` in `pages.json`. Note that it must be a relativ
       - `h, help`
     - Terminate this server
       - `e, q, exit, quit`
+
+# Future
+- SWC instead of babel

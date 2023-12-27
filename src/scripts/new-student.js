@@ -1,9 +1,9 @@
 import { $, backend } from "./global.js";
 let count = 1;
 function addStudentRow(e) {
-  count++;
-  e.preventDefault();
-  const subform = `
+	count++;
+	e.preventDefault();
+	const subform = `
   <input type="text" placeholder="Full Name" required><br>
   <input type="email" placeholder="Email" required><br>
   <select>
@@ -24,62 +24,66 @@ function addStudentRow(e) {
   <input type="checkbox" id="mentor-${count}">
   <label for="mentor-${count}"> Mentor</label><br>
   `;
-  let newDiv = document.createElement("div");
-  let button = document.createElement("button");
+	let newDiv = document.createElement("div");
+	let button = document.createElement("button");
 
-  button.classList.add("remove-row");
-  button.innerText = "Remove student row";
-  button.addEventListener("click", removeStudentRow);
+	button.classList.add("remove-row");
+	button.innerText = "Remove student row";
+	button.addEventListener("click", removeStudentRow);
 
-  let hr = document.createElement("hr");
+	let hr = document.createElement("hr");
 
-  newDiv.innerHTML = subform;
-  newDiv.appendChild(button);
+	newDiv.innerHTML = subform;
+	newDiv.appendChild(button);
 
-  $("form")[0].insertBefore(hr, [...$("form")[0].children].at(-3));
-  $("form")[0].insertBefore(newDiv, [...$("form")[0].children].at(-3));
+	$("form")[0].insertBefore(hr, [...$("form")[0].children].at(-3));
+	$("form")[0].insertBefore(newDiv, [...$("form")[0].children].at(-3));
 }
 
 function removeStudentRow(e) {
-  e.preventDefault();
-  e.target.parentElement.previousSibling.remove();
-  e.target.parentElement.remove();
+	e.preventDefault();
+	e.target.parentElement.previousSibling.remove();
+	e.target.parentElement.remove();
 }
 
 async function submitForm(e) {
-  e.preventDefault();
-  $("[type='submit']")[0].disabled = true;
-  let names = [];
-  let emails = [];
-  let departments = [];
-  let tags_s = [];
-  $("form > div").forEach((el) => {
-    names.push(el.querySelector("input").value);
-    emails.push(el.querySelector("[type='email']").value);
-    departments.push(el.querySelector("select").value);
-    let tags = [];
-    el.querySelector("[id^='mentor']").checked && tags.push("mentor");
-    el.querySelector("[id^='new-student']").checked && tags.push("new");
-    tags_s.push(tags);
-  });
+	e.preventDefault();
+	$("[type='submit']")[0].disabled = true;
+	let names = [];
+	let emails = [];
+	let departments = [];
+	let tags_s = [];
 
-  // let code = await crossFetch();
-  fetch(backend + "./add-users", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      // code: code,
-      names: names,
-      emails: emails,
-      departments: departments,
-      tags_s: tags_s,
-      session_token: localStorage.getItem("session-token"),
-    }),
-  }).then(() => {
-    window.location.href = "all-students.html";
-  });
+	// I can't use for..of? What the fuck?
+	let divs = $("form > div");
+	for (let i = 0; i < divs.length; i++) {
+		el = divs[i];
+		names.push(el.querySelector("input").value);
+		emails.push(el.querySelector("[type='email']").value);
+		departments.push(el.querySelector("select").value);
+		let tags = [];
+		el.querySelector("[id^='mentor']").checked && tags.push("mentor");
+		el.querySelector("[id^='new-student']").checked && tags.push("new");
+		tags_s.push(tags);
+	}
+
+	// let code = await crossFetch();
+	fetch(`${backend}./add-users`, {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify({
+			// code: code,
+			names: names,
+			emails: emails,
+			departments: departments,
+			tags_s: tags_s,
+			session_token: localStorage.getItem("session-token"),
+		}),
+	}).then(() => {
+		window.location.href = "all-students.html";
+	});
 }
 
 // body: JSON.stringify({

@@ -125,7 +125,8 @@ hr {
         rgba(255, 0, 0, 0.5) 100%
       ),
       var(--img-url);
-    background-size: cover;
+    background-size: contain;
+    background-repeat: no-repeat;
     background-position: 50% 50%;
     color: white;
     min-height: 300px;
