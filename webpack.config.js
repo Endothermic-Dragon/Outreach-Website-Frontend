@@ -122,22 +122,22 @@ for (let page of webpackData["html-pages"]) {
 		// && (page.bundler = [...page.bundler, ...webpackData["menu-bundler"]])
 
 		// Check cache
-		let bundle = page.bundler
-			.map((el) => path.resolve("./src/", el))
-			.filter((filepath, i) => {
-				let contents = fs.readFileSync(filepath, "utf-8");
-				let prefix = isProduction ? "PROD-" : "DEV-";
-				let hash =
-					prefix + crypto.createHash("sha1").update(contents).digest("base64");
-				newCache[page.bundler[i]] = hash;
-				return cache[page.bundler[i]] != hash;
-			});
-		if (bundle.length) {
-			config.entry[page.chunk] = { import: bundle };
+		let bundle = page.bundler.map((el) => path.resolve("./src/", el));
 
-			// if (menuExists) {
-			//   config.entry[page.chunk].dependOn = "menu";
-			// }
+		filteredBundle = bundle.filter((filepath, i) => {
+			let contents = fs.readFileSync(filepath, "utf-8");
+			let prefix = isProduction ? "PROD-" : "DEV-";
+			let hash =
+				prefix + crypto.createHash("sha1").update(contents).digest("base64");
+			newCache[page.bundler[i]] = hash;
+			return cache[page.bundler[i]] != hash;
+		});
+		if (filteredBundle.length) {
+			config.entry[page.chunk] = filteredBundle;
+
+			if (filteredBundle.every((name) => name.slice(-3) != ".js")) {
+				config.entry[page.chunk] = bundle;
+			}
 		}
 	}
 }
