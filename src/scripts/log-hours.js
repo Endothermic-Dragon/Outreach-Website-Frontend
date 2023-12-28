@@ -10,40 +10,22 @@ function updatePrep() {
 	}
 }
 
-$("#start-time")[0].on("input", (e, el) => {
-	let start = new Date(el.value);
+$("#start-time, #end-time").onAll("input", () => {
+	let start = new Date($("#start-time")[0].value);
 	let end = new Date($("#end-time")[0].value);
 	// Two weeks to log time
 	let startLimit = new Date().getTime() - 14 * 24 * 60 * 60 * 1000;
 	startLimit = new Date().setTime(startLimit);
 	if (startLimit > start) {
-		el.setCustomValidity("You can only log hours for two weeks.");
+		$("#start-time")[0].setCustomValidity("You can only log hours for two weeks.");
 	} else if (start >= end) {
-		el.setCustomValidity("Start time must be before end time.");
-	} else if (end - start > 24 * 60) {
-		$("#start-time")[0].setCustomValidity(
-			"Cannot log more than 24 hours at once.",
-		);
-	} else {
-		el.setCustomValidity("");
-	}
-});
-
-$("#end-time")[0].on("input", (e, el) => {
-	let start = new Date($("#start-time")[0].value);
-	let end = new Date(el.value);
-	if (end > new Date()) {
-		el.setCustomValidity("You can't log hours in the future.");
-	} else if (start >= end) {
-		$("#start-time")[0].setCustomValidity(
-			"Start time must be before end time.",
-		);
+		$("#start-time")[0].setCustomValidity("Start time must be before end time.");
 	} else if (end - start > 24 * 60 * 60 * 1000) {
 		$("#start-time")[0].setCustomValidity(
 			"Cannot log more than 24 hours at once.",
 		);
 	} else {
-		el.setCustomValidity("");
+		$("#start-time")[0].setCustomValidity("");
 	}
 });
 
