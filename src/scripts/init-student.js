@@ -1,7 +1,7 @@
 import { $, backend } from "./global.js";
 
 function pushToDB(e) {
-  e.preventDefault();
+	e.preventDefault();
 	const client = google.accounts.oauth2.initCodeClient({
 		client_id:
 			"672955273389-tc6i17ics6qv7sh6g7m597fi30ic0ljq.apps.googleusercontent.com",
@@ -25,21 +25,26 @@ function pushToDB(e) {
 					new_student: $("#new-student")[0].value,
 				}),
 			}).then(async (res) => {
+				// if (res.status !== 200) {
+				// 	alert("Could not log in. Please try again.");
+				// 	return;
+				// }
 				if (res.status !== 200) {
-					alert("Could not log in. Please try again.");
-					return;
+					alert("Could not register. Please try again.");
+				} else {
+					window.location.href = "./home.html";
 				}
-				let data = await res.json();
-				localStorage.setItem("session-token", data.session_token);
-				localStorage.setItem("user-id", data.user_id);
-				localStorage.setItem("tags", JSON.stringify(data.tags));
-				$(".sign-in")[0].classList.add("disabled");
-				$(".sign-in")[0].removeEventListener("click", signIn);
+				// let data = await res.json();
+				// localStorage.setItem("session-token", data.session_token);
+				// localStorage.setItem("user-id", data.user_id);
+				// localStorage.setItem("tags", JSON.stringify(data.tags));
+				// $(".sign-in")[0].classList.add("disabled");
+				// $(".sign-in")[0].removeEventListener("click", signIn);
 
-				$(".sidebar")[0].classList.add("signed-in");
-				if (data.tags.includes("mentor")) {
-					$(".sidebar")[0].classList.add("mentor");
-				}
+				// $(".sidebar")[0].classList.add("signed-in");
+				// if (data.tags.includes("mentor")) {
+				// 	$(".sidebar")[0].classList.add("mentor");
+				// }
 			});
 		},
 	});

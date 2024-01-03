@@ -17,9 +17,13 @@ $("#start-time, #end-time").onAll("input", () => {
 	let startLimit = new Date().getTime() - 14 * 24 * 60 * 60 * 1000;
 	startLimit = new Date().setTime(startLimit);
 	if (startLimit > start) {
-		$("#start-time")[0].setCustomValidity("You can only log hours for two weeks.");
+		$("#start-time")[0].setCustomValidity(
+			"You can only log hours for two weeks.",
+		);
 	} else if (start >= end) {
-		$("#start-time")[0].setCustomValidity("Start time must be before end time.");
+		$("#start-time")[0].setCustomValidity(
+			"Start time must be before end time.",
+		);
 	} else if (end - start > 24 * 60 * 60 * 1000) {
 		$("#start-time")[0].setCustomValidity(
 			"Cannot log more than 24 hours at once.",
