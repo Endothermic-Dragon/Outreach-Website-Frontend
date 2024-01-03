@@ -1,7 +1,8 @@
 import os
 import shutil
-from threading import Thread
 from http.server import HTTPServer, SimpleHTTPRequestHandler
+from threading import Thread
+
 
 class Handler(SimpleHTTPRequestHandler):
 
@@ -22,14 +23,14 @@ def take_input():
       user_input = input()
     except EOFError:
       user_input = "e"
-    if user_input.lower() in ["", "d", "dev", "development"]:
+    if user_input.lower() in {"", "d", "dev", "development"}:
       print("Awaiting development build...")
       command = "npx webpack --mode=development"
-    elif user_input.lower() in ["p", "prod", "production"]:
+    elif user_input.lower() in {"p", "prod", "production"}:
       print("Awaiting production build...")
       command = "npx webpack --mode=production --node-env=production"
       shutil.rmtree("./flask_build", ignore_errors=True)
-    elif user_input.lower() in ["h", "help"]:
+    elif user_input.lower() in {"h", "help"}:
       print(
           "[no input], d, dev, development\nRun a development build (faster than a production build, but less secure)\n"
       )
@@ -37,7 +38,7 @@ def take_input():
       print("h, help\nView these usage instructions\n")
       print("e, q, exit, quit\nTerminate this server")
       continue
-    elif user_input.lower() in ["e", "exit", "q", "quit"]:
+    elif user_input.lower() in {"e", "exit", "q", "quit"}:
       print("Exiting...")
       http_server.shutdown()
       running = False
@@ -57,7 +58,7 @@ def take_input():
     )
 
 
-http_server = HTTPServer(("", 80), Handler)
+http_server = HTTPServer(("", 8000), Handler)
 
 if __name__ == '__main__':
   t1 = Thread(target=my_forever_while)

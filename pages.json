@@ -58,6 +58,11 @@
     {
       "chunk": "privacy-policy",
       "html": "privacy-policy.html"
+    },
+    {
+      "chunk": "init-student",
+      "html": "init-student.html",
+      "bundler": ["styles/init-student.scss", "scripts/init-student.js"]
     }
   ]
 }

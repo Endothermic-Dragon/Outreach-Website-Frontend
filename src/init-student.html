@@ -1,0 +1,29 @@
+{% extends "menu.html" %}
+{% block title %} Init Student {% endblock title %}
+{% block content %}
+<form autocomplete="off">
+  <h2>Initialization</h2>
+  <div>
+    Choose your department:<br>
+    <select required>
+      <option value="" disabled selected>Department NA</option>
+      <option value="Documentation">Documentation</option>
+      <option value="Finance">Finance</option>
+      <option value="Public Relations">Public Relations</option>
+      <option value="Carpentry">Carpentry</option>
+      <option value="Design">Design</option>
+      <option value="Electrical">Electrical</option>
+      <option value="Mechanical">Mechanical</option>
+      <option value="Programming">Programming</option>
+      <option value="Safety">Safety</option>
+      <option value="Strategy">Strategy</option>
+    </select>
+  </div>
+  <div>
+    Are you a new student?<br>Leave blank if no.<br>
+    <input type="checkbox" id="new-student">
+    <label for="new-student"> Yes</label>
+  </div>
+  <div><button type="submit">Add Me!</button></div>
+</form>
+{% endblock content %}

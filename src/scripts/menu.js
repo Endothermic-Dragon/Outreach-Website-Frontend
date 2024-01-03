@@ -24,7 +24,7 @@ $(".sidebar > div:not(:last-child)").onAll("click", (e, el) => {
 	location.href = el.dataset.url;
 });
 
-$(`.sidebar > div[data-url="${location.pathname.slice(1)}"]`)[0].classList.add(
+$(`.sidebar > div[data-url="${location.pathname.slice(1)}"]`)[0]?.classList.add(
 	"selected",
 );
 
@@ -122,9 +122,9 @@ function notify(message, time) {
 		};
 	}
 
-  for (let key in styling) {
+	for (let key in styling) {
 		container.style[key] = styling[key];
-	};
+	}
 
 	document.body.appendChild(container);
 	setTimeout(() => {
@@ -135,26 +135,28 @@ function notify(message, time) {
 	}, time * 1000);
 }
 
-fetch(`${backend}./pre-auth`, {
-	method: "POST",
-	headers: {
-		"Content-Type": "application/json",
-	},
-	body: JSON.stringify({
-		session_token: localStorage.getItem("session-token"),
-	}),
-}).then(async (res) => {
-	if (res.status != 200) {
-		notify(
-			"You are not signed in. To access working features of this website, please navigate to the menu and log in through Google.",
-			7.5,
-		);
-		$(".sign-in")[0].classList.remove("disabled");
-		$(".sign-in")[0].on("click", signIn);
-	} else {
-		$(".sidebar")[0].classList.add("signed-in");
-		if (JSON.parse(localStorage.getItem("tags")).includes("mentor")) {
-			$(".sidebar")[0].classList.add("mentor");
+if ($(`.sidebar > div[data-url="${location.pathname.slice(1)}"]`)[0]) {
+	fetch(`${backend}./pre-auth`, {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify({
+			session_token: localStorage.getItem("session-token"),
+		}),
+	}).then(async (res) => {
+		if (res.status != 200) {
+			notify(
+				"You are not signed in. To access working features of this website, please navigate to the menu and log in through Google.",
+				7.5,
+			);
+			$(".sign-in")[0].classList.remove("disabled");
+			$(".sign-in")[0].on("click", signIn);
+		} else {
+			$(".sidebar")[0].classList.add("signed-in");
+			if (JSON.parse(localStorage.getItem("tags")).includes("mentor")) {
+				$(".sidebar")[0].classList.add("mentor");
+			}
 		}
-	}
-});
+	});
+}
