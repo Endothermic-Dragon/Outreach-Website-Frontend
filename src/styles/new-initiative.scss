@@ -33,6 +33,14 @@ form {
     margin-top: 5px;
   }
 
+  input:disabled {
+    background-color: lightgray;
+  }
+
+  .picture-note {
+    font-size: 10px;
+  }
+
   div:last-child {
     text-align: center;
   }
