@@ -1,1 +1,132 @@
-.content-header{background-color:#ccc;height:150px;display:flex;flex-direction:row;justify-content:center;align-items:center;text-align:center;padding:0 30px}.content-header h1{color:red;font-size:48px}section{display:flex;border:5px solid red;border-radius:15px;padding:20px 10px;background-color:#ffcdcd;margin-bottom:20px}hr{margin:15px auto 15px auto;width:75%;border:1px dashed #707070}.image-container{flex:2 2 350px;display:flex;justify-content:center;align-items:center}.image-container img{width:90%}.info-container{flex:3 5 300px;padding:0 15px;display:flex;flex-direction:column;justify-content:center;overflow-wrap:anywhere;line-height:1.125}.info-container .stats{display:flex;justify-content:center;gap:50px}.info-container .participants{width:150px}.info-container .hours{width:100px}.info-container .participants,.info-container .hours{display:flex;justify-content:center;align-items:center;gap:5px;margin-top:5px}.info-container .participants img,.info-container .hours img{width:auto;height:15px}.info-container h2{text-align:center;font-size:30px;margin:0}.leads{font-size:14px;text-align:center}.description{font-size:18px;color:#525252;margin-top:16px}.description div{margin-bottom:8px}@media only screen and (max-width: 1100px){.description{margin-top:12px;font-size:16px}}@media only screen and (max-width: 800px){section{display:flex;border:5px solid red;border-radius:15px;padding:0;overflow:hidden;background-color:#ffcdcd;--img-url: url("./static/boroblast.jpg")}.image-container{display:none}.info-container{background-image:linear-gradient(rgba(0, 0, 0, 0.5) 60%, rgba(255, 0, 0, 0.5) 100%),var(--img-url);background-size:contain;background-repeat:no-repeat;background-position:50% 50%;color:#fff;min-height:300px;padding:20px 15px}.info-container img{-webkit-filter:invert(1);filter:invert(1)}.description{color:#fff}}
+/*!********************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[0].use[1]!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/styles/initiatives.scss ***!
+  \********************************************************************************************************************************************************************************************/
+.content-header {
+  background-color: #cccccc;
+  height: 150px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 30px;
+}
+.content-header h1 {
+  color: red;
+  font-size: 48px;
+}
+
+section {
+  display: flex;
+  border: 5px solid red;
+  border-radius: 15px;
+  padding: 20px 10px;
+  background-color: #ffcdcd;
+  margin-bottom: 20px;
+}
+
+hr {
+  margin: 15px auto 15px auto;
+  width: 75%;
+  border: 1px dashed #707070;
+}
+
+.image-container {
+  flex: 2 2 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.image-container img {
+  width: 90%;
+}
+
+.info-container {
+  flex: 3 5 300px;
+  padding: 0 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow-wrap: anywhere;
+  line-height: 1.125;
+}
+.info-container .stats {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+.info-container .participants {
+  width: 150px;
+}
+.info-container .hours {
+  width: 100px;
+}
+.info-container .participants,
+.info-container .hours {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  margin-top: 5px;
+}
+.info-container .participants img,
+.info-container .hours img {
+  width: auto;
+  height: 15px;
+}
+.info-container h2 {
+  text-align: center;
+  font-size: 30px;
+  margin: 0;
+}
+
+.leads {
+  font-size: 14px;
+  text-align: center;
+}
+
+.description {
+  font-size: 18px;
+  color: #525252;
+  margin-top: 16px;
+}
+.description div {
+  margin-bottom: 8px;
+}
+
+@media only screen and (max-width: 1100px) {
+  .description {
+    margin-top: 12px;
+    font-size: 16px;
+  }
+}
+@media only screen and (max-width: 800px) {
+  section {
+    display: flex;
+    border: 5px solid red;
+    border-radius: 15px;
+    padding: 0;
+    overflow: hidden;
+    background-color: #ffcdcd;
+    --img-url: url("./static/boroblast.jpg");
+  }
+  .image-container {
+    display: none;
+  }
+  .info-container {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5) 60%, rgba(255, 0, 0, 0.5) 100%), var(--img-url);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    color: white;
+    min-height: 300px;
+    padding: 20px 15px;
+  }
+  .info-container img {
+    -webkit-filter: invert(1);
+            filter: invert(1);
+  }
+  .description {
+    color: white;
+  }
+}

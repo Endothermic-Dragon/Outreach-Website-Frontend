@@ -57,7 +57,7 @@ async function submitForm(e) {
 	// I can't use for..of? What the fuck?
 	let divs = $("form > div");
 	for (let i = 0; i < divs.length; i++) {
-		el = divs[i];
+		let el = divs[i];
 		names.push(el.querySelector("input").value);
 		emails.push(el.querySelector("[type='email']").value);
 		departments.push(el.querySelector("select").value);

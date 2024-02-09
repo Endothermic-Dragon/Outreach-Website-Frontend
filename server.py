@@ -30,13 +30,19 @@ def take_input():
       print("Awaiting production build...")
       command = "npx webpack --mode=production --node-env=production"
       shutil.rmtree("./flask_build", ignore_errors=True)
+    elif user_input.lower() in {"r", "reset", "rebuild", "restart"}:
+      print("Clearing cache and awaiting development build...")
+      command = "npx webpack --mode=development"
+      with open("cache.json", "w") as f:
+        f.write("")
     elif user_input.lower() in {"h", "help"}:
       print(
           "[no input], d, dev, development\nRun a development build (faster than a production build, but less secure)\n"
       )
       print("p, prod, production\nRun a production build\n")
       print("h, help\nView these usage instructions\n")
-      print("e, q, exit, quit\nTerminate this server")
+      print("e, q, exit, quit\nTerminate this server\n")
+      print("r, reset, rebuild, restart\nClear cache and run a development build")
       continue
     elif user_input.lower() in {"e", "exit", "q", "quit"}:
       print("Exiting...")

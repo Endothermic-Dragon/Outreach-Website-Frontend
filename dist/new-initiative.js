@@ -1,1 +1,131 @@
-(()=>{var e={548:e=>{e.exports={$:e=>{var t=[...document.querySelectorAll(e)],n=function(e){e.on=(t,n)=>e.addEventListener(t,(t=>n(t,e)))};for(var r of t)n(r);return t.onAll=(e,n)=>t.map((t=>t.on(e,n))),t.on=()=>{throw new TypeError('Cannot add event listener on multiple elements using "on". Use "onAll" to add to multiple elements, or select one element.')},t},backend:"https://xtekoweg6sbdadhqxpetywgp3m0silph.lambda-url.us-east-1.on.aws/"}}},t={};function n(r){var a=t[r];if(void 0!==a)return a.exports;var i=t[r]={exports:{}};return e[r](i,i.exports,n),i.exports}(()=>{"use strict";function e(e,t,n,r,a,i,o){var s,c;try{c=(s=e[i](o)).value}catch(e){return void n(e)}s.done?t(c):Promise.resolve(c).then(r,a)}var t=n(548),r="";function a(e){var n,a;"BUTTON"==e.target.tagName&&[...e.target.classList].includes("remove")&&(e.preventDefault(),e.target.nextSibling.remove(),e.target.remove()),"BUTTON"==e.target.tagName&&[...e.target.classList].includes("add")&&(e.preventDefault(),(n=document.createElement("select")).required=!0,n.innerHTML=r,(a=document.createElement("button")).classList.add("remove"),a.innerHTML="-",(0,t.$)(".leads-input")[0].insertBefore(a,[...(0,t.$)(".leads-input")[0].children].at(-1)),(0,t.$)(".leads-input")[0].insertBefore(n,[...(0,t.$)(".leads-input")[0].children].at(-1)))}fetch("".concat(t.backend,"./users"),{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({session_token:localStorage.getItem("session-token")})}).then(function(){var n,i=(n=function*(e){if(200==e.status){e=yield e.json();var n=document.createElement("div");e=e.map((e=>(n.innerText=e.user_id,e.user_id=n.innerHTML,n.innerText=e.name,e.name=n.innerHTML,n.innerText=e.email,e.email=n.innerHTML,'<option value="'.concat(e.user_id,'">').concat(e.name," (").concat(e.email,")</option>")))),(0,t.$)("select")[0].innerHTML+=e.join("\n"),r=(0,t.$)("select")[0].innerHTML,(0,t.$)(".leads-input")[0].on("click",a)}else alert("Error ".concat(e.status,"\n").concat(e.statusText))},function(){var t=this,r=arguments;return new Promise((function(a,i){var o=n.apply(t,r);function s(t){e(o,a,i,s,c,"next",t)}function c(t){e(o,a,i,s,c,"throw",t)}s(void 0)}))});return function(){return i.apply(this,arguments)}}()),(0,t.$)("form")[0].on("submit",(e=>{e.preventDefault();var n=[];(0,t.$)("#Community")[0].checked&&n.push("Community"),(0,t.$)("#FIRST")[0].checked&&n.push("FIRST"),(0,t.$)("#STEM")[0].checked&&n.push("STEM"),fetch("".concat(t.backend,"./add-initiative"),{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({session_token:localStorage.getItem("session-token"),initiative_name:(0,t.$)("#name")[0].value.trim(),picture:(0,t.$)("#picture")[0].value.trim(),categories:n,leads:(0,t.$)(".leads-input select").map((e=>e.value)),description:(0,t.$)("textarea")[0].value.trim()})}).then((()=>{location.href="initiatives.html"}))}))})()})();
+/*
+ * ATTENTION: The "eval" devtool has been used (maybe by default in mode: "development").
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
+/******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
+
+/***/ "./src/scripts/global.js":
+/*!*******************************!*\
+  !*** ./src/scripts/global.js ***!
+  \*******************************/
+/***/ ((module) => {
+
+eval("var $=tag=>{var res=[...document.querySelectorAll(tag)];var _loop=function(el){el.on=(e,func)=>el.addEventListener(e,e=>func(e,el))};for(var el of res){_loop(el)}res.onAll=(e,func)=>res.map(el=>el.on(e,func));res.on=()=>{throw new TypeError(\"Cannot add event listener on multiple elements using \\\"on\\\". \"+\"Use \\\"onAll\\\" to add to multiple elements, or select one element.\")};return res};module.exports={$:$,backend:\"https://xtekoweg6sbdadhqxpetywgp3m0silph.lambda-url.us-east-1.on.aws/\"};\n\n//# sourceURL=webpack://outreach-website-frontend/./src/scripts/global.js?");
+
+/***/ }),
+
+/***/ "./src/scripts/new-initiative.js":
+/*!***************************************!*\
+  !*** ./src/scripts/new-initiative.js ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/asyncToGenerator */ \"./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js\");\n/* harmony import */ var _global_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./global.js */ \"./src/scripts/global.js\");\n/* harmony import */ var _global_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_global_js__WEBPACK_IMPORTED_MODULE_1__);\nvar selectHTML=\"\";function handle(e){var select,button;if(e.target.tagName==\"BUTTON\"&&[...e.target.classList].includes(\"remove\")){e.preventDefault();e.target.nextSibling.remove();e.target.remove()}if(e.target.tagName==\"BUTTON\"&&[...e.target.classList].includes(\"add\")){e.preventDefault();select=document.createElement(\"select\");select.required=true;select.innerHTML=selectHTML;button=document.createElement(\"button\");button.classList.add(\"remove\");button.innerHTML=\"-\";(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".leads-input\")[0].insertBefore(button,[...(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".leads-input\")[0].children].at(-1));(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".leads-input\")[0].insertBefore(select,[...(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".leads-input\")[0].children].at(-1))}}fetch(\"\".concat(_global_js__WEBPACK_IMPORTED_MODULE_1__.backend,\"./users\"),{method:\"POST\",headers:{\"Content-Type\":\"application/json\"},body:JSON.stringify({session_token:localStorage.getItem(\"session-token\")})}).then(/*#__PURE__*/function(){var _ref=(0,_babel_runtime_helpers_asyncToGenerator__WEBPACK_IMPORTED_MODULE_0__[\"default\"])(function*(data){if(data.status!=200){alert(\"Error \".concat(data.status,\"\\n\").concat(data.statusText));return}data=yield data.json();// Sanitize\nvar div=document.createElement(\"div\");data=data.map(el=>{// Sanitize\ndiv.innerText=el.user_id;el.user_id=div.innerHTML;div.innerText=el.name;el.name=div.innerHTML;div.innerText=el.email;el.email=div.innerHTML;return\"<option value=\\\"\".concat(el.user_id,\"\\\">\").concat(el.name,\" (\").concat(el.email,\")</option>\")});(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\"select\")[0].innerHTML+=data.join(\"\\n\");selectHTML=(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\"select\")[0].innerHTML;(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".leads-input\")[0].on(\"click\",handle)});return function(){return _ref.apply(this,arguments)}}());(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\"form\")[0].on(\"submit\",e=>{e.preventDefault();var categories=[];(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\"#Community\")[0].checked&&categories.push(\"Community\");(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\"#FIRST\")[0].checked&&categories.push(\"FIRST\");(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\"#STEM\")[0].checked&&categories.push(\"STEM\");fetch(\"\".concat(_global_js__WEBPACK_IMPORTED_MODULE_1__.backend,\"./add-initiative\"),{method:\"POST\",headers:{\"Content-Type\":\"application/json\"},body:JSON.stringify({session_token:localStorage.getItem(\"session-token\"),initiative_name:(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\"#name\")[0].value.trim(),picture:(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\"#picture\")[0].value.trim(),categories:categories,leads:(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\".leads-input select\").map(el=>el.value),description:(0,_global_js__WEBPACK_IMPORTED_MODULE_1__.$)(\"textarea\")[0].value.trim()})}).then(()=>{location.href=\"initiatives.html\"})});\n\n//# sourceURL=webpack://outreach-website-frontend/./src/scripts/new-initiative.js?");
+
+/***/ }),
+
+/***/ "./src/styles/new-initiative.scss":
+/*!****************************************!*\
+  !*** ./src/styles/new-initiative.scss ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n\n\n//# sourceURL=webpack://outreach-website-frontend/./src/styles/new-initiative.scss?");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js":
+/*!*********************************************************************!*\
+  !*** ./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ _asyncToGenerator)\n/* harmony export */ });\nfunction asyncGeneratorStep(gen,resolve,reject,_next,_throw,key,arg){var info,value;try{info=gen[key](arg);value=info.value}catch(error){reject(error);return}if(info.done){resolve(value)}else{Promise.resolve(value).then(_next,_throw)}}function _asyncToGenerator(fn){return function(){var self=this,args=arguments;return new Promise(function(resolve,reject){var gen=fn.apply(self,args);function _next(value){asyncGeneratorStep(gen,resolve,reject,_next,_throw,\"next\",value)}function _throw(err){asyncGeneratorStep(gen,resolve,reject,_next,_throw,\"throw\",err)}_next(undefined)})}}\n\n//# sourceURL=webpack://outreach-website-frontend/./node_modules/@babel/runtime/helpers/esm/asyncToGenerator.js?");
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/compat get default export */
+/******/ 	(() => {
+/******/ 		// getDefaultExport function for compatibility with non-harmony modules
+/******/ 		__webpack_require__.n = (module) => {
+/******/ 			var getter = module && module.__esModule ?
+/******/ 				() => (module['default']) :
+/******/ 				() => (module);
+/******/ 			__webpack_require__.d(getter, { a: getter });
+/******/ 			return getter;
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/define property getters */
+/******/ 	(() => {
+/******/ 		// define getter functions for harmony exports
+/******/ 		__webpack_require__.d = (exports, definition) => {
+/******/ 			for(var key in definition) {
+/******/ 				if(__webpack_require__.o(definition, key) && !__webpack_require__.o(exports, key)) {
+/******/ 					Object.defineProperty(exports, key, { enumerable: true, get: definition[key] });
+/******/ 				}
+/******/ 			}
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/hasOwnProperty shorthand */
+/******/ 	(() => {
+/******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
+/******/ 	})();
+/******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
+/************************************************************************/
+/******/ 	
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	// This entry module can't be inlined because the eval devtool is used.
+/******/ 	__webpack_require__("./src/styles/new-initiative.scss");
+/******/ 	var __webpack_exports__ = __webpack_require__("./src/scripts/new-initiative.js");
+/******/ 	
+/******/ })()
+;
