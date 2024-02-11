@@ -74,6 +74,13 @@ function signIn() {
 				if (data.tags.includes("mentor")) {
 					$(".sidebar")[0].classList.add("mentor");
 				}
+
+				if (sidebar.scrollHeight > sidebar.clientHeight) {
+					document.body.style.setProperty(
+						"--sidebar-offset-scrollbar",
+						`${scrollbarWidth}px`,
+					);
+				}
 			});
 		},
 	});
@@ -100,10 +107,10 @@ function notify(message, displayTime, fadeTime) {
 	textContainer.innerText = message;
 	notifyContainer.appendChild(textContainer);
 
-  let check1 = document.body.scrollHeight > document.body.clientHeight;
-  let check2 =
-    $(".container")[0].scrollHeight > $(".container")[0].clientHeight;
-  if (!check1 && check2) {
+	let check1 = document.body.scrollHeight > document.body.clientHeight;
+	let check2 =
+		$(".container")[0].scrollHeight > $(".container")[0].clientHeight;
+	if (!check1 && check2) {
 		document.body.style.setProperty(
 			"--notification-offset-scrollbar",
 			`${scrollbarWidth}px`,
