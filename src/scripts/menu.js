@@ -14,14 +14,17 @@ const scrollbarWidth = (() => {
 	return scrollbarWidth;
 })();
 
-let sidebar = $(".sidebar")[0];
-
-if (sidebar.scrollHeight > sidebar.clientHeight) {
-	document.body.style.setProperty(
-		"--sidebar-offset-scrollbar",
-		`${scrollbarWidth}px`,
-	);
+function fixSidebarScrollbar() {
+	let sidebar = $(".sidebar")[0];
+	if (sidebar.scrollHeight > sidebar.clientHeight) {
+		document.body.style.setProperty(
+			"--sidebar-offset-scrollbar",
+			`${scrollbarWidth}px`,
+		);
+	}
 }
+
+fixSidebarScrollbar();
 
 $(".sidebar > div:not(:last-child)").onAll("click", (e, el) => {
 	location.href = el.dataset.url;
@@ -75,12 +78,7 @@ function signIn() {
 					$(".sidebar")[0].classList.add("mentor");
 				}
 
-				if (sidebar.scrollHeight > sidebar.clientHeight) {
-					document.body.style.setProperty(
-						"--sidebar-offset-scrollbar",
-						`${scrollbarWidth}px`,
-					);
-				}
+				fixSidebarScrollbar();
 			});
 		},
 	});
@@ -153,6 +151,7 @@ if ($(`.sidebar > div[data-url="${location.pathname.slice(1)}"]`)[0]) {
 			if (JSON.parse(localStorage.getItem("tags")).includes("mentor")) {
 				$(".sidebar")[0].classList.add("mentor");
 			}
+			fixSidebarScrollbar();
 		}
 	});
 }

@@ -5,7 +5,7 @@
         "http-equiv": "Content-Security-Policy",
         "content": "default-src 'self'; script-src 'self' https://accounts.google.com; style-src * 'unsafe-inline'; object-src 'none'; base-uri 'self'; connect-src 'self' https://xtekoweg6sbdadhqxpetywgp3m0silph.lambda-url.us-east-1.on.aws; font-src * 'unsafe-inline'; frame-src 'self'; img-src * data:; manifest-src 'self';"
       },
-      "viewport": "width=device-width, initial-scale=1, shrink-to-fit=no",
+      "viewport": "width=device-width, initial-scale=1, maximum-scale=1.0, shrink-to-fit=no",
       "charset": "UTF-8",
       "description": "Developed by FRC Team 75 (RoboRaiders).\nLed by Eshaan Debnath.\nFrontend credits: Eshaan Debnath, Aditya Kalavala, Jiachen Jiang, Isheeta Chadha.\nBackend credits: Eshaan Debnath, Shravan Prasanth.",
       "theme-color": "#ff0000"

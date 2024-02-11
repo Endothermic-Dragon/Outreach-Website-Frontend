@@ -1,14 +1,10 @@
-* {
+h1,
+h2,
+h3,
+p {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-.sidebar {
-  > div:first-child {
-    background-color: rgb(175, 0, 0);
-    transition: background-color 300ms ease-in-out;
-  }
 }
 
 body {
