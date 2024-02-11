@@ -1,5 +1,19 @@
 import { $, backend } from "./global.js";
 
+const scrollbarWidth = (() => {
+	const outer = document.createElement("div");
+	outer.style.visibility = "hidden";
+	outer.style.overflow = "scroll";
+	document.body.appendChild(outer);
+
+	const inner = document.createElement("div");
+	outer.appendChild(inner);
+
+	const scrollbarWidth = outer.offsetWidth - inner.offsetWidth;
+	outer.remove(outer);
+	return scrollbarWidth;
+})();
+
 fetch(`${backend}./initiatives`, {
 	method: "POST",
 	headers: {
@@ -98,5 +112,16 @@ fetch(`${backend}./initiatives`, {
 	});
 	Promise.all(data).then((data) => {
 		$(".content")[0].innerHTML += data.join("\n");
+
+		// Fix offset for notification
+		let check1 = document.body.scrollHeight > document.body.clientHeight;
+		let check2 =
+			$(".container")[0].scrollHeight > $(".container")[0].clientHeight;
+		if (!check1 && check2) {
+			document.body.style.setProperty(
+				"--notification-offset-scrollbar",
+				`${scrollbarWidth}px`,
+			);
+		}
 	});
 });

@@ -12,6 +12,10 @@ body {
 body {
   --header-height: 70px;
   --sidebar-width: 70px;
+  --sidebar-offset-scrollbar: 0px;
+  --notification-offset-scrollbar: 0px;
+  --notification-duration: 7.5s;
+  --notification-fade: 0.3s;
   display: grid;
   grid-template:
     [header-top] "header header" var(--header-height)
@@ -19,22 +23,23 @@ body {
     70px auto;
   overflow: hidden;
 
-  @media only screen and (max-height: 550px) {
-    --header-height: 60px;
-  }
+  @media only screen {
+    @media (max-height: 550px) {
+      --header-height: 60px;
+    }
 
-  @media only screen and (max-width: 700px),
-    only screen and (hover: none),
-    only screen and (pointer: coarse) {
-    display: block;
-    overflow-y: auto;
+    @media (max-width: 700px),
+      only screen and (hover: none),
+      only screen and (pointer: coarse) {
+      display: block;
+      overflow-y: auto;
+    }
   }
 }
 
 /* ----- Headers and sidebars ----- */
 
 .sidebar {
-  --scrollbar-width: 0px;
   grid-area: sidebar;
   display: flex;
   flex-direction: column;
@@ -48,7 +53,7 @@ body {
   z-index: 1;
 
   &:hover {
-    width: calc(250px + var(--scrollbar-width));
+    width: calc(250px + var(--sidebar-offset-scrollbar));
     overflow-y: auto;
 
     .label {
@@ -121,7 +126,7 @@ body {
     width: 167.5px;
     height: 50px;
     line-height: 47.5px;
-    font-family: Oswald;
+    font-family: Oswald, sans-serif;
     color: white;
     font-size: 28px;
     transition: opacity 200ms ease-in;
@@ -194,27 +199,26 @@ body {
   color: white;
   display: flex;
   user-select: none;
-
-  @media only screen and (max-width: 700px),
-    only screen and (hover: none),
-    only screen and (pointer: coarse) {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: var(--header-height);
-  }
 }
 
 .menu-bars {
   display: none;
   opacity: 0;
   pointer-events: none;
+}
 
-  @media only screen and (max-width: 700px),
-    only screen and (hover: none),
-    only screen and (pointer: coarse) {
-    display: block;
+@media only screen and (max-width: 700px),
+  only screen and (hover: none),
+  only screen and (pointer: coarse) {
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--header-height);
+  }
+
+  .menu-bars {
     flex: 0 0 var(--header-height);
     padding: 0 $menu-bar-side-pad;
     box-sizing: border-box;
@@ -227,36 +231,36 @@ body {
     align-items: center;
     pointer-events: all;
     cursor: pointer;
-  }
 
-  div {
-    width: calc(var(--header-height) - 2 * $menu-bar-side-pad);
-    height: $menu-bar-height;
-    background-color: white;
-    pointer-events: none;
-    transition: width 200ms ease-out, transform 300ms ease-out;
-  }
-
-  &.open > :first-child,
-  &.open > :last-child {
-    width: 0;
-  }
-
-  .menu-bar-middle {
-    background-color: transparent;
-  }
-
-  .menu-bar-middle div {
-    position: absolute;
-    transform-origin: center;
-  }
-
-  &.open .menu-bar-middle div {
-    &:first-child {
-      transform: rotate(45deg) scaleX(1.4);
+    div {
+      width: calc(var(--header-height) - 2 * $menu-bar-side-pad);
+      height: $menu-bar-height;
+      background-color: white;
+      pointer-events: none;
+      transition: width 200ms ease-out, transform 300ms ease-out;
     }
-    &:last-child {
-      transform: rotate(-45deg) scaleX(1.4);
+
+    &.open > :first-child,
+    &.open > :last-child {
+      width: 0;
+    }
+
+    .menu-bar-middle {
+      background-color: transparent;
+    }
+
+    .menu-bar-middle div {
+      position: absolute;
+      transform-origin: center;
+    }
+
+    &.open .menu-bar-middle div {
+      &:first-child {
+        transform: rotate(45deg) scaleX(1.4);
+      }
+      &:last-child {
+        transform: rotate(-45deg) scaleX(1.4);
+      }
     }
   }
 }
@@ -270,7 +274,7 @@ body {
   flex: 0 0 350px;
   align-items: center;
   font-size: 30px;
-  font-family: Oswald;
+  font-family: Oswald, sans-serif;
   text-align: center;
   line-height: 30px;
   justify-content: center;
@@ -300,17 +304,17 @@ body {
   box-sizing: border-box;
   height: calc(100vh - var(--header-height));
 
-  @media only screen and (max-width: 900px) {
-    padding: 15px;
-  }
+  @media only screen {
+    @media (max-width: 900px) {
+      padding: 15px;
+    }
 
-  @media (max-width: 700px),
-    only screen and (hover: none),
-    only screen and (pointer: coarse) {
-    overflow: visible;
-    height: 100vh;
-    padding-top: calc(var(--header-height) + 15px);
-    box-sizing: border-box;
+    @media (max-width: 700px), (hover: none), (pointer: coarse) {
+      overflow: visible;
+      height: 100vh;
+      padding-top: calc(var(--header-height) + 15px);
+      box-sizing: border-box;
+    }
   }
 }
 
@@ -327,7 +331,7 @@ body {
     }
 
     @media (max-width: 1125px) and (min-width: 901px) {
-      width: 700px;
+      width: 675px;
     }
 
     @media (max-width: 900px) {
@@ -335,6 +339,55 @@ body {
     }
   }
 }
+
+/* ----- Button ----- */
+button:not([disabled]) {
+  cursor: pointer;
+}
+
+/* ----- Notification ----- */
+.notification-container {
+  position: absolute;
+  bottom: 15px;
+  right: calc(15px + var(--notification-offset-scrollbar));
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: white;
+  font-size: 18px;
+  width: 250px;
+  border: 5px solid black;
+
+  &.fade {
+    opacity: 0;
+    animation: NotificationPop var(--notification-fade) ease-out 1;
+  }
+
+  @media only screen and (max-width: 400px) {
+    position: fixed;
+    width: auto;
+    left: 15px;
+    // Fuck you Safari
+    -webkit-transform: translate3d(0, 0, 0);
+  }
+}
+
+.loading-bar-container {
+  height: 7.5px;
+
+  div {
+    height: 7.5px;
+    width: 0px;
+    animation: NotificationBar var(--notification-duration) linear 1;
+    background-color: red;
+  }
+}
+
+.notification-message {
+  padding: 7.5px 15px 15px 15px;
+}
+
+// --notification-duration: 7.5s;
+// --notification-fade: 300ms;
 
 @keyframes NotificationBar {
   0% {
@@ -352,9 +405,4 @@ body {
   100% {
     opacity: 0;
   }
-}
-
-/* ----- Button ----- */
-button:not([disabled]) {
-  cursor: pointer;
 }

@@ -1,6 +1,6 @@
 import { $, backend } from "./global.js";
 
-function getScrollbarWidth() {
+const scrollbarWidth = (() => {
 	const outer = document.createElement("div");
 	outer.style.visibility = "hidden";
 	outer.style.overflow = "scroll";
@@ -12,12 +12,15 @@ function getScrollbarWidth() {
 	const scrollbarWidth = outer.offsetWidth - inner.offsetWidth;
 	outer.remove(outer);
 	return scrollbarWidth;
-}
+})();
 
 let sidebar = $(".sidebar")[0];
 
 if (sidebar.scrollHeight > sidebar.clientHeight) {
-	sidebar.style.setProperty("--scrollbar-width", `${getScrollbarWidth()}px`);
+	document.body.style.setProperty(
+		"--sidebar-offset-scrollbar",
+		`${scrollbarWidth}px`,
+	);
 }
 
 $(".sidebar > div:not(:last-child)").onAll("click", (e, el) => {
@@ -78,61 +81,46 @@ function signIn() {
 	client.requestCode();
 }
 
-function notify(message, time) {
-	let container = document.createElement("div");
+function notify(message, displayTime, fadeTime) {
+	document.body.style.setProperty("--notification-duration", `${displayTime}s`);
+	document.body.style.setProperty("--notification-fade", `${fadeTime}s`);
+
+	let notifyContainer = document.createElement("div");
+	notifyContainer.classList.add("notification-container");
+
 	let barContainer = document.createElement("div");
-	barContainer.style.height = "7.5px";
+	barContainer.classList.add("loading-bar-container");
+
 	let bar = document.createElement("div");
-	bar.style.height = "7.5px";
-	bar.style.width = "0";
-	bar.style.animation = `NotificationBar ${time}s linear 1`;
-	bar.style.backgroundColor = "red";
 	barContainer.appendChild(bar);
-	container.appendChild(barContainer);
+	notifyContainer.appendChild(barContainer);
 
 	let textContainer = document.createElement("div");
+	textContainer.classList.add("notification-message");
 	textContainer.innerText = message;
-	textContainer.style.padding = "7.5px 15px 15px 15px";
-	container.appendChild(textContainer);
+	notifyContainer.appendChild(textContainer);
 
-	let styling;
-	if (window.innerWidth > 400) {
-		styling = {
-			position: "absolute",
-			bottom: "15px",
-			right: "30px",
-			"font-family":
-				'system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif',
-			"background-color": "white",
-			"font-size": "18px",
-			width: "250px",
-			border: "5px solid black",
-		};
-	} else {
-		styling = {
-			position: "absolute",
-			bottom: "15px",
-			left: "15px",
-			right: "15px",
-			"font-family":
-				'system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif',
-			"background-color": "white",
-			"font-size": "18px",
-			border: "5px solid black",
-		};
+  let check1 = document.body.scrollHeight > document.body.clientHeight;
+  let check2 =
+    $(".container")[0].scrollHeight > $(".container")[0].clientHeight;
+  if (!check1 && check2) {
+		document.body.style.setProperty(
+			"--notification-offset-scrollbar",
+			`${scrollbarWidth}px`,
+		);
 	}
 
-	for (let key in styling) {
-		container.style[key] = styling[key];
-	}
+	document.body.appendChild(notifyContainer);
 
-	document.body.appendChild(container);
-	setTimeout(() => {
-		let delay = 0.3;
-		container.style.opacity = 0;
-		container.style.animation = `NotificationPop ${delay}s ease-out 1`;
-		setTimeout(() => container.remove(), delay * 1000);
-	}, time * 1000);
+	const fadeAnim = () => {
+		notifyContainer.classList.add("fade");
+		notifyContainer.removeEventListener("animationend", fadeAnim);
+		notifyContainer.addEventListener("animationend", () =>
+			notifyContainer.remove(),
+		);
+	};
+
+	notifyContainer.addEventListener("animationend", fadeAnim);
 }
 
 if ($(`.sidebar > div[data-url="${location.pathname.slice(1)}"]`)[0]) {
@@ -149,6 +137,7 @@ if ($(`.sidebar > div[data-url="${location.pathname.slice(1)}"]`)[0]) {
 			notify(
 				"You are not signed in. To access working features of this website, please navigate to the menu and log in through Google.",
 				7.5,
+				0.3,
 			);
 			$(".sign-in")[0].classList.remove("disabled");
 			$(".sign-in")[0].on("click", signIn);
