@@ -369,8 +369,8 @@ button:not([disabled]) {
     position: fixed;
     width: auto;
     left: 15px;
-    // Fuck you Safari
-    -webkit-transform: translate3d(0, 0, 0);
+    // Fuck you Apple
+    transform: translate3d(0,0,0);
   }
 }
 
