@@ -120,15 +120,22 @@ hr {
   }
 
   .info-container {
+    // background-image: linear-gradient(
+    //     rgba(0, 0, 0, 0.5) 60%,
+    //     rgba(255, 0, 0, 0.5) 100%
+    //   ),
+    //   var(--img-url);
     background-image: linear-gradient(
-        rgba(0, 0, 0, 0.5) 60%,
-        rgba(255, 0, 0, 0.5) 100%
+        rgba(255, 230, 230, 0.75) 50%,
+        rgb(99, 0, 0, 0.5) 100%
       ),
       var(--img-url);
+
     background-size: contain;
     background-repeat: no-repeat;
     background-position: 50% 50%;
-    color: white;
+    // color: white;
+    color: black;
     min-height: 300px;
     padding: 20px 15px;
 
@@ -138,6 +145,7 @@ hr {
   }
 
   .description {
-    color: white;
+    // color: white;
+    color: black;
   }
 }
