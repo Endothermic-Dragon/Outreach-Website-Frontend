@@ -26,7 +26,7 @@ function fixSidebarScrollbar() {
 
 fixSidebarScrollbar();
 
-$(".sidebar > div:not(:last-child)").onAll("click", (e, el) => {
+$(".sidebar > div:not(.sign-in):not(.apple-bug)").onAll("click", (e, el) => {
 	location.href = el.dataset.url;
 });
 
@@ -34,7 +34,7 @@ $(`.sidebar > div[data-url="${location.pathname.slice(1)}"]`)[0]?.classList.add(
 	"selected",
 );
 
-$(".menu-bars")[0].on("click", (e, el) => {
+$(".menu-bars")[0].on("click", () => {
 	$(".menu-bars")[0].classList.toggle("open");
 	$(".sidebar")[0].classList.toggle("open");
 });
@@ -45,6 +45,19 @@ $(".sidebar")[0].on("mouseenter", () =>
 $(".sidebar")[0].on("mouseleave", () =>
 	$(".sidebar-shadow")[0].classList.remove("open"),
 );
+
+// Fuck you Apple
+// "Apple: Embracing Absurd Decision Choices"
+if (navigator.userAgent.includes("iPhone")) {
+	let version = navigator.userAgent
+		.split("CPU iPhone OS ")[1]
+		.split(" ")[0]
+		.split("_")
+		.map((el) => parseInt(el));
+	if (version[0] < 16 || (version[0] == 16 && version[1] < 4)) {
+    $(".apple-bug")[0].classList.add("show");
+	}
+}
 
 // Sign in
 function signIn() {
